@@ -239,7 +239,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
                 .sort(
                   (a, b) =>
                     new Date(b.frontmatter.pubDate) -
-                    new Date(a.frontmatter.pubDate)
+                    new Date(a.frontmatter.pubDate),
                 )
                 .map((post) => (
                   <li class="news-item" key={post.url}>
@@ -357,7 +357,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
         duration: 5,
         stagger: 0.2,
         onComplete: fadeInImage,
-      }
+      },
     );
   });
 

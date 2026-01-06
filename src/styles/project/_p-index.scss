@@ -102,7 +102,8 @@
     background: url("/images/top004_company.webp") no-repeat center top / cover;
 
     @include g.mq(sp) {
-      background: url("/images/top004_company.webp") no-repeat -320px 10px / cover;
+      background: url("/images/top004_company.webp") no-repeat -320px 10px /
+        cover;
     }
 
     &::before {
@@ -795,7 +796,8 @@
 
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    background-image: url("/images/top009_recruit_back.webp"),
+    background-image:
+      url("/images/top009_recruit_back.webp"),
       url("/images/top010_recruit_back.webp");
     background-position:
       top right,
