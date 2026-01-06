@@ -26,22 +26,17 @@
       opacity: 1;
     }
 
-    picture {
-      display: inline;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    >img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px
-      clamp(7.5rem, 5.608rem + 8.07vw, 12.5rem);
+    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(7.5rem, 5.608rem + 8.07vw, 12.5rem);
   }
 
   &-tit {

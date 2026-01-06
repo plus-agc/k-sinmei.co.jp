@@ -1,9 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import sinmei_logo_icon from "../images/sinmei_logo-icon.svg";
-import sinmei_name_logo from "../images/sinmei_name-logo.svg";
-import sinmei_logo from "../images/sinmei-logo.svg";
-import sinmei_instagram from "../images/instagram.svg";
+
 ---
 
 <nav class="gnav">
@@ -11,11 +7,11 @@ import sinmei_instagram from "../images/instagram.svg";
     <div class="gnav-main">
       <a href="/">
         <figure>
-          <Image src={sinmei_logo_icon} alt="株式会社SINMEI" />
+          <img src="/assets/images/sinmei_logo-icon.svg" alt="株式会社SINMEI" />
         </figure>
       </a>
       <figure>
-        <Image src={sinmei_name_logo} alt="株式会社SINMEI" />
+        <img src="/assets/images/sinmei_name-logo.svg" alt="株式会社SINMEI" />
       </figure>
       <button class="gnav-hamburger" aria-label="Menu">
         <span class="gnav-hamburger-line"></span>
@@ -65,7 +61,10 @@ import sinmei_instagram from "../images/instagram.svg";
           rel="noopener noreferrer"
         >
           <figure>
-            <Image src={sinmei_instagram} alt="株式会社SINMEI Instagram" />
+            <img
+              src="/assets/images/instagram.svg"
+              alt="株式会社SINMEI Instagram"
+            />
           </figure>
         </a>
       </li>

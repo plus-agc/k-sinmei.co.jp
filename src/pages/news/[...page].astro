@@ -1,9 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import arrow_down_blue from "../../images/arrow-blue.svg";
-import arrow_next_blue from "../../images/arrow-next-blue.svg";
-import arrow_prev_blue from "../../images/arrow-prev-blue.svg";
 export const postsPerPage = 10;
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("./*.{md,mdx}");
@@ -40,7 +36,10 @@ const { pageTitle } = Astro.props;
                     </div>
                     <div class="news-item-main">
                       <p>{post.frontmatter.title}</p>
-                      <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
+                      <img
+                        src="/assets/images/arrow-blue.svg"
+                        alt="矢印アイコン下向き青"
+                      />
                     </div>
                   </a>
                 </li>
@@ -51,7 +50,10 @@ const { pageTitle } = Astro.props;
             {
               page.url.prev ? (
                 <a class="prev" href={page.url.prev}>
-                  <Image src={arrow_prev_blue} alt="戻るアイコン" />
+                  <img
+                    src="/assets/images/arrow-prev-blue.svg"
+                    alt="戻るアイコン"
+                  />
                 </a>
               ) : null
             }
@@ -59,7 +61,10 @@ const { pageTitle } = Astro.props;
             {
               page.url.next ? (
                 <a class="next" href={page.url.next}>
-                  <Image src={arrow_next_blue} alt="進むアイコン" />
+                  <img
+                    src="/assets/images/arrow-next-blue.svg"
+                    alt="進むアイコン"
+                  />
                 </a>
               ) : null
             }

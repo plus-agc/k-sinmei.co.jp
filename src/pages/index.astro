@@ -1,20 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-import { Image } from "astro:assets";
-import { Picture } from "astro:assets";
-import top_bg from "../images/top-bg.jpg";
-import arrow from "../images/arrow.svg";
-import sdgs_tit from "../images/sdgs-tit.svg";
-import sdgs_group from "../images/sdgs-group.svg";
-import arrow_blue from "../images/arrow-blue.svg";
-import recruit_A from "../images/recruit-A.jpg";
-import recruit_B from "../images/recruit-B.jpg";
-import recruit_C from "../images/recruit-C.jpg";
-import recruit_D from "../images/recruit-D.jpg";
-import recruit_E from "../images/recruit-E.jpg";
-import recruit_F from "../images/recruit-F.jpg";
-import arrow_down_blue from "../images/arrow-blue.svg";
 const allPosts = await Astro.glob("../pages/news/*.md");
 ---
 
@@ -70,7 +56,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
         </div>
         <div class="top-main">
           <div class="top-image">
-            <Picture src={top_bg} formats={["avif", "webp"]} alt="トップ画像" />
+            <img src="/assets/images/top-bg.jpg" alt="トップ画像" />
           </div>
         </div>
         <div class="top-tit">
@@ -98,7 +84,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
             <div class="top-company-link">
               <a href="/company">
                 <p lang="en">company</p>
-                <Image src={arrow} alt="矢印アイコン" />
+                <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
               </a>
             </div>
           </div>
@@ -132,7 +118,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
           <div class="top-works-link">
             <a href="/works">
               <p lang="en">works</p>
-              <Image src={arrow} alt="矢印アイコン" />
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
             </a>
           </div>
         </div>
@@ -155,8 +141,10 @@ const allPosts = await Astro.glob("../pages/news/*.md");
             <h2>SDGs</h2>
           </div>
           <div class="top-sdgs-images">
-            <div><Image src={sdgs_tit} alt="SDGs ロゴ" /></div>
-            <div><Image src={sdgs_group} alt="SDGs 17の目標" /></div>
+            <div><img src="/assets/images/sdgs-tit.svg" alt="SDGs ロゴ" /></div>
+            <div>
+              <img src="/assets/images/sdgs-group.svg" alt="SDGs 17の目標" />
+            </div>
           </div>
           <div class="top-sdgs-text">
             <h3>
@@ -166,7 +154,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
           <div class="top-sdgs-link">
             <a href="/sdgs">
               <p lang="en">read more</p>
-              <Image src={arrow} alt="矢印アイコン" />
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
             </a>
           </div>
         </div>
@@ -176,36 +164,12 @@ const allPosts = await Astro.glob("../pages/news/*.md");
     <section class="top-recruit">
       <div class="top-recruit-inner">
         <div class="top-recruit-header">
-          <Picture
-            src={recruit_A}
-            formats={["avif", "webp"]}
-            alt="社員画像01"
-          />
-          <Picture
-            src={recruit_B}
-            formats={["avif", "webp"]}
-            alt="社員画像02"
-          />
-          <Picture
-            src={recruit_C}
-            formats={["avif", "webp"]}
-            alt="社員画像03"
-          />
-          <Picture
-            src={recruit_D}
-            formats={["avif", "webp"]}
-            alt="社員画像04"
-          />
-          <Picture
-            src={recruit_E}
-            formats={["avif", "webp"]}
-            alt="社員画像05"
-          />
-          <Picture
-            src={recruit_F}
-            formats={["avif", "webp"]}
-            alt="社員画像06"
-          />
+          <img src="/assets/images/recruit-A.jpg" alt="社員画像01" />
+          <img src="/assets/images/recruit-B.jpg" alt="社員画像02" />
+          <img src="/assets/images/recruit-C.jpg" alt="社員画像03" />
+          <img src="/assets/images/recruit-D.jpg" alt="社員画像04" />
+          <img src="/assets/images/recruit-E.jpg" alt="社員画像05" />
+          <img src="/assets/images/recruit-F.jpg" alt="社員画像06" />
         </div>
         <div class="top-recruit-main">
           <div class="top-recruit-tit">
@@ -220,7 +184,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
           <div class="top-recruit-link">
             <a href="/recruit">
               <p lang="en">read more</p>
-              <Image src={arrow} alt="矢印アイコン" />
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
             </a>
           </div>
         </div>
@@ -252,8 +216,8 @@ const allPosts = await Astro.glob("../pages/news/*.md");
                       </div>
                       <div class="news-item-main">
                         <p>{post.frontmatter.title}</p>
-                        <Image
-                          src={arrow_down_blue}
+                        <img
+                          src="/assets/images/arrow-blue.svg"
                           alt="矢印アイコン下向き青"
                         />
                       </div>
@@ -265,7 +229,7 @@ const allPosts = await Astro.glob("../pages/news/*.md");
           <div class="top-news-link">
             <a href="/news">
               <p lang="en">read more</p>
-              <Image src={arrow_blue} alt="矢印アイコン青" />
+              <img src="/assets/images/arrow-blue.svg" alt="矢印アイコン青" />
             </a>
           </div>
         </div>

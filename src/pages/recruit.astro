@@ -1,21 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-import { Image } from "astro:assets";
-import { Picture } from "astro:assets";
-import recruit_top from "../images/recruit_top.jpg";
-import recruit_top_svg from "../images/recruit-top.svg";
-import recruit_slide001 from "../images/recruit-slide001.jpg";
-import recruit_slide002 from "../images/recruit-slide002.jpg";
-import recruit_slide003 from "../images/recruit-slide003.jpg";
-import recruit_slide004 from "../images/recruit-slide004.jpg";
-import recruit_slide005 from "../images/recruit-slide005.jpg";
-import recruit_slide006 from "../images/recruit-slide006.jpg";
-import recruit_slide007 from "../images/recruit-slide007.jpg";
-import recruit_slide008 from "../images/recruit-slide008.jpg";
-import recruit_slide009 from "../images/recruit-slide009.jpg";
-import recruit_slide010 from "../images/recruit-slide010.jpg";
-import images_arrow from "../images/arrow.svg";
 ---
 
 <Layout title="採用情報 | 株式会社SINMEI">
@@ -23,12 +8,10 @@ import images_arrow from "../images/arrow.svg";
     <section class="recruit">
       <div class="recruit-inner">
         <div class="recruit-header">
-          <Picture
-            src={recruit_top}
-            formats={["avif", "webp"]}
-            alt="採用情報 トップ画像"
-          />
-          <div><Image src={recruit_top_svg} alt="SING ME&I" /></div>
+          <img src="/assets/images/recruit_top.jpg" alt="採用情報 トップ画像" />
+          <div>
+            <img src="/assets/images/recruit-top.svg" alt="SING ME&I" />
+          </div>
         </div>
         <div class="recruit-main">
           <div class="recruit-tit">
@@ -40,40 +23,73 @@ import images_arrow from "../images/arrow.svg";
             <div class="recruit-carousel">
               <div class="recruit-carousel-wrapper">
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide001} alt="スライド1" />
+                  <img
+                    src="/assets/images/recruit-slide001.jpg"
+                    alt="スライド1"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide002} alt="スライド2" />
+                  <img
+                    src="/assets/images/recruit-slide002.jpg"
+                    alt="スライド2"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide003} alt="スライド3" />
+                  <img
+                    src="/assets/images/recruit-slide003.jpg"
+                    alt="スライド3"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide004} alt="スライド4" />
+                  <img
+                    src="/assets/images/recruit-slide004.jpg"
+                    alt="スライド4"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide005} alt="スライド5" />
+                  <img
+                    src="/assets/images/recruit-slide005.jpg"
+                    alt="スライド5"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide006} alt="スライド6" />
+                  <img
+                    src="/assets/images/recruit-slide006.jpg"
+                    alt="スライド6"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide007} alt="スライド7" />
+                  <img
+                    src="/assets/images/recruit-slide007.jpg"
+                    alt="スライド7"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide008} alt="スライド8" />
+                  <img
+                    src="/assets/images/recruit-slide008.jpg"
+                    alt="スライド8"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide009} alt="スライド9" />
+                  <img
+                    src="/assets/images/recruit-slide009.jpg"
+                    alt="スライド9"
+                  />
                 </div>
                 <div class="recruit-carousel-item">
-                  <Image src={recruit_slide010} alt="スライド10" />
+                  <img
+                    src="/assets/images/recruit-slide010.jpg"
+                    alt="スライド10"
+                  />
                 </div>
               </div>
               <div class="recruit-carousel-pager">
                 <span>Scroll</span>
                 <button class="recruit-carousel-next">
-                  <Image src={images_arrow} alt="スライドショー 次へボタン" />
+                  <img
+                    src="/assets/images/arrow.svg"
+                    alt="スライドショー 次へボタン"
+                  />
                 </button>
               </div>
             </div>
@@ -180,7 +196,7 @@ import images_arrow from "../images/arrow.svg";
             <h2>エントリーフォーム</h2>
             <a href="#youkou">
               <p>募集要項はこちら</p>
-              <Image src={images_arrow} alt="矢印アイコン" />
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
             </a>
           </div>
           <form method="post" action="../recruit.php">

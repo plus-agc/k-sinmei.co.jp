@@ -1,12 +1,7 @@
 ---
-import { Picture } from "astro:assets";
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
 import companytop from "../images/companytop.jpg";
-import arrow_down_blue from "../images/arrow-down-blue.svg";
-import company_ninteisyo from "../images/company_ninteisyo.jpg";
-import company_shiteisyo from "../images/company_shiteisyo.jpg";
 ---
 
 <Layout title="株式会社SINMEIについて | 株式会社SINMEIについて">
@@ -14,9 +9,8 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
     <section class="company">
       <div class="company-inner">
         <div class="company-header">
-          <Picture
-            src={companytop}
-            formats={["avif", "webp"]}
+          <img
+            src="/assets/images/companytop.jpg"
             alt="株式会社SINMEIについて トップ画像"
           />
         </div>
@@ -35,7 +29,10 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
             <div class="accordion-item" id="about">
               <div class="accordion-header">
                 <h2>会社概要</h2>
-                <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
+                <img
+                  src="/assets/images/arrow-down-blue.svg"
+                  alt="矢印アイコン下向き青"
+                />
               </div>
               <div class="accordion-content is-active">
                 <article>
@@ -115,11 +112,17 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
                   <div>
                     <div>
                       <h5>認定書（Hグレード）</h5>
-                      <Image src={company_ninteisyo} alt="Hグレード認定書" />
+                      <img
+                        src="/assets/images/company_ninteisyo.jpg"
+                        alt="Hグレード認定書"
+                      />
                     </div>
                     <div>
                       <h5>指定書（Hグレード）</h5>
-                      <Image src={company_shiteisyo} alt="Hグレード指定書" />
+                      <img
+                        src="/assets/images/company_shiteisyo.jpg"
+                        alt="Hグレード指定書"
+                      />
                     </div>
                   </div>
                 </article>
@@ -128,7 +131,10 @@ import company_shiteisyo from "../images/company_shiteisyo.jpg";
             <div class="accordion-item" id="history">
               <div class="accordion-header">
                 <h2>沿 革</h2>
-                <Image src={arrow_down_blue} alt="矢印アイコン下向き青" />
+                <img
+                  src="/assets/images/arrow-down-blue.svg"
+                  alt="矢印アイコン下向き青"
+                />
               </div>
               <div class="accordion-content is-active">
                 <article>

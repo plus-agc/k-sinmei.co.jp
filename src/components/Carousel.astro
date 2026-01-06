@@ -1,32 +1,40 @@
 ---
-import { Image } from "astro:assets";
-import slide01 from "../images/slide001.jpg";
-import slide02 from "../images/slide002.jpg";
-import slide03 from "../images/slide003.jpg";
-import slide04 from "../images/slide004.jpg";
-import slide05 from "../images/slide005.jpg";
-import slide06 from "../images/slide006.jpg";
-import slide07 from "../images/slide007.jpg";
-import slide08 from "../images/slide008.jpg";
-import slide09 from "../images/slide009.jpg";
-import slide10 from "../images/slide010.jpg";
+
 ---
 
 <div class="works-carousel">
   <div class="carousel-item">
-    <Image src={slide10} alt="スライド10" /><p>
+    <img src="/assets/images/slide010.jpg" alt="スライド10" /><p>
       新青森県総合運動公園マエダアリーナ50mプール
     </p>
   </div>
-  <div class="carousel-item"><Image src={slide01} alt="スライド1" /></div>
-  <div class="carousel-item"><Image src={slide02} alt="スライド2" /></div>
-  <div class="carousel-item"><Image src={slide03} alt="スライド3" /></div>
-  <div class="carousel-item"><Image src={slide04} alt="スライド4" /></div>
-  <div class="carousel-item"><Image src={slide05} alt="スライド5" /></div>
-  <div class="carousel-item"><Image src={slide06} alt="スライド6" /></div>
-  <div class="carousel-item"><Image src={slide07} alt="スライド7" /></div>
-  <div class="carousel-item"><Image src={slide08} alt="スライド8" /></div>
-  <div class="carousel-item"><Image src={slide09} alt="スライド9" /></div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide001.jpg" alt="スライド1" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide002.jpg" alt="スライド2" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide003.jpg" alt="スライド3" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide004.jpg" alt="スライド4" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide005.jpg" alt="スライド5" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide006.jpg" alt="スライド6" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide007.jpg" alt="スライド7" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide008.jpg" alt="スライド8" />
+  </div>
+  <div class="carousel-item">
+    <img src="/assets/images/slide009.jpg" alt="スライド9" />
+  </div>
 </div>
 <div class="carousel-pagination">
   <button id="prevBtn">

@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import instagram from "../images/instagram.svg";
-import sinmei_logo from "../images/sinmei-logo.svg";
+
 ---
 
 <nav class="footer-nav">
@@ -51,13 +49,16 @@ import sinmei_logo from "../images/sinmei-logo.svg";
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={instagram} alt="株式会社SINMEI Instagram" />
+          <img
+            src="/assets/images/instagram.svg"
+            alt="株式会社SINMEI Instagram"
+          />
         </a>
       </figure>
     </div>
     <div class="footer-text" lang="ja">
       <figure>
-        <Image src={sinmei_logo} alt="株式会社SINMEIロゴ" />
+        <img src="/assets/images/sinmei-logo.svg" alt="株式会社SINMEIロゴ" />
       </figure>
       <p>
         <span>本 社</span>

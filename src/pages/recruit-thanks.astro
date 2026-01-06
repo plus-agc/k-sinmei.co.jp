@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-import { Picture } from "astro:assets";
-import recruit_top from "../images/recruit_top.jpg";
 ---
 
 <Layout title="送信ありがとうございました | 株式会社SINMEI">
@@ -10,11 +8,7 @@ import recruit_top from "../images/recruit_top.jpg";
     <section class="recruit-thanks">
       <div class="recruit-thanks-inner">
         <div class="recruit-thanks-header">
-          <Picture
-            src={recruit_top}
-            formats={["avif", "webp"]}
-            alt="採用情報 トップ画像"
-          />
+          <img src="/assets/images/recruit_top.jpg" alt="採用情報 トップ画像" />
         </div>
         <div class="recruit-thanks-main">
           <div class="recruit-thanks-tit">

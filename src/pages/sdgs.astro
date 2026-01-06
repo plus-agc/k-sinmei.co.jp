@@ -1,15 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-import { Picture } from "astro:assets";
-import sdgstop from "../images/sdgstop.jpg";
-import images_sdgs_logo from "../images/sdgs_logo.png";
-import sdgs17set from "../images/sdgs17set.png";
-import sdgs5set from "../images/sdgs5set.png";
-import sdgs05 from "../images/sdgs05.jpg";
-import sdgs07 from "../images/sdgs07.jpg";
-import sdgs2set from "../images/sdgs2set.svg";
-import sdgs2set02 from "../images/sdgs2set02.svg";
 ---
 
 <Layout title="持続可能な開発目標 | 株式会社SINMEI">
@@ -17,11 +8,7 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
     <section class="sdgs">
       <div class="sdgs-inner">
         <div class="sdgs-header">
-          <Picture
-            src={sdgstop}
-            formats={["avif", "webp"]}
-            alt="SDGsトップ画像"
-          />
+          <img src="/assets/images/sdgstop.jpg" alt="SDGsトップ画像" />
         </div>
         <div class="sdgs-main">
           <div class="sdgs-subtit">
@@ -35,16 +22,8 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
           <div class="sdgs-list">
             <ul class="list01">
               <li>
-                <Picture
-                  src={images_sdgs_logo}
-                  formats={["avif", "webp"]}
-                  alt="SDGsロゴ"
-                />
-                <Picture
-                  src={sdgs17set}
-                  formats={["avif", "webp"]}
-                  alt="17の目標"
-                />
+                <img src="/assets/images/sdgs_logo.png" alt="SDGsロゴ" />
+                <img src="/assets/images/sdgs17set.png" alt="17の目標" />
               </li>
               <li>
                 <p>
@@ -78,9 +57,8 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
                 <h3>株式会社SINMEIのSDGs</h3>
               </li>
               <li>
-                <Picture
-                  src={sdgs5set}
-                  formats={["avif", "webp"]}
+                <img
+                  src="/assets/images/sdgs5set.png"
                   alt="SDGsアイコン 1、10、16、3、4"
                 />
               </li>
@@ -123,11 +101,7 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
                 </ul>
               </li>
               <li>
-                <Picture
-                  src={sdgs05}
-                  formats={["avif", "webp"]}
-                  alt="SDGsアイコン 5"
-                />
+                <img src="/assets/images/sdgs05.jpg" alt="SDGsアイコン 5" />
               </li>
               <li>
                 <ul>
@@ -139,11 +113,7 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
                 </ul>
               </li>
               <li>
-                <Picture
-                  src={sdgs07}
-                  formats={["avif", "webp"]}
-                  alt="SDGsアイコン 7"
-                />
+                <img src="/assets/images/sdgs07.jpg" alt="SDGsアイコン 7" />
               </li>
               <li>
                 <ul>
@@ -157,9 +127,8 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
               </li>
               <li>
                 <div>
-                  <Picture
-                    src={sdgs2set}
-                    formats={["avif", "webp"]}
+                  <img
+                    src="/assets/images/sdgs2set.svg"
                     alt="SDGsアイコン 8、9"
                   />
                 </div>
@@ -181,9 +150,8 @@ import sdgs2set02 from "../images/sdgs2set02.svg";
             <ul class="list05">
               <li>
                 <div>
-                  <Picture
-                    src={sdgs2set02}
-                    formats={["avif", "webp"]}
+                  <img
+                    src="/assets/images/sdgs2set02.svg"
                     alt="SDGsアイコン 11、12"
                   />
                 </div>

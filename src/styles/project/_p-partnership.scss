@@ -26,14 +26,10 @@
       opacity: 1;
     }
 
-    picture {
-      display: inline;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    >img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -44,8 +40,7 @@
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px
-      clamp(19.688rem, 12.64rem + 30.07vw, 38.313rem);
+    padding: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem) 33px clamp(19.688rem, 12.64rem + 30.07vw, 38.313rem);
   }
 
   &-subtit {
@@ -89,8 +84,7 @@
   }
 
   &-text {
-    p {
-    }
+    p {}
 
     article:nth-of-type(1) {
       margin-bottom: clamp(1.875rem, 0.219rem + 7.06vw, 6.25rem);
