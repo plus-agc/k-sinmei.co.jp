@@ -2,7 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 export const postsPerPage = 10;
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await Astro.glob("./*.{md,mdx}");
+  const postModules = import.meta.glob<{ frontmatter: { pubDate: string; title: string }; url: string }>("./*.{md,mdx}");
+  const allPosts = await Promise.all(Object.values(postModules).map((fn) => fn()));
   const allPostsSorted = allPosts.sort(
     (a, b) =>
       new Date(b.frontmatter.pubDate).valueOf() -

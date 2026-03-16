@@ -35,9 +35,16 @@
     padding: 0;
     list-style-type: none;
     margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 40px;
+
+    @include g.mq("sp") {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     li {
-      margin-bottom: 30px;
+      margin-bottom: 0;
     }
 
     ul {
@@ -45,8 +52,6 @@
       border-left: solid 1px g.$palette-white;
       padding-left: 13px;
       margin-left: 4px;
-      display: flex;
-      gap: 50px;
 
       li {
         margin-bottom: 0;

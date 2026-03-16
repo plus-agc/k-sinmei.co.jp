@@ -8,18 +8,20 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "eslint --fix && prettier --write src"
+    "format": "eslint --fix && prettier --write src",
+    "upscale-hero": "node scripts/upscale-hero.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",
     "astro": "5.16.6",
-    "astro-relative-links": "^0.3.7",
+    "astro-relative-links": "^0.4.2",
     "autoprefixer": "^10.4.17",
     "postcss-preset-env": "^9.3.0",
     "sass": "^1.70.0"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
+    "sharp": "^0.33.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-astro": "^0.33.1",

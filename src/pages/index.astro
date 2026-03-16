@@ -1,7 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cta from "../components/Cta.astro";
-const allPosts = await Astro.glob("../pages/news/*.md");
+const postModules = import.meta.glob<{
+  frontmatter: { pubDate: string; title: string };
+  url: string;
+}>("../pages/news/*.md");
+const allPosts = await Promise.all(
+  Object.values(postModules).map((fn) => fn()),
+);
 ---
 
 <Layout title="株式会社SINMEI">
@@ -56,137 +62,13 @@ const allPosts = await Astro.glob("../pages/news/*.md");
         </div>
         <div class="top-main">
           <div class="top-image">
-            <img src="/assets/images/top-bg.jpg" alt="トップ画像" />
+            <img src="/assets/images/top-hero.jpg" alt="工場・製造現場の様子" />
           </div>
         </div>
         <div class="top-tit">
           <p class="is-anim_one"></p>
           <p class="is-anim_two"></p>
           <p class="is-anim_three"></p>
-        </div>
-      </div>
-    </section>
-    <section class="top-company">
-      <div class="top-company-inner">
-        <div class="top-company-main">
-          <div class="top-company-main_half">
-            <div class="top-company-tit">
-              <p>長年の実績と<br />確かな施工品質で</p>
-              <p>地域社会の発展に貢献します</p>
-            </div>
-            <div class="top-company-text">
-              <p>
-                株式会社SINMEIは、設立以来培ってきた技術力により、お客様の幅広いニーズにお応えして鉄骨工事業を展開しております。<br
-                />
-                技術力、品質向上に努めて、お客様の満足度を高めるべく、邁進いたします。
-              </p>
-            </div>
-            <div class="top-company-link">
-              <a href="/company">
-                <p lang="en">company</p>
-                <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="top-services">
-      <div class="top-services-inner">
-        <div class="top-services-main">
-          <div class="top-services-tit">
-            <p lang="en">services</p>
-            <h2>事業内容</h2>
-          </div>
-          <div class="top-services-text">
-            <p>
-              建築工事は青森県知事特定建設業を取得、鉄骨に関しては国土交通省大臣認定Hグレードを取得し、関東近郊から東北一円にかけて大規模鉄骨の製作を行っております。最新鋭の設備を取り入れ、有資格者も多数在籍しております。工事の際には、ぜひ当社をご用命下さい。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="top-works">
-      <div class="top-works-inner">
-        <div class="top-works-main">
-          <div class="top-works-tit">
-            <h3>鉄骨製造</h3>
-            <h3>鋼構造物工事業</h3>
-            <h3>建築鉄骨（設計施工）</h3>
-            <h3>設備工事</h3>
-          </div>
-          <div class="top-works-link">
-            <a href="/works">
-              <p lang="en">works</p>
-              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="top-ourmission">
-      <div class="top-ourmission-inner">
-        <div class="top-ourmission-main">
-          <div class="top-ourmission-tit">
-            <p>Our MISSION</p>
-            <h2>SINMEIの取組み</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="top-sdgs">
-      <div class="top-sdgs-inner">
-        <div class="top-sdgs-main">
-          <div class="top-sdgs-tit">
-            <h2>SDGs</h2>
-          </div>
-          <div class="top-sdgs-images">
-            <div><img src="/assets/images/sdgs-tit.svg" alt="SDGs ロゴ" /></div>
-            <div>
-              <img src="/assets/images/sdgs-group.svg" alt="SDGs 17の目標" />
-            </div>
-          </div>
-          <div class="top-sdgs-text">
-            <h3>
-              株式会社ＳＩＮＭＥＩは、ＳＤＧｓを国際社会の重要な目標と捉え、企業の経済、社会及び環境の三側面を調和させ、人類および地球に対し行動を促進させていきます。
-            </h3>
-          </div>
-          <div class="top-sdgs-link">
-            <a href="/sdgs">
-              <p lang="en">read more</p>
-              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="top-recruit">
-      <div class="top-recruit-inner">
-        <div class="top-recruit-header">
-          <img src="/assets/images/recruit-A.jpg" alt="社員画像01" />
-          <img src="/assets/images/recruit-B.jpg" alt="社員画像02" />
-          <img src="/assets/images/recruit-C.jpg" alt="社員画像03" />
-          <img src="/assets/images/recruit-D.jpg" alt="社員画像04" />
-          <img src="/assets/images/recruit-E.jpg" alt="社員画像05" />
-          <img src="/assets/images/recruit-F.jpg" alt="社員画像06" />
-        </div>
-        <div class="top-recruit-main">
-          <div class="top-recruit-tit">
-            <p lang="en">recruit</p>
-            <h2>採用情報</h2>
-          </div>
-          <div class="top-recruit-text">
-            <p>
-              これまでの経験を活かした仕事をしたい、未来の街づくりを手がけたいという方からのご応募をお待ちしております。
-            </p>
-          </div>
-          <div class="top-recruit-link">
-            <a href="/recruit">
-              <p lang="en">read more</p>
-              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -235,29 +117,103 @@ const allPosts = await Astro.glob("../pages/news/*.md");
         </div>
       </div>
     </section>
-    <Cta />
-    <section class="top-access">
-      <div class="top-access-inner">
-        <div class="top-access-main">
-          <div class="top-access-tit">
-            <p lang="en">access</p>
-            <h2>アクセス</h2>
-          </div>
-          <div class="top-access-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12075.689968301911!2d140.4445953173828!3d40.8296661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9bbb2493e3b90b%3A0xa42fe42ae2e8066!2zKOagqinvvLPvvKnvvK7vvK3vvKXvvKk!5e0!3m2!1sja!2sjp!4v1707713358893!5m2!1sja!2sjp"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="top-company">
+      <div class="top-company-inner">
+        <div class="top-company-main">
+          <div class="top-company-main_half">
+            <div class="top-company-tit">
+              <p>鉄を創り、<br />街を支え、<br />未来を拓く。</p>
+            </div>
+            <div class="top-company-text">
+              <p>長年の実績と確かな施工品質で地域社会の発展に貢献します。</p>
+            </div>
+            <div class="top-company-link">
+              <a href="/company">
+                <p lang="en">company</p>
+                <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <section class="top-services">
+      <div class="top-services-inner">
+        <div class="top-services-main">
+          <div class="top-services-tit">
+            <p lang="en">sinmeiについて</p>
+            <h2>事業内容</h2>
+          </div>
+          <div class="top-services-text">
+            <p>
+              <span class="top-services-text_large">
+                株式会社SINMEIは、国土交通大臣認定の最高位「Hグレード」を保有する鋼構造物のスペシャリスト集団です。
+              </span>
+              長年培った高度な技術力と厳格な品質管理体制により、東北エリアから首都圏の超高層ビル、大規模スタジアムに至るまで、都市の象徴となる数々のランドマークを支えてきました。
+              設計・作図から工場製作、そして現場施工までを一貫して担う独自の機動力で、安全で揺るぎない社会インフラの構築に貢献し続けます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="top-sdgs">
+      <div class="top-sdgs-inner">
+        <div class="top-sdgs-main">
+          <div class="top-sdgs-tit">
+            <h2>SDGs</h2>
+          </div>
+          <div class="top-sdgs-images">
+            <div><img src="/assets/images/sdgs-tit.svg" alt="SDGs ロゴ" /></div>
+            <div>
+              <img src="/assets/images/sdgs-group.svg" alt="SDGs 17の目標" />
+            </div>
+          </div>
+          <div class="top-sdgs-text">
+            <h3>
+              株式会社SINMEIは、SDGsを国際社会の重要な目標と捉え、企業の経済、社会及び環境の三側面を調和させ、人類および地球に対し行動を促進させていきます。
+            </h3>
+          </div>
+          <div class="top-sdgs-link">
+            <a href="/sdgs">
+              <p lang="en">read more</p>
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="top-recruit">
+      <div class="top-recruit-inner">
+        <div class="top-recruit-header">
+          <img src="/assets/images/recruit-A.png" alt="社員画像01" />
+          <img src="/assets/images/recruit-B.png" alt="社員画像02" />
+          <img src="/assets/images/recruit-C.png" alt="社員画像03" />
+          <img src="/assets/images/recruit-D.png" alt="社員画像04" />
+          <img src="/assets/images/recruit-E.png" alt="社員画像05" />
+        </div>
+        <div class="top-recruit-main">
+          <div class="top-recruit-tit">
+            <p lang="en">
+              現場を知り、<br />
+              人を想う毎日が<br />
+              誇れる仕事
+            </p>
+            <h2>私たちと一緒に働いてみませんか</h2>
+          </div>
+          <div class="top-recruit-link">
+            <a href="/recruit">
+              <p lang="en">採用情報</p>
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <Cta />
   </main>
 </Layout>
+
 <style>
   path {
     fill: none;
