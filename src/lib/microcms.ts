@@ -41,3 +41,21 @@ export type Work = {
   completionYear?: number;
   description?: string;
 };
+
+// 求人情報の型定義
+export type JobPosting = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  /** 職種名 */
+  title: string;
+  /** 雇用形態（例: 正社員、パートタイム） */
+  employmentType?: string;
+  /** 勤務地 */
+  workLocation?: string;
+  /** 仕事内容 */
+  description?: string;
+  /** 応募資格・条件 */
+  requirements?: string;
+};

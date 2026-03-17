@@ -1,5 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { client, type JobPosting } from "../lib/microcms";
+
+// microCMSから求人情報を取得（取得失敗時は空配列にフォールバック）
+let jobs: JobPosting[] = [];
+try {
+  const data = await client.getList<JobPosting>({ endpoint: "jobs" });
+  jobs = data.contents;
+} catch (e) {
+  // API未設定や通信エラー時は空配列のまま表示
+  jobs = [];
+}
 ---
 
 <Layout title="採用情報 | 株式会社SINMEI">
@@ -25,7 +36,7 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- 数字で見るSINMEI -->
-    <section class="recruit-stats">
+    <section id="stats" class="recruit-stats">
       <div class="recruit-stats-inner">
         <div class="recruit-section-head">
           <p lang="en">SINMEI IN NUMBERS</p>
@@ -80,28 +91,28 @@ import Layout from "../layouts/Layout.astro";
               <div class="recruit-job-row">
                 <dt>事務</dt>
                 <dd>
-                  <span class="recruit-job-bar" style="--pct: 6.45%"></span>
+                  <span class="recruit-job-bar"></span>
                   <b>4名</b>
                 </dd>
               </div>
               <div class="recruit-job-row">
                 <dt>営業</dt>
                 <dd>
-                  <span class="recruit-job-bar" style="--pct: 6.45%"></span>
+                  <span class="recruit-job-bar"></span>
                   <b>4名</b>
                 </dd>
               </div>
               <div class="recruit-job-row">
                 <dt>設計</dt>
                 <dd>
-                  <span class="recruit-job-bar" style="--pct: 16.13%"></span>
+                  <span class="recruit-job-bar"></span>
                   <b>10名</b>
                 </dd>
               </div>
               <div class="recruit-job-row">
                 <dt>製造</dt>
                 <dd>
-                  <span class="recruit-job-bar" style="--pct: 70.97%"></span>
+                  <span class="recruit-job-bar"></span>
                   <b>44名</b>
                 </dd>
               </div>
@@ -132,7 +143,7 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- 福利厚生 -->
-    <section class="recruit-benefits">
+    <section id="benefits" class="recruit-benefits">
       <div class="recruit-benefits-inner">
         <div class="recruit-section-head recruit-section-head--white">
           <p lang="en">BENEFITS</p>
@@ -172,7 +183,7 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- 資格取得制度 -->
-    <section class="recruit-qualification">
+    <section id="qualification" class="recruit-qualification">
       <div class="recruit-qualification-inner">
         <div class="recruit-section-head">
           <p lang="en">CERTIFICATION</p>
@@ -211,7 +222,7 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- 先輩社員の声 -->
-    <section class="recruit-voices">
+    <section id="voices" class="recruit-voices">
       <div class="recruit-voices-inner">
         <div class="recruit-section-head recruit-section-head--voice">
           <p lang="en" aria-hidden="true">VOICE</p>
@@ -351,6 +362,51 @@ import Layout from "../layouts/Layout.astro";
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 募集職種 -->
+    <section id="openings" class="recruit-openings">
+      <div class="recruit-openings-inner">
+        <div class="recruit-section-head">
+          <p lang="en">OPEN POSITIONS</p>
+          <h2>募集職種</h2>
+        </div>
+
+        {jobs.length === 0 ? (
+          <p class="recruit-openings-empty">現在募集中の職種はありません。</p>
+        ) : (
+          <ul class="recruit-openings-list">
+            {jobs.map((job) => (
+              <li class="recruit-openings-item">
+                <div class="recruit-openings-item-header">
+                  <h3 class="recruit-openings-item-title">{job.title}</h3>
+                  {job.employmentType && (
+                    <span class="recruit-openings-item-type">{job.employmentType}</span>
+                  )}
+                </div>
+                {job.workLocation && (
+                  <p class="recruit-openings-item-location">
+                    <span class="recruit-openings-item-label">勤務地</span>
+                    {job.workLocation}
+                  </p>
+                )}
+                {job.description && (
+                  <div class="recruit-openings-item-section">
+                    <p class="recruit-openings-item-label">仕事内容</p>
+                    <p class="recruit-openings-item-text">{job.description}</p>
+                  </div>
+                )}
+                {job.requirements && (
+                  <div class="recruit-openings-item-section">
+                    <p class="recruit-openings-item-label">応募資格</p>
+                    <p class="recruit-openings-item-text">{job.requirements}</p>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   </main>

@@ -1,12 +1,24 @@
 import { defineConfig } from "astro/config";
 import relativeLinks from "astro-relative-links";
-
 import sitemap from "@astrojs/sitemap";
+import { optimizeImages } from "./scripts/optimize-images.mjs";
+
+/** ビルド後に画像を最適化するカスタムintegration */
+function imageOptimizer() {
+  return {
+    name: 'image-optimizer',
+    hooks: {
+      'astro:build:done': async ({ dir }) => {
+        await optimizeImages(dir);
+      },
+    },
+  };
+}
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.k-sinmei.co.jp/",
-  integrations: [relativeLinks(), sitemap()],
+  integrations: [relativeLinks(), sitemap(), imageOptimizer()],
   compressHTML: false,
   build: {
     assets: 'assets',

@@ -18,7 +18,13 @@
       "Bash(npm run:*)",
       "Bash(curl:*)",
       "Bash(npm install:*)",
-      "mcp__claude_ai_Notion__notion-create-pages"
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "Bash(python3:*)",
+      "Bash(npx astro:*)",
+      "Bash(ls -lh /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/*.jpg /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/*.png)",
+      "Bash(identify /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/recruit_top.jpg)",
+      "Bash(node --input-type=module -e \":*)",
+      "Bash(pip3 install:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

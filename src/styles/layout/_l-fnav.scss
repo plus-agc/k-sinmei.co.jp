@@ -106,6 +106,29 @@
     }
   }
 
+  // お問い合わせボタン
+  &-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    padding: 0.3em 1.1em;
+    border: 1.5px solid g.$palette-white;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: g.$palette-white !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &::before {
+      display: none !important;
+    }
+
+    &:hover {
+      background-color: g.$palette-white;
+      color: g.$palette-blue !important;
+    }
+  }
+
   // アコーディオンボタン（PC・SP共通）
   &-accordion-btn {
     background: none;
@@ -141,31 +164,68 @@
     top: 4px;
   }
 
-  // フッターボトム
+  // フッターボトム（ロゴ・住所・ポリシー・Instagram を横並び）
   &-bottom {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 40px;
+    gap: 32px;
     margin-bottom: 60px;
 
     @include g.mq("sp") {
       flex-direction: column;
       align-items: flex-start;
-      gap: 24px;
+      gap: 20px;
     }
   }
 
   &-bottom-logo {
+    flex-shrink: 0;
+
     img {
       width: 130px;
       height: auto;
-      flex-shrink: 0;
+    }
+  }
+
+  &-bottom-info {
+    p {
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+
+  &-bottom-policies {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    a {
+      font-size: 12px;
+      font-weight: 700;
+      color: g.$palette-white;
+      text-decoration: none;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: g.$palette-white;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
     }
   }
 
   &-bottom-instagram {
-    margin-left: auto;
     flex-shrink: 0;
 
     @include g.mq("sp") {
@@ -180,15 +240,6 @@
     img {
       width: 24px;
       height: 24px;
-    }
-  }
-
-  &-bottom-info {
-    p {
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.8;
-      margin: 0;
     }
   }
 

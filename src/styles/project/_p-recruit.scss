@@ -20,7 +20,7 @@ body {
       height: auto;
     }
 
-    > img {
+    >img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -347,22 +347,18 @@ body {
 
   // 年齢分布グラデーション
   &--age {
-    background: conic-gradient(
-      #5a8a6a 0% 35%,
-      #7ab88e 35% 70%,
-      #f5c842 70% 80%,
-      #e09060 80% 93%,
-      #d06070 93% 98%,
-      #9098c0 98% 100%
-    );
+    background: conic-gradient(#5a8a6a 0% 35%,
+        #7ab88e 35% 70%,
+        #f5c842 70% 80%,
+        #e09060 80% 93%,
+        #d06070 93% 98%,
+        #9098c0 98% 100%);
   }
 
   // 男女比グラデーション
   &--gender {
-    background: conic-gradient(
-      #5a8a6a 0% 84%,
-      #f5c842 84% 100%
-    );
+    background: conic-gradient(#5a8a6a 0% 84%,
+        #f5c842 84% 100%);
   }
 }
 
@@ -416,6 +412,7 @@ body {
   dd {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.5rem;
     flex: 1;
   }
@@ -432,11 +429,8 @@ body {
 .recruit-job-bar {
   display: block;
   height: 10px;
-  width: var(--pct);
-  background: g.$palette-lightblue;
+  flex: 1;
   border-radius: 2px;
-  flex-shrink: 0;
-  min-width: 4px;
 }
 
 .recruit-stats-note {
@@ -659,6 +653,7 @@ body {
     .recruit-voice-content {
       order: 2;
     }
+
     .recruit-voice-visual {
       order: 1;
     }
@@ -668,8 +663,13 @@ body {
     grid-template-columns: 1fr;
 
     &--reverse {
-      .recruit-voice-content { order: 1; }
-      .recruit-voice-visual { order: 2; }
+      .recruit-voice-content {
+        order: 1;
+      }
+
+      .recruit-voice-visual {
+        order: 2;
+      }
     }
   }
 }
@@ -760,5 +760,102 @@ body {
   // 初文字：大きく目立たせる
   &-initial {
     font-size: inherit;
+  }
+}
+
+// ========================================
+// 募集職種セクション
+// ========================================
+.recruit-openings {
+  background-color: g.$palette-lightblue;
+
+  &-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+  }
+
+  // 募集なし
+  &-empty {
+    text-align: center;
+    color: g.$palette-white;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    padding: 3rem 0;
+    opacity: 0.8;
+  }
+
+  // 求人リスト
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  // 求人カード
+  &-item {
+    background: g.$palette-white;
+    border-radius: 4px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    &-title {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 800;
+      margin: 0;
+      color: g.$palette-lightblue;
+    }
+
+    &-type {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: g.$palette-white;
+      background-color: g.$palette-lightblue;
+      padding: 0.2em 0.75em;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    &-location {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #333;
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    &-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    &-label {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: g.$palette-lightblue;
+    }
+
+    &-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #333;
+      white-space: pre-wrap;
+    }
   }
 }
