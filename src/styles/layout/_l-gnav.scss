@@ -249,22 +249,32 @@
       color: g.$palette-white;
     }
 
-    li:nth-of-type(6) {
+    // お問い合わせ + Instagramアイコンのli（最後のli）
+    li:last-child {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
-      gap: clamp(1rem, 0.541rem + 2.29vw, 2.5rem);
+      gap: 20px;
 
-      a:nth-of-type(2)::before {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background-color: g.$palette-blue;
-        transition: width 0.3s ease;
+      // Instagramアイコンのサイズをテキストに合わせる
+      a:last-child {
+        display: flex;
+        align-items: center;
+
+        figure {
+          width: 18px;
+          margin: 0;
+
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+
+        &::before {
+          display: none;
+        }
       }
     }
   }

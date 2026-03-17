@@ -4,6 +4,9 @@ body {
   overflow-x: hidden;
 }
 
+// ========================================
+// ヘッダーセクション（変更なし）
+// ========================================
 .recruit {
   font-weight: 800;
   background-color: g.$palette-lightblue;
@@ -17,7 +20,7 @@ body {
       height: auto;
     }
 
-    >img {
+    > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -77,7 +80,7 @@ body {
       font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
     }
 
-    h2 {
+    h1 {
       font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
       display: inline-block;
       padding-bottom: 0.938rem;
@@ -99,275 +102,600 @@ body {
   &-text {
     p:nth-of-type(1) {
       font-size: clamp(1.875rem, 0.929rem + 4.04vw, 4.375rem);
-      margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
+      margin-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+      line-height: 1.4;
     }
 
     p:nth-of-type(2) {
-      line-height: 2.2;
+      font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+      line-height: 2;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 400;
+    }
+  }
+}
+
+// ========================================
+// 共通セクションパーツ
+// ========================================
+.recruit-section-head {
+  margin-bottom: clamp(2.5rem, 1.894rem + 2.58vw, 4rem);
+
+  p {
+    font-size: clamp(0.625rem, 0.507rem + 0.5vw, 0.875rem);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: g.$palette-lightblue;
+    margin-bottom: 0.375rem;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 0.947rem + 1.29vw, 2rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: g.$palette-lightblue;
+      margin-top: 0.875rem;
     }
   }
 
-  &-footer {
-    width: calc(100% - 30px);
-    margin: 0 auto;
-    background-color: g.$palette-blue;
-  }
-
-  &-list {
-    max-width: g.$layout-width-inner;
-    margin: 0 auto;
-    padding: clamp(3.125rem, 1.942rem + 5.05vw, 6.25rem) 33px clamp(6.25rem, 3.885rem + 10.09vw, 12.5rem);
-
-    h3 {
-      font-size: clamp(1.25rem, 0.895rem + 1.51vw, 2.188rem);
-      text-align: center;
-      margin-bottom: clamp(3.125rem, 1.942rem + 5.05vw, 6.25rem);
+  // 白（青背景）用
+  &--white {
+    p {
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    h4 {
-      margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
-      position: relative;
-      display: flex;
-      align-items: center;
+    h2 {
+      color: g.$palette-white;
 
       &::after {
-        content: "";
-        flex-grow: 1;
-        margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-        height: 1px;
-        background: #0085d8;
-      }
-    }
-
-    ul {
-      list-style-type: none;
-      font-size: clamp(0.938rem, 0.819rem + 0.5vw, 1.25rem);
-      padding: 0;
-      line-height: 2.2;
-
-      .list-item {
-        margin-bottom: clamp(3.125rem, 2.652rem + 2.02vw, 4.375rem);
-
-        p {
-          margin-bottom: 20px;
-        }
-
-        ul {
-          list-style-type: disc;
-          margin-bottom: 50px;
-          padding-left: 1em;
-
-          li {
-            margin-bottom: 20px;
-          }
-        }
-      }
-
-      .list-item:nth-of-type(2) {
-        p {
-          color: g.$palette-lightblue;
-        }
-      }
-
-      .list-item:nth-of-type(3) {
-        ul {
-          list-style-type: none;
-
-          li {
-            margin-bottom: 10px;
-          }
-        }
+        background: g.$palette-white;
       }
     }
   }
+}
 
-  &-carousel {
-    width: 100vw;
-    height: 400px;
+// ========================================
+// 数字で見るSINMEI
+// ========================================
+.recruit-stats {
+  background-color: #f5f7fc;
+  padding: clamp(5rem, 3.788rem + 5.16vw, 8rem) 0;
 
-    @include g.mq("sp") {
-      width: 100%;
-      height: 350px;
-    }
-
-    overflow: hidden;
-    position: relative;
-    margin: 0 0 clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
-
-    &-wrapper {
-      display: flex;
-      width: calc(430px * 3);
-      transition: transform 0.5s ease;
-    }
-
-    &-item {
-      flex: 0 0 430px;
-      height: 400px;
-      margin-right: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
-    }
-
-    &-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    &-pager {
-      position: absolute;
-      background-color: g.$palette-lightblue;
-      top: 0;
-      width: 145px;
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      cursor: pointer;
-
-      span {
-        margin-right: 10px;
-      }
-
-      img {
-        transition: transform 0.5s ease;
-      }
-    }
-
-    &-pager:hover {
-      img {
-        transform: translateX(5px);
-        transition: transform 0.5s ease;
-      }
-    }
-  }
-
-  &-form {
+  &-inner {
     max-width: g.$layout-width-inner;
-    margin: 150px auto;
+    margin: 0 auto;
     padding: 0 33px;
+  }
+}
 
-    form {
-      margin-bottom: 100px;
+// キーナンバーカード群
+.recruit-keynums {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 2.394rem + 2.58vw, 4.5rem);
+
+  @include g.mq(sp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.recruit-keynum {
+  background-color: g.$palette-blue;
+  color: g.$palette-white;
+  padding: clamp(1.5rem, 1.197rem + 1.29vw, 2.25rem) 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+
+  &--green {
+    background-color: #4a7a5a;
+  }
+
+  &--yellow {
+    background-color: #c89820;
+  }
+}
+
+.recruit-keynum-label {
+  font-size: clamp(0.688rem, 0.631rem + 0.24vw, 0.813rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  opacity: 0.9;
+}
+
+.recruit-keynum-value {
+  font-size: clamp(2rem, 1.394rem + 2.58vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+
+  span {
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    font-weight: 800;
+    margin-left: 0.125rem;
+  }
+}
+
+.recruit-keynum-note {
+  font-size: clamp(0.625rem, 0.568rem + 0.24vw, 0.75rem);
+  font-weight: 800;
+  opacity: 0.8;
+  margin-top: 0.125rem;
+}
+
+// チャート3カラム
+.recruit-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(2rem, 1.394rem + 2.58vw, 3.5rem);
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+
+  @include g.mq(sp) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recruit-chart-block {
+  h3 {
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid g.$palette-lightblue;
+  }
+}
+
+// ドーナツチャート
+.recruit-donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  @include g.mq(sp) {
+    flex-direction: row;
+  }
+}
+
+.recruit-donut {
+  flex-shrink: 0;
+  width: clamp(100px, 8vw + 60px, 140px);
+  height: clamp(100px, 8vw + 60px, 140px);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // 内側の白円（ドーナツ穴）
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 22%;
+    background: #f5f7fc;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(0.563rem, 0.5rem + 0.27vw, 0.688rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  // 年齢分布グラデーション
+  &--age {
+    background: conic-gradient(
+      #5a8a6a 0% 35%,
+      #7ab88e 35% 70%,
+      #f5c842 70% 80%,
+      #e09060 80% 93%,
+      #d06070 93% 98%,
+      #9098c0 98% 100%
+    );
+  }
+
+  // 男女比グラデーション
+  &--gender {
+    background: conic-gradient(
+      #5a8a6a 0% 84%,
+      #f5c842 84% 100%
+    );
+  }
+}
+
+// 凡例
+.recruit-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(0.688rem, 0.631rem + 0.24vw, 0.813rem);
+    font-weight: 800;
+    color: #333;
+
+    i {
+      display: inline-block;
+      flex-shrink: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
     }
+  }
+}
 
-    &-tit {
-      text-align: center;
-      margin-bottom: clamp(1.875rem, 1.165rem + 3.03vw, 3.75rem);
+// 職種内訳バーチャート
+.recruit-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 
-      p:nth-of-type(1) {
-        font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
-      }
+.recruit-job-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 
-      h2 {
-        font-size: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-        display: inline-block;
-        padding-bottom: 0.938rem;
-        border-bottom: 3px solid g.$palette-white;
-        position: relative;
-        z-index: 3;
-        margin-bottom: clamp(1.875rem, 1.024rem + 3.63vw, 4.125rem);
+  dt {
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+    width: 2.5rem;
+    flex-shrink: 0;
+  }
 
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: -3px;
-          width: 50%;
-          height: 3px;
-          background: g.$palette-blue;
-        }
-      }
+  dd {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+  }
 
-      a {
-        width: fit-content;
-        margin: 0 auto;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: clamp(0.875rem, 0.615rem + 1.11vw, 1.563rem);
+  b {
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    font-weight: 800;
+    color: #333;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
 
-        p:nth-of-type(1) {
-          font-size: clamp(1.063rem, 0.802rem + 1.11vw, 1.75rem);
-        }
+.recruit-job-bar {
+  display: block;
+  height: 10px;
+  width: var(--pct);
+  background: g.$palette-lightblue;
+  border-radius: 2px;
+  flex-shrink: 0;
+  min-width: 4px;
+}
 
-        img {
-          transition: transform 0.5s ease;
-        }
-      }
+.recruit-stats-note {
+  font-size: clamp(0.625rem, 0.568rem + 0.24vw, 0.75rem);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: #777;
+  line-height: 1.8;
+  margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
 
-      a:hover {
-        img {
-          transform: translateX(10px);
-          transition: transform 0.5s ease;
-        }
-      }
+// ========================================
+// 福利厚生
+// ========================================
+.recruit-benefits {
+  background-color: g.$palette-blue;
+  color: g.$palette-white;
+  padding: clamp(5rem, 3.788rem + 5.16vw, 8rem) 0;
 
-      a:not(:hover) img {
-        transform: translateX(0);
-      }
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px;
+  }
+}
+
+.recruit-benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: clamp(1rem, 0.697rem + 1.29vw, 1.75rem);
+    padding: clamp(1rem, 0.848rem + 0.65vw, 1.375rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 800;
+
+    @include g.mq(sp) {
+      flex-direction: column;
+      gap: 0.375rem;
     }
+  }
+}
 
-    .form-item {
-      margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+.recruit-benefit-cat {
+  font-size: clamp(0.813rem, 0.756rem + 0.24vw, 0.938rem);
+  font-weight: 800;
+  color: g.$palette-white;
+  white-space: nowrap;
+  min-width: 11rem;
+  flex-shrink: 0;
 
-      p:nth-of-type(1) {
-        margin-bottom: clamp(1.25rem, 1.013rem + 1.01vw, 1.875rem);
-      }
+  &::before {
+    content: "■ ";
+    color: g.$palette-lightblue;
+  }
+}
 
-      p {
-        span {
-          margin-left: 10px;
-          color: g.$palette-blue;
-        }
-      }
+.recruit-benefit-text {
+  font-size: clamp(0.813rem, 0.756rem + 0.24vw, 0.938rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
 
-      input,
-      textarea,
-      select {
-        width: 100%;
-        padding: 15px;
-        border: solid 1px g.$palette-lightblue;
-      }
-    }
+// ========================================
+// 資格取得制度
+// ========================================
+.recruit-qualification {
+  background-color: #f5f7fc;
+  padding: clamp(5rem, 3.788rem + 5.16vw, 8rem) 0;
 
-    .form-submit {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px;
+  }
+}
 
-      p {
-        flex: 0 0 300px;
+.recruit-qual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 1.394rem + 2.58vw, 3.5rem);
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
 
-        input {
-          color: g.$palette-white;
-          border: solid 1px g.$palette-white;
-          background: transparent;
-          padding: 10px 110px;
-          cursor: pointer;
-          width: 100%;
-          transition: background 0.2s ease;
+  @include g.mq(sp) {
+    grid-template-columns: 1fr;
+  }
+}
 
-          &:hover {
-            background: g.$palette-white;
-            color: g.$palette-lightblue;
-            transition: background 0.2s ease;
-          }
-        }
-      }
-    }
+.recruit-qual-block {
+  h3 {
+    font-size: clamp(0.938rem, 0.881rem + 0.24vw, 1.063rem);
+    font-weight: 800;
+    color: g.$palette-white;
+    background-color: g.$palette-blue;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
 
-    &-text {
-      font-family: "Noto Sans JP", sans-serif;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
 
-      p:nth-of-type(1) {
-        color: g.$palette-blue;
-        margin-bottom: 20px;
-      }
+    li {
+      font-size: clamp(0.813rem, 0.756rem + 0.24vw, 0.938rem);
+      font-weight: 800;
+      color: #333;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
 
-      p:nth-of-type(2) {
-        margin-bottom: 20px;
+      &::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        color: g.$palette-lightblue;
+        font-size: 0.625rem;
+        top: 0.25em;
       }
     }
   }
+}
+
+.recruit-qual-note {
+  font-size: clamp(0.813rem, 0.756rem + 0.24vw, 0.938rem);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: #555;
+  line-height: 2;
+  padding: 1.25rem 1.5rem;
+  background: #e8edf8;
+  border-left: 4px solid g.$palette-lightblue;
+}
+
+// ========================================
+// 地域貢献活動
+// ========================================
+.recruit-community {
+  background-color: g.$palette-blue;
+  color: g.$palette-white;
+  padding: clamp(5rem, 3.788rem + 5.16vw, 8rem) 0;
+
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px;
+  }
+}
+
+.recruit-community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 1.394rem + 2.58vw, 3.5rem);
+
+  @include g.mq(sp) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recruit-community-item {
+  padding: clamp(1.75rem, 1.447rem + 1.29vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  h3 {
+    font-size: clamp(1rem, 0.848rem + 0.65vw, 1.375rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid g.$palette-lightblue;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: clamp(0.813rem, 0.756rem + 0.24vw, 0.938rem);
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+// ========================================
+// 先輩社員の声
+// ========================================
+.recruit-voices {
+  background-color: #f5f7fc;
+  padding: clamp(5rem, 3.788rem + 5.16vw, 8.25rem) 0;
+
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px;
+  }
+}
+
+.recruit-voice-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 3vw, 4rem);
+  margin-bottom: clamp(4rem, 3rem + 4vw, 7rem);
+  align-items: start;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // 偶数行：画像を左・テキストを右
+  &--reverse {
+    .recruit-voice-content {
+      order: 2;
+    }
+    .recruit-voice-visual {
+      order: 1;
+      // キーワードを左側へ
+      flex-direction: row-reverse;
+      .recruit-voice-keyword {
+        text-align: right;
+      }
+    }
+  }
+
+  @include g.mq(sp) {
+    grid-template-columns: 1fr;
+
+    &--reverse {
+      .recruit-voice-content { order: 1; }
+      .recruit-voice-visual { order: 2; flex-direction: row; }
+    }
+  }
+}
+
+.recruit-voice-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.recruit-voice-meta {
+  font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+  font-weight: 800;
+  color: g.$palette-lightblue;
+  letter-spacing: 0.05em;
+}
+
+.recruit-voice-name {
+  font-size: clamp(1.375rem, 1.12rem + 1.09vw, 2rem);
+  font-weight: 800;
+  color: g.$palette-blue;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid g.$palette-lightblue;
+}
+
+.recruit-voice-text {
+  font-size: clamp(0.813rem, 0.776rem + 0.16vw, 0.875rem);
+  font-weight: 400;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 2;
+  color: #333;
+  text-indent: 1em;
+  margin: 0;
+}
+
+.recruit-voice-visual {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.recruit-voice-photo {
+  flex: 1;
+  margin: 0;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: clamp(18rem, 28vw, 28rem);
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+}
+
+.recruit-voice-keyword {
+  writing-mode: vertical-rl;
+  font-size: clamp(1.75rem, 2.5vw, 3rem);
+  font-weight: 800;
+  color: g.$palette-blue;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  // 長いテキストが写真の高さを超えたら複数列に折り返す
+  white-space: normal;
+  max-height: clamp(18rem, 28vw, 28rem);
+  flex-shrink: 0;
+  margin: 0;
+  padding-top: 0.25rem;
 }

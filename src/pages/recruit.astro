@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Cta from "../components/Cta.astro";
 ---
 
 <Layout title="採用情報 | 株式会社SINMEI">
   <main>
     <section class="recruit">
       <div class="recruit-inner">
+        <!-- ヘッダー画像（変更なし） -->
         <div class="recruit-header">
           <img src="/assets/images/recruit_top.jpg" alt="採用情報 トップ画像" />
           <div>
@@ -15,299 +15,341 @@ import Cta from "../components/Cta.astro";
         </div>
         <div class="recruit-main">
           <div class="recruit-tit">
-            <p lang="en">recruit</p>
-            <h2>採用情報</h2>
+            <h1 lang="en"><p>recruit</p></h1>
           </div>
           <div class="recruit-text">
             <p>私達と一緒に<br />働いてみませんか？</p>
-            <div class="recruit-carousel">
-              <div class="recruit-carousel-wrapper">
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide001.jpg"
-                    alt="スライド1"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide002.jpg"
-                    alt="スライド2"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide003.jpg"
-                    alt="スライド3"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide004.jpg"
-                    alt="スライド4"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide005.jpg"
-                    alt="スライド5"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide006.jpg"
-                    alt="スライド6"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide007.jpg"
-                    alt="スライド7"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide008.jpg"
-                    alt="スライド8"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide009.jpg"
-                    alt="スライド9"
-                  />
-                </div>
-                <div class="recruit-carousel-item">
-                  <img
-                    src="/assets/images/recruit-slide010.jpg"
-                    alt="スライド10"
-                  />
-                </div>
-              </div>
-              <div class="recruit-carousel-pager">
-                <span>Scroll</span>
-                <button class="recruit-carousel-next">
-                  <img
-                    src="/assets/images/arrow.svg"
-                    alt="スライドショー 次へボタン"
-                  />
-                </button>
-              </div>
-            </div>
             <p>
-              これまでの経験を活かした仕事をしたい、未来の街づくりを手がけたいという方からのご応募をお待ちしております。
-              詳しくはお電話もしくはお問合せフォームからご連絡ください。
+              福利厚生、資格取得制度、社員平均年齢などSINMEIの働く環境を紹介します。
             </p>
-          </div>
-        </div>
-        <div class="recruit-footer">
-          <div class="recruit-list">
-            <h3 id="youkou">募集要項</h3>
-            <ul>
-              <li class="list-item">
-                <div>
-                  <h4>応募資格</h4>
-                  <p>
-                    新卒・既卒（第二新卒を含む）及び一般（学部・学科の指定なし）
-                  </p>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>募集職種</h4>
-                  <p>➀技術職種（3～5名）</p>
-                  <ul>
-                    <li>
-                      設計：鉄骨の図面作成、お客様との仕様打合せ、工場への製作指示等
-                    </li>
-                    <li>
-                      品質管理：品質検査（外観寸法・超音波）、製品検査対応等
-                    </li>
-                    <li>
-                      工事：鉄骨工事現場に置いての現場代理人業務、本社と現場との調整等
-                    </li>
-                  </ul>
-                  <p>➁営業職及び営業系事務（2～3名）</p>
-                  <ul>
-                    <li>
-                      営業：ルート営業で得意先（大手ゼネコン）から当社鉄骨製品の受注を獲得するのが主な業務。得意先を訪問し、受注に繋がる情報収集や打合せ、見積書作成など。
-                    </li>
-                    <li>
-                      営業事務：設計図書及び仕様書から材料や数量を積算し合計を出し見積書作成など。
-                    </li>
-                  </ul>
-                  <p>➂製造（5名）</p>
-                  <ul>
-                    <li>ロボットオペレータ・部品加工・組立・溶接など。</li>
-                  </ul>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>初任給</h4>
-                  <ul>
-                    <li>高卒：175,000円</li>
-                    <li>短大・専門卒：180,000円</li>
-                    <li>高専卒：200,000円</li>
-                    <li>大卒：200,000円</li>
-                  </ul>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>勤務時間</h4>
-                  <p>8：00～17：30（休憩時間90分）</p>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>休 日</h4>
-                  <p>日・その他 ※2024年4月より年間105日</p>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>休 暇</h4>
-                  <p>有給休暇、特別休暇（弔辞等）、育児休暇あり</p>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>福利厚生</h4>
-                  <p>
-                    健康保険・雇用保険・厚生年金・労災保険・通勤手当（市内以外）・役職手当・定期健康診断・保健師による保健指導・結婚祝・出産祝・見舞金・香典・新入社員研修・OFF-JT・フォローアップ研修・スキルアップ教育・ボーリング大会・忘年会・安全大会
-                  </p>
-                </div>
-              </li>
-              <li class="list-item">
-                <div>
-                  <h4>採用実績</h4>
-                  <p>
-                    日本大学、青森中央学院大学、THUY
-                    LOI大学、八戸工業大学、青森職業能力開発短期大学、東北電子専門学校、青森高等学校、五所川原工業高等学校、五所川原工科高等学校、木造高等学校、五所川原農林高等学校、五所川原第一高等学校、弘前工業高等学校
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="recruit-form">
-          <div class="recruit-form-tit">
-            <p lang="en">ENTRY FORM</p>
-            <h2>エントリーフォーム</h2>
-            <a href="#youkou">
-              <p>募集要項はこちら</p>
-              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-            </a>
-          </div>
-          <form method="post" action="../recruit.php">
-            <div class="form-inner">
-              <div class="form-item">
-                <p>エントリー区分<span>&#042;</span></p>
-                <select name="エントリー区分">
-                  <option value="" selected disabled>選択</option>
-                  <option value="技術職">技術職（3〜5名）</option>
-                  <option value="営業職及び営業系事務"
-                    >営業職及び営業系事務（2〜3名）</option
-                  >
-                  <option value="製造">製造（5名）</option>
-                </select>
-              </div>
-              <div class="form-item">
-                <p>氏名<span>&#042;</span></p>
-                <p><input size="30" type="text" name="氏名" /></p>
-              </div>
-              <div class="form-item">
-                <p>フリガナ<span>&#042;</span></p>
-                <p><input size="30" type="text" name="フリガナ" /></p>
-              </div>
-              <div class="form-item">
-                <p>生年月日<span>&#042;</span></p>
-                <p><input size="30" type="text" name="生年月日" /></p>
-              </div>
-              <div class="form-item">
-                <p>年齢<span>&#042;</span></p>
-                <p><input size="30" type="text" name="年齢" /></p>
-              </div>
-              <div class="form-item">
-                <p>性別<span>&#042;</span></p>
-                <p><input size="30" type="text" name="性別" /></p>
-              </div>
-              <div class="form-item">
-                <p>メールアドレス<span>&#042;</span></p>
-                <p><input size="30" type="text" name="Email" /></p>
-              </div>
-              <div class="form-item">
-                <p>学歴・職歴・資格等</p>
-                <p>
-                  <textarea name="学歴・職歴・資格等" cols="50" rows="5"
-                  ></textarea>
-                </p>
-              </div>
-            </div>
-            <div class="form-submit">
-              <p><input type="submit" value="送信" /></p>
-              <p><input type="reset" value="リセット" /></p>
-            </div>
-          </form>
-          <div class="recruit-form-text">
-            <p>採用に関するお問い合わせ</p>
-            <p>株式会社SINMEI 採用担当者</p>
-            <p>TEL：0173-34-4320 / FAX：0173-33-4776</p>
           </div>
         </div>
       </div>
     </section>
-    <Cta />
+
+    <!-- 数字で見るSINMEI -->
+    <section class="recruit-stats">
+      <div class="recruit-stats-inner">
+        <div class="recruit-section-head">
+          <p lang="en">SINMEI IN NUMBERS</p>
+          <h2>数字で見るSINMEI</h2>
+        </div>
+
+        <!-- キーナンバー -->
+        <div class="recruit-keynums">
+          <div class="recruit-keynum recruit-keynum--green">
+            <p class="recruit-keynum-label">年間有給取得率</p>
+            <p class="recruit-keynum-value">84.5<span>%</span></p>
+            <p class="recruit-keynum-note">全国平均 65%</p>
+          </div>
+          <div class="recruit-keynum recruit-keynum--yellow">
+            <p class="recruit-keynum-label">平均年齢</p>
+            <p class="recruit-keynum-value">35.9<span>歳</span></p>
+          </div>
+          <div class="recruit-keynum">
+            <p class="recruit-keynum-label">従業員数</p>
+            <p class="recruit-keynum-value">62<span>人</span></p>
+          </div>
+          <div class="recruit-keynum">
+            <p class="recruit-keynum-label">月平均残業時間</p>
+            <p class="recruit-keynum-value">12<span>時間</span></p>
+          </div>
+        </div>
+
+        <!-- チャート行 -->
+        <div class="recruit-charts">
+          <!-- 社員年齢分布 -->
+          <div class="recruit-chart-block">
+            <h3>社員年齢分布</h3>
+            <div class="recruit-donut-wrap">
+              <div class="recruit-donut recruit-donut--age">
+                <span>社員<br />年齢分布</span>
+              </div>
+              <ul class="recruit-legend">
+                <li><i style="background:#5a8a6a"></i>20代 35%</li>
+                <li><i style="background:#7ab88e"></i>30代 35%</li>
+                <li><i style="background:#f5c842"></i>40代 10%</li>
+                <li><i style="background:#e09060"></i>50代 13%</li>
+                <li><i style="background:#d06070"></i>60代 5%</li>
+                <li><i style="background:#9098c0"></i>10代 2%</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 職種内訳 -->
+          <div class="recruit-chart-block">
+            <h3>職種内訳</h3>
+            <dl class="recruit-jobs">
+              <div class="recruit-job-row">
+                <dt>事務</dt>
+                <dd>
+                  <span class="recruit-job-bar" style="--pct: 6.45%"></span>
+                  <b>4名</b>
+                </dd>
+              </div>
+              <div class="recruit-job-row">
+                <dt>営業</dt>
+                <dd>
+                  <span class="recruit-job-bar" style="--pct: 6.45%"></span>
+                  <b>4名</b>
+                </dd>
+              </div>
+              <div class="recruit-job-row">
+                <dt>設計</dt>
+                <dd>
+                  <span class="recruit-job-bar" style="--pct: 16.13%"></span>
+                  <b>10名</b>
+                </dd>
+              </div>
+              <div class="recruit-job-row">
+                <dt>製造</dt>
+                <dd>
+                  <span class="recruit-job-bar" style="--pct: 70.97%"></span>
+                  <b>44名</b>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- 社員男女比 -->
+          <div class="recruit-chart-block">
+            <h3>社員男女比</h3>
+            <div class="recruit-donut-wrap">
+              <div class="recruit-donut recruit-donut--gender">
+                <span>社員<br />男女比</span>
+              </div>
+              <ul class="recruit-legend">
+                <li><i style="background:#5a8a6a"></i>男性 84%</li>
+                <li><i style="background:#f5c842"></i>女性 16%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="recruit-stats-note">
+          ※2026年3月20日現在　※全国平均は厚生労働省政府統計令和6年就労条件総合概況の概況より<br
+          />
+          ※「取得率」は、取得日数計／付与日数計×100（％）
+        </p>
+      </div>
+    </section>
+
+    <!-- 福利厚生 -->
+    <section class="recruit-benefits">
+      <div class="recruit-benefits-inner">
+        <div class="recruit-section-head recruit-section-head--white">
+          <p lang="en">BENEFITS</p>
+          <h2>福利厚生</h2>
+        </div>
+        <ul class="recruit-benefit-list">
+          <li>
+            <span class="recruit-benefit-cat">健康・医療</span>
+            <span class="recruit-benefit-text"
+              >定期健康診断（法定外項目の追加）</span
+            >
+          </li>
+          <li>
+            <span class="recruit-benefit-cat">休暇制度</span>
+            <span class="recruit-benefit-text"
+              >法定有給休暇以外の特別休暇（慶弔休暇、育児・介護休暇など）</span
+            >
+          </li>
+          <li>
+            <span class="recruit-benefit-cat">退職金制度</span>
+            <span class="recruit-benefit-text">有（勤続3年以上対象）</span>
+          </li>
+          <li>
+            <span class="recruit-benefit-cat">財産形成</span>
+            <span class="recruit-benefit-text">つみたてNISA</span>
+          </li>
+          <li>
+            <span class="recruit-benefit-cat">自己啓発・教育支援</span>
+            <span class="recruit-benefit-text">資格取得補助、研修制度</span>
+          </li>
+          <li>
+            <span class="recruit-benefit-cat">各種手当</span>
+            <span class="recruit-benefit-text">出産祝金、結婚祝金</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 資格取得制度 -->
+    <section class="recruit-qualification">
+      <div class="recruit-qualification-inner">
+        <div class="recruit-section-head">
+          <p lang="en">CERTIFICATION</p>
+          <h2>資格取得制度</h2>
+        </div>
+        <div class="recruit-qual-grid">
+          <div class="recruit-qual-block">
+            <h3>工場・溶接職</h3>
+            <ul>
+              <li>AW検定工場溶接</li>
+              <li>AW検定ロボット溶接オペレーター</li>
+              <li>非破壊検査技術者（レベル1・レベル2）</li>
+              <li>溶接技能者評価試験（JIS）</li>
+              <li>玉掛け技能講習</li>
+              <li>クレーン運転士（床上操作式含む）</li>
+              <li>フォークリフト運転技能講習</li>
+              <li>ガス溶接技能講習</li>
+            </ul>
+          </div>
+          <div class="recruit-qual-block">
+            <h3>設計職（CAD・技術系）</h3>
+            <ul>
+              <li>建築施工管理技士（二級・一級）</li>
+              <li>測量士補</li>
+              <li>製作管理技術者（1級・2級）</li>
+              <li>溶接管理技術者（WES1級・2級）</li>
+            </ul>
+          </div>
+        </div>
+        <p class="recruit-qual-note">
+          ★資格試験・講習の受験料・受講料補助や、実務経験者によるフォロー・アドバイス体制があります。<br
+          />
+          取得後は業務内容・役割に反映し、成長を評価します。
+        </p>
+      </div>
+    </section>
+
+    <!-- 先輩社員の声 -->
+    <section class="recruit-voices">
+      <div class="recruit-voices-inner">
+        <div class="recruit-section-head">
+          <p lang="en">Voices of Senior Employees</p>
+          <h2>先輩社員の声</h2>
+        </div>
+
+        <!-- A: 白澤 由弥 -->
+        <div class="recruit-voice-item">
+          <div class="recruit-voice-content">
+            <p class="recruit-voice-meta">2010年4月入社／取締役部長</p>
+            <h3 class="recruit-voice-name">白澤　由弥</h3>
+            <p class="recruit-voice-text">
+              私は東北能開大青森校で学んだCADや溶接への興味から、地元のものづくりをリードするSINMEIに入社しました。入社後は、CAD、溶接、部品接合、出荷、工務など、製造の核となるあらゆる工程を経験。現在は、その多角的な知識を活かし、お客様との打ち合わせや工程・予算管理という役割を担っています。
+            </p>
+            <p class="recruit-voice-text">
+              私たちの仕事は、一つとして同じものがない完全オーダーメイドの世界です。細部まで徹底した打ち合わせを重ね、緻密な計画を立てるプロセスには困難も伴いますが、苦労して製作した鉄骨が組み上がり、巨大な建物として完成した姿を目にした時の感動は言葉になりません。建物が完成すれば鉄骨は外からは見えなくなりますが、日本の構造物を根底から支えているという自負があります。
+            </p>
+            <p class="recruit-voice-text">
+              「大変なことが多い分、達成感はそれに比例する」——それがこの仕事の醍醐味です。SINMEIは業界内でも年齢層が若く、活気と将来性に溢れた職場です。仕事を通じて幅広いスキルを磨けるだけでなく、資格取得支援も手厚いため、着実なステップアップが可能です。これからも先を見据えた的確な判断ができるよう、周囲と連携しながら、より早く、より良いものづくりを追求し続けていきたいです。
+            </p>
+          </div>
+          <div class="recruit-voice-visual">
+            <figure class="recruit-voice-photo">
+              <img src="/assets/images/recruit-A.png" alt="白澤 由弥" />
+            </figure>
+            <p class="recruit-voice-keyword" aria-hidden="true">
+              活気溢れる<br />確かな成長を
+            </p>
+          </div>
+        </div>
+
+        <!-- B: 佐々木 英貴 -->
+        <div class="recruit-voice-item recruit-voice-item--reverse">
+          <div class="recruit-voice-content">
+            <p class="recruit-voice-meta">2007年4月入社／第6工場工場長</p>
+            <h3 class="recruit-voice-name">佐々木　英貴</h3>
+            <p class="recruit-voice-text">
+              正直にお話しすると、私は特別な目的があったわけではなく、「何となく」のきっかけで面接を受け、入社しました。そんな私が現在は工場長として、生産管理の重責を担っています。この仕事の一番の醍醐味は、自分たちが工場で向き合った鉄骨が、街を彩る巨大な建物へと進化していく過程を肌で感じられることです。毎年の繁忙期には目が回るほどの忙しさが訪れますが、役職や年齢に関係なく、社員全員が自然と手を取り合い協力して乗り越える。そんな「和気あいあい」としたSINMEIの風土が私は大好きです。
+            </p>
+            <p class="recruit-voice-text">
+              また、私にはもう一つの大切な役割があります。りんご農家を営む両親の手伝いです。収穫時期には毎年、社長の計らいで約2週間の有給休暇を取得し、収穫に専念させてもらっています。そのりんごを会社が贈答用として、大切なお客様へ配ってくれています。
+            </p>
+            <p class="recruit-voice-text">
+              工場長という立場で責任ある仕事を全うしながら、家族や地域の伝統も大切にできる。この多様な働き方を認めてくれる懐の深さも、SINMEIの魅力です。これからも、自分自身が現場を楽しみ、社員みんなが毎日笑顔で働ける職場環境をつくっていくことが、私の大切な使命だと思っています。
+            </p>
+          </div>
+          <div class="recruit-voice-visual">
+            <figure class="recruit-voice-photo">
+              <img src="/assets/images/recruit-B.png" alt="佐々木 英貴" />
+            </figure>
+            <p class="recruit-voice-keyword" aria-hidden="true">
+              笑顔で働ける<br />環境づくり
+            </p>
+          </div>
+        </div>
+
+        <!-- C: 三橋 丈二 -->
+        <div class="recruit-voice-item">
+          <div class="recruit-voice-content">
+            <p class="recruit-voice-meta">2014年4月入社／第6工場副工場長</p>
+            <h3 class="recruit-voice-name">三橋　丈二</h3>
+            <p class="recruit-voice-text">
+              私がSINMEIを選んだきっかけは、学生時代に工場見学で目にした溶接の光景でした。火花を散らし、強固な構造物を創り上げていく職人の姿に心を奪われ、この世界へ飛び込むことを決めました。現在は溶接や柱の組み立てを担当しており、自分が工場で魂を込めて加工した製品が、建設現場で巨大な建物へと姿を変えていく過程に、何物にも代えがたいやりがいを感じています。
+            </p>
+            <p class="recruit-voice-text">
+              Hグレードの工場として、常に高い品質を維持しながら複数の物件を並行して加工するのは、精神的にも技術的にもタフさが求められる仕事です。時には厳しい納期に直面することもありますが、SINMEIには助け合いの精神が根付いています。チーム全員で知恵を出し合い、一つの工程を乗り越えた時の連帯感は、この職場ならではの大きな魅力です。
+            </p>
+            <p class="recruit-voice-text">
+              業界内でも若手社員が多く、活気に満ち溢れているのもSINMEIの魅力です。ただ黙々と作業するだけでなく、現場にはいつも前向きなエネルギーが流れています。これからも技術を磨き続けるのはもちろん、自分自身が周囲を元気づけ、笑顔が溢れる活気ある環境をつくれるよう、日々精進していきたいと考えています。
+            </p>
+          </div>
+          <div class="recruit-voice-visual">
+            <figure class="recruit-voice-photo">
+              <img src="/assets/images/recruit-D.png" alt="三橋 丈二" />
+            </figure>
+            <p class="recruit-voice-keyword" aria-hidden="true">
+              魂を込めて<br />加工する
+            </p>
+          </div>
+        </div>
+
+        <!-- D: 三橋 拓哉 -->
+        <div class="recruit-voice-item recruit-voice-item--reverse">
+          <div class="recruit-voice-content">
+            <p class="recruit-voice-meta">2018年8月入社／工務課　現場代理人</p>
+            <h3 class="recruit-voice-name">三橋　拓哉</h3>
+            <p class="recruit-voice-text">
+              私は工業高校の授業で溶接の奥深さに魅了され、「職人になりたい」という憧れを抱いてSINMEIに入社しました。入社後は念願だった溶接の実務を経験し、現在は建設現場で指揮を執る「現場管理」を担当しています。
+            </p>
+            <p class="recruit-voice-text">
+              現場管理に携わってまだ一年目。元請け企業や協力会社、多くの工事関係者との打ち合わせや調整に奔走する日々は、決して楽なことばかりではありません。しかし、建設現場において私は「SINMEIの代表」です。その名に恥じぬよう、自社の技術に対するプライドを持ち、責任感のある行動を常に心掛けています。現場では、現場監督やとび職の方など、多様なプロフェッショナルと関わることができ、多くの刺激を受けながら成長を実感しています。
+            </p>
+            <p class="recruit-voice-text">
+              SINMEIの強みは、業務の幅が広く、意欲次第で様々なキャリアを経験できる環境にあります。一つひとつの建物が完成した瞬間に味わう達成感は、この仕事を選んだからこそ得られた宝物です。これからも現場と工場の両方の視点を持ち合わせ、より良いものづくりを目指して、会社をさらに成長させる一翼を担える存在へと成長していきたいと思っています。
+            </p>
+          </div>
+          <div class="recruit-voice-visual">
+            <figure class="recruit-voice-photo">
+              <img src="/assets/images/recruit-E.png" alt="三橋 拓哉" />
+            </figure>
+            <p class="recruit-voice-keyword" aria-hidden="true">
+              技を磨き<br />現場を担う
+            </p>
+          </div>
+        </div>
+
+        <!-- E: 佐藤 文彰（旧名：ドウ・アン・タップ） -->
+        <div class="recruit-voice-item">
+          <div class="recruit-voice-content">
+            <p class="recruit-voice-meta">2015年11月入社／設計部　取締役部長</p>
+            <h3 class="recruit-voice-name">
+              佐藤　文彰<span class="recruit-voice-name-sub"
+                >（旧名：ドウ・アン・タップ）</span
+              >
+            </h3>
+            <p class="recruit-voice-text">
+              私はベトナムで生まれ育ち、大学ではダムや発電所建築を学びました。卒業のタイミングで日本での新しい挑戦を志し、数ある企業の中から佐藤社長の誠実な人柄に惹かれてSINMEIへの入社を決めました。当初は日本語も鉄骨の知識もゼロからのスタート。しかし、入社後一から学べる環境と、個人の意欲を尊重し正当に評価してくれる社風のおかげで、現在は設計部の責任者として施工図全般の管理を任されています。
+            </p>
+            <p class="recruit-voice-text">
+              工場の製作期間を考慮しながらタイトな納期に合わせて図面の進捗を調整する難しさもありますが、部内のメンバー全員で知恵を出し合い、一丸となって壁を乗り越えていくプロセスには大きなやりがいがあります。自分たちが引いた図面が巨大な鉄骨となり、やがて地図に残る大型物件として完成した姿を目にした時の達成感と喜びは、何物にも代えがたいものです。
+            </p>
+            <p class="recruit-voice-text">
+              SINMEIは、技術を磨きたいという熱意があれば、国籍や経歴を問わず大きな責任ある仕事を任せてもらえる場所です。これからも設計技術をさらに向上させ、お客様に最高品質の成果を提供し続けるプロフェッショナルとして、日本の未来を支えていきたいと考えています。
+            </p>
+          </div>
+          <div class="recruit-voice-visual">
+            <figure class="recruit-voice-photo">
+              <img src="/assets/images/recruit-C.png" alt="佐藤 文彰" />
+            </figure>
+            <p class="recruit-voice-keyword" aria-hidden="true">
+              プロフェッショナルとして最高品質を提供し続ける
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
-
-<script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    const slider = document.querySelector(".recruit-carousel-wrapper");
-    const slides = document.querySelectorAll(".recruit-carousel-item");
-    const pager = document.querySelector(".recruit-carousel-pager");
-    const nextButton = document.querySelector(".recruit-carousel-next");
-
-    const slideWidth = 430 + 30; // スライドの幅に margin-right の幅を加える
-    const pagerOffset = pager.getBoundingClientRect().left; // recruit-carousel-pagerの左端からの距離
-    let currentIndex = 1 + Math.floor(pagerOffset / slideWidth); // 最初のスライドの位置を調整
-
-    // 最初と最後のスライドのクローンを追加
-    const firstSlideClone = slides[0].cloneNode(true);
-    const lastSlideClone = slides[slides.length - 1].cloneNode(true);
-    slider.appendChild(firstSlideClone);
-    slider.insertBefore(lastSlideClone, slides[0]);
-
-    // 初期位置を設定
-    const initialTranslateX = -(slideWidth * (currentIndex + 1)) + pagerOffset; // スライダーの初期位置
-    slider.style.transform = `translateX(${initialTranslateX}px)`;
-
-    function nextSlide() {
-      currentIndex++;
-      const offset = -(slideWidth * (currentIndex + 1)) + pagerOffset;
-      slider.style.transition = "transform 0.5s ease";
-      slider.style.transform = `translateX(${offset}px)`;
-
-      // 最後のクローンスライドに到達したら、最初のスライドに戻る
-      if (currentIndex >= slides.length + 1) {
-        setTimeout(() => {
-          currentIndex = 1;
-          slider.style.transition = "none";
-          slider.style.transform = `translateX(${-(slideWidth * (currentIndex + 1)) + pagerOffset}px)`;
-          // ブラウザがスタイルの反映に時間を要するため、setTimeoutを使用してアニメーションの途中で次の移動を実行
-          setTimeout(() => {
-            slider.style.transition = "transform 0.5s ease";
-            slider.style.transform = `translateX(${-(slideWidth * (currentIndex + 2)) + pagerOffset}px)`;
-          }, 50);
-        }, 500);
-      }
-    }
-
-    nextButton.addEventListener("click", () => {
-      nextSlide();
-    });
-
-    // 自動スライド機能を追加
-    setInterval(nextSlide, 5000);
-  });
-</script>

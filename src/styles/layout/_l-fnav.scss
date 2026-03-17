@@ -3,7 +3,6 @@
 .footer {
   background-color: g.$palette-blue;
   font-weight: 800;
-  background-image: url(/assets/images/sinmei_name-logo_ol_blue.svg);
   background-size: 120px;
   background-repeat: no-repeat;
   background-position: center right 20%;
@@ -23,11 +22,14 @@
 
     span {
       font-size: 10px;
-      margin-left: 5px;
+      display: block;
+      margin-left: 0;
+      margin-top: 3px;
     }
 
     a {
       text-decoration: none;
+      display: block;
     }
   }
 
@@ -83,40 +85,110 @@
     a:hover::before {
       width: 100%;
     }
-  }
 
-  &-icon {
-    margin-bottom: 50px;
-    width: fit-content;
-  }
-
-  &-text {
-    margin-bottom: 60px;
-
-    figure {
-      margin-bottom: 14px;
-      width: 130px;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
+    // アコーディオン：サブメニュー初期非表示（PC・SP共通）
+    li[data-accordion]>ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      margin-top: 0;
+      border-left: none;
+      padding-left: 0;
+      margin-left: 0;
     }
 
+    li[data-accordion].is-open>ul {
+      max-height: 500px;
+      margin-top: 12px;
+      border-left: solid 1px g.$palette-white;
+      padding-left: 13px;
+      margin-left: 4px;
+    }
+  }
+
+  // アコーディオンボタン（PC・SP共通）
+  &-accordion-btn {
+    background: none;
+    border: none;
+    color: g.$palette-white;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: 0 24px 0 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 8px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid g.$palette-white;
+      border-bottom: 2px solid g.$palette-white;
+      transform: rotate(45deg);
+      transition: transform 0.35s ease;
+    }
+  }
+
+  // 開いた状態の矢印反転
+  li[data-accordion].is-open .footer-accordion-btn::after {
+    transform: rotate(-135deg);
+    top: 4px;
+  }
+
+  // フッターボトム
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    margin-bottom: 60px;
+
+    @include g.mq("sp") {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  }
+
+  &-bottom-logo {
+    img {
+      width: 130px;
+      height: auto;
+      flex-shrink: 0;
+    }
+  }
+
+  &-bottom-instagram {
+    margin-left: auto;
+    flex-shrink: 0;
+
+    @include g.mq("sp") {
+      margin-left: 0;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &-bottom-info {
     p {
-      font-size: 15px;
-
-      span {
-        font-size: 15px;
-        margin-left: 0;
-        margin-right: 25px;
-
-        @include g.mq("sp") {
-          font-size: 13px;
-          display: block;
-          line-height: 1.7;
-        }
-      }
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.8;
+      margin: 0;
     }
   }
 

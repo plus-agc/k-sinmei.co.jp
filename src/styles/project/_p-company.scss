@@ -37,10 +37,13 @@
     margin: 0 auto;
     padding-top: clamp(6.063rem, 5.14rem + 3.94vw, 8.5rem);
     padding-right: 33px;
+    padding-bottom: clamp(5rem, 3.788rem + 5.16vw, 8.25rem);
     padding-left: 33px;
   }
 
   &-tit {
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+
     p {
       font-size: clamp(2.375rem, 1.618rem + 3.23vw, 4.375rem);
       color: g.$palette-blue;
@@ -64,128 +67,453 @@
       }
     }
   }
-}
 
-.overview {
-  font-weight: 800;
-  margin-bottom: clamp(10.125rem, 9.226rem + 3.83vw, 12.5rem);
-
-  &-main {
-    max-width: g.$layout-width-inner;
-    margin: 0 auto;
-    padding: 0 33px 0;
+  // キャッチコピー
+  &-catch {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 0.947rem + 1.29vw, 2rem);
   }
 
-  &-accordion {
-    .accordion-header {
-      padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem) clamp(0rem, -0.864rem + 4.32vw, 2.375rem);
-      cursor: pointer;
+  &-catch-lead {
+    font-size: clamp(1rem, 0.848rem + 0.65vw, 1.375rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+    line-height: 1.8;
+  }
+
+  &-catch-body {
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    font-weight: 800;
+    color: #444;
+    line-height: 2;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+  }
+}
+
+// 社長メッセージ
+.company-message {
+  display: grid;
+  grid-template-columns: 1fr clamp(14rem, 20vw, 22rem);
+  gap: clamp(2.5rem, 1.894rem + 2.58vw, 4.125rem);
+  align-items: start;
+
+  @include g.mq(sp) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.company-message-text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 1.197rem + 1.29vw, 2.25rem);
+}
+
+.company-message-photo {
+  margin: 0;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  @include g.mq(sp) {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
+.company-message-quote {
+  font-size: clamp(1.25rem, 0.947rem + 1.29vw, 2.063rem);
+  font-weight: 800;
+  color: g.$palette-blue;
+  line-height: 1.6;
+  border: none;
+  margin: 0;
+  padding: clamp(1.5rem, 1.197rem + 1.29vw, 2.25rem);
+  background-color: #eef2fb;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 100%;
+    background: g.$palette-lightblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.company-message-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    line-height: 2;
+    color: #333;
+    margin: 0;
+  }
+}
+
+.company-message-sign {
+  font-weight: 800 !important;
+  color: g.$palette-blue !important;
+  font-family: inherit !important;
+  margin-top: 0.5rem !important;
+  font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem) !important;
+}
+
+.company-section {
+  font-weight: 800;
+  margin-bottom: clamp(5rem, 4rem + 4vw, 8rem);
+
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: 0 33px;
+  }
+
+  &-tit {
+    h2 {
+      font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
       color: g.$palette-blue;
+      padding: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem) 0;
       border-bottom: solid 1px g.$palette-blue;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin-bottom: clamp(2.5rem, 1.554rem + 4.04vw, 5rem);
+    }
+  }
 
-      h2 {
-        font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
-      }
+  &-placeholder {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    color: g.$palette-blue;
+    padding: clamp(3rem, 2rem + 4vw, 6rem) 0;
+    text-align: center;
+  }
+}
 
-      img {
-        transform: rotate(270deg);
-      }
+// 航空写真
+.company-aerial {
+  margin: 0 0 clamp(3rem, 2rem + 4vw, 5rem);
+  overflow: hidden;
 
-      img:not(:hover) {
-        transition: transform 0.5s ease;
+  img {
+    width: 100%;
+    height: clamp(14rem, 30vw, 26rem);
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+}
+
+// 会社概要テーブル
+.company-overview-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.company-overview-row {
+  display: flex;
+  border-bottom: 1px solid #dde3f0;
+
+  @include g.mq(sp) {
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dde3f0;
+  }
+
+  dt {
+    flex-shrink: 0;
+    width: 10rem;
+    padding: 1.125rem 1.5rem 1.125rem 0;
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+    text-align: justify;
+    text-align-last: justify;
+    vertical-align: top;
+    border-right: 1px solid #dde3f0;
+
+    @include g.mq(sp) {
+      width: 100%;
+      border-right: none;
+      padding: 0 0 0.375rem;
+      border-bottom: 1px solid #dde3f0;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  dd {
+    flex: 1;
+    padding: 1.125rem 0 1.125rem 1.5rem;
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    font-weight: 400;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #333;
+    line-height: 1.9;
+
+    @include g.mq(sp) {
+      padding: 0;
+    }
+  }
+}
+
+// 沿革タイムライン
+.company-history-list {
+  position: relative;
+  padding-left: 1.5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: g.$palette-lightblue;
+  }
+}
+
+.company-history-row {
+  display: flex;
+  gap: clamp(1.5rem, 1.197rem + 1.29vw, 2.25rem);
+  margin-bottom: 2rem;
+  position: relative;
+
+  @include g.mq(sp) {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: g.$palette-lightblue;
+    transform: translateX(-50%);
+  }
+
+  dt {
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+    min-width: 6rem;
+    white-space: nowrap;
+    padding-top: 0.1rem;
+  }
+
+  dd {
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    font-weight: 400;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #333;
+    line-height: 1.9;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// 会社概要・沿革セクションの内部スタイル
+.company-overview,
+.company-history {
+  margin-bottom: clamp(3.75rem, 2.5rem + 5vw, 6.25rem);
+
+  > h3 {
+    font-size: clamp(1.063rem, 0.995rem + 0.34vw, 1.25rem);
+    color: g.$palette-blue;
+    margin-bottom: clamp(1.5rem, 1rem + 2vw, 3rem);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid g.$palette-lightblue;
+  }
+
+  article {
+    margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
+
+    ul {
+      padding-left: 1em;
+      list-style-type: square;
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+    }
+
+    h4 {
+      color: g.$palette-lightblue;
+      display: flex;
+      align-items: center;
+      margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
+
+      &::after {
+        content: "";
+        flex-grow: 1;
+        margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
+        height: 1px;
+        background: g.$palette-lightblue;
       }
     }
 
-    .accordion-content {
-      padding-top: clamp(2.5rem, 1.136rem + 6.82vw, 6.25rem);
-      display: none;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+    p {
+      font-family: "Noto Sans JP", sans-serif;
+      margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
 
-      article {
-        margin-bottom: clamp(2.5rem, 1.081rem + 6.05vw, 6.25rem);
-
-        ul {
-          padding-left: 1em;
-          list-style-type: square;
-          margin: 0;
-
-          font-family: "Noto Sans JP", sans-serif;
-        }
-
-        h3 {
-          color: g.$palette-lightblue;
-          display: flex;
-          align-items: center;
-          margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
-
-          &::after {
-            content: "";
-            flex-grow: 1;
-            margin-left: clamp(0.75rem, 0.632rem + 0.5vw, 1.063rem);
-            height: 1px;
-            background: g.$palette-lightblue;
-          }
-        }
-
-        h4 {
-          font-family: "Noto Sans JP", sans-serif;
-          margin-bottom: clamp(1.25rem, 0.54rem + 3.03vw, 3.125rem);
-
-          span:first-child {
-            display: block;
-            margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
-          }
-        }
-
-        p {
-          margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
-        }
-
-        div {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          column-gap: clamp(2.813rem, 1.512rem + 5.55vw, 6.25rem);
-
-          div {
-            display: flex;
-            flex-direction: column;
-
-            @include g.mq(sp) {
-              flex-direction: column;
-            }
-
-            h5 {
-              font-family: "Noto Sans JP", sans-serif;
-              margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
-            }
-
-            img {
-              width: 100%;
-              height: auto;
-            }
-          }
-        }
+      span:first-child {
+        display: block;
+        margin-bottom: clamp(0.625rem, 0.388rem + 1.01vw, 1.25rem);
       }
     }
+  }
+}
 
-    .accordion-content.is-active {
-      display: block;
-      transition: max-height 0.3s ease;
+// 認定書・指定書の画像レイアウト
+.company-cert {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: clamp(2.813rem, 1.512rem + 5.55vw, 6.25rem);
+  margin-top: clamp(1.25rem, 0.54rem + 3.03vw, 3.125rem);
+
+  > div {
+    display: flex;
+    flex-direction: column;
+
+    h5 {
+      font-family: "Noto Sans JP", sans-serif;
+      margin-bottom: clamp(0.938rem, 0.583rem + 1.51vw, 1.875rem);
     }
 
-    .accordion-item:hover {
-      .accordion-header {
-        img {
-          transition: transform 0.5s ease;
-          transform: rotate(360deg);
-        }
-      }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// 地域貢献グリッド
+.company-community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+
+  @include g.mq(sp) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.company-community-item {
+  background: #f5f7fc;
+  overflow: hidden;
+}
+
+.company-community-img {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.company-community-body {
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+
+  h3 {
+    font-size: clamp(1rem, 0.932rem + 0.34vw, 1.188rem);
+    color: g.$palette-blue;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    line-height: 2;
+    color: #333;
+    margin: 0;
+  }
+}
+// アクセス
+.company-access-hero {
+  margin: 0 0 clamp(2rem, 1.5rem + 2vw, 3rem);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.company-access-list {
+  margin: 0 0 clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-top: 1px solid #dde3f0;
+}
+
+.company-access-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding: clamp(0.875rem, 0.75rem + 0.5vw, 1.25rem) 0;
+  border-bottom: 1px solid #dde3f0;
+
+  @include g.mq(sp) {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  dt {
+    flex-shrink: 0;
+    width: 14em;
+    font-size: clamp(0.813rem, 0.778rem + 0.16vw, 0.875rem);
+    font-weight: 800;
+    color: g.$palette-blue;
+
+    @include g.mq(sp) {
+      width: auto;
+    }
+  }
+
+  dd {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.813rem, 0.778rem + 0.16vw, 0.875rem);
+    color: #333;
+    margin: 0;
+  }
+}
+
+.company-access-map {
+  margin: 0;
+
+  iframe {
+    width: 100%;
+    display: block;
+
+    @include g.mq(sp) {
+      height: 300px;
     }
   }
 }

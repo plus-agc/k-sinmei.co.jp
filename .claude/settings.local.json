@@ -1,6 +1,27 @@
 {
+  "permissions": {
+    "allow": [
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__emulate",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__click",
+      "mcp__chrome-devtools__hover",
+      "Bash(pdftotext:*)",
+      "Bash(brew install:*)",
+      "Bash(pdftoppm -r 150 -png \"/Users/admin/Desktop/原稿 3.pdf\" /tmp/genkou3_page)",
+      "Read(//private/tmp/**)",
+      "Bash(pdftoppm:*)",
+      "Bash(find:*)",
+      "Bash(npm run:*)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "serena"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

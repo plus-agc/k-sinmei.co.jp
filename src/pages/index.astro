@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Cta from "../components/Cta.astro";
 const postModules = import.meta.glob<{
   frontmatter: { pubDate: string; title: string };
   url: string;
@@ -66,9 +65,9 @@ const allPosts = await Promise.all(
           </div>
         </div>
         <div class="top-tit">
-          <p class="is-anim_one"></p>
-          <p class="is-anim_two"></p>
-          <p class="is-anim_three"></p>
+          <p class="is-anim_one">もっとよいものを</p>
+          <p class="is-anim_two">責任をもって</p>
+          <p class="is-anim_three">作れる会社へ</p>
         </div>
       </div>
     </section>
@@ -122,14 +121,16 @@ const allPosts = await Promise.all(
         <div class="top-company-main">
           <div class="top-company-main_half">
             <div class="top-company-tit">
-              <p>鉄を創り、<br />街を支え、<br />未来を拓く。</p>
+              <p>鉄を創り、</p>
+              <p>街を支え、</p>
+              <p>未来を拓く。</p>
             </div>
             <div class="top-company-text">
               <p>長年の実績と確かな施工品質で地域社会の発展に貢献します。</p>
             </div>
             <div class="top-company-link">
               <a href="/company">
-                <p lang="en">company</p>
+                <p lang="en">SINMEIとは</p>
                 <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
               </a>
             </div>
@@ -174,7 +175,7 @@ const allPosts = await Promise.all(
             </h3>
           </div>
           <div class="top-sdgs-link">
-            <a href="/sdgs">
+            <a href="/company#sdgs">
               <p lang="en">read more</p>
               <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
             </a>
@@ -193,24 +194,21 @@ const allPosts = await Promise.all(
           <img src="/assets/images/recruit-E.png" alt="社員画像05" />
         </div>
         <div class="top-recruit-main">
-          <div class="top-recruit-tit">
-            <p lang="en">
-              現場を知り、<br />
-              人を想う毎日が<br />
-              誇れる仕事
-            </p>
-            <h2>私たちと一緒に働いてみませんか</h2>
+          <div class="top-recruit-catch">
+            <p>現場を知り、<br />人を想う毎日が<br />誇れる仕事</p>
           </div>
-          <div class="top-recruit-link">
-            <a href="/recruit">
-              <p lang="en">採用情報</p>
-              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-            </a>
+          <div class="top-recruit-content">
+            <p class="top-recruit-text">私たちと一緒に働いてみませんか</p>
+            <div class="top-recruit-link">
+              <a href="/recruit">
+                <p lang="en">採用情報</p>
+                <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <Cta />
   </main>
 </Layout>
 
@@ -224,8 +222,13 @@ const allPosts = await Promise.all(
 </style>
 <script>
   import { gsap } from "gsap";
-  import { TextPlugin } from "gsap/dist/TextPlugin";
+  import { TextPlugin } from "gsap/TextPlugin";
   gsap.registerPlugin(TextPlugin);
+
+  // テキストアニメーション対象を初期化（SSRフォールバックをクリア）
+  (document.querySelector(".is-anim_one") as HTMLElement).textContent = "";
+  (document.querySelector(".is-anim_two") as HTMLElement).textContent = "";
+  (document.querySelector(".is-anim_three") as HTMLElement).textContent = "";
 
   // SVGのパス要素を非表示にする
   const svgPaths = document.querySelectorAll("svg path");
@@ -282,10 +285,28 @@ const allPosts = await Promise.all(
   });
 
   function fadeInImage() {
-    gsap.to("img", {
+    // ヒーロー画像のみ対象（リクルート画像はIntersection Observerで制御）
+    gsap.to(".top-image img", {
       duration: 1,
       opacity: 1,
-      ease: "power2.inOut", // フェードインのイージング
+      ease: "power2.inOut",
     });
+  }
+
+  // SP時のみリクルート画像を自動フェードスライダーとして動作させる
+  if (window.matchMedia("(max-width: 943px)").matches) {
+    const imgs = Array.from(
+      document.querySelectorAll<HTMLImageElement>(".top-recruit-header img"),
+    );
+    if (imgs.length > 0) {
+      let current = 0;
+      imgs[current].classList.add("is-active");
+
+      setInterval(() => {
+        imgs[current].classList.remove("is-active");
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.add("is-active");
+      }, 3000);
+    }
   }
 </script>
