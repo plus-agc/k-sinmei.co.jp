@@ -12,8 +12,8 @@
     "upscale-hero": "node scripts/upscale-hero.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.6.0",
-    "astro": "5.16.6",
+    "@astrojs/sitemap": "^3.7.1",
+    "astro": "^6.0.5",
     "astro-relative-links": "^0.4.2",
     "autoprefixer": "^10.4.17",
     "postcss-preset-env": "^9.3.0",
@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "sharp": "^0.33.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-astro": "^0.33.1",
@@ -29,6 +28,7 @@
     "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
+    "sharp": "^0.33.5",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-scss": "^6.2.1"
