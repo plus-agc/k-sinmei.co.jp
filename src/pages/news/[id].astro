@@ -1,0 +1,78 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { client } from "../../lib/microcms";
+import type { News } from "../../lib/microcms";
+
+export async function getStaticPaths() {
+  const { contents: allPosts } = await client.getList<News>({
+    endpoint: "news",
+    queries: { limit: 100 },
+  });
+  return allPosts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: News };
+
+// 日付フォーマット（YYYY-MM-DD）
+function formatDate(dateStr: string): string {
+  return dateStr.slice(0, 10);
+}
+---
+
+<Layout title={`${post.title} | 株式会社SINMEI`}>
+  <section class="news">
+    <div class="news-inner">
+      <div class="news-main">
+        <div class="news-tit">
+          <p lang="en">news</p>
+          <h2>お知らせ</h2>
+        </div>
+        <div class="news-text">
+          <div class="news-text-header" lang="ja">
+            <time datetime={formatDate(post.publishedAt)}>
+              {formatDate(post.publishedAt)}
+            </time>
+            <p>{post.category ?? "お知らせ"}</p>
+          </div>
+          <div class="news-text-main" lang="ja">
+            <h1>{post.title}</h1>
+<div class="news-text-body" set:html={post.content} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="news-link">
+      <a href="/news">一覧へ戻る</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    line-height: 1.6;
+  }
+
+  .news-text-body :global(h2),
+  .news-text-body :global(h3) {
+    font-weight: 800;
+    margin: 2rem 0 1rem;
+  }
+
+  .news-text-body :global(p) {
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+
+  .news-text-body :global(img) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .news-text-body :global(a) {
+    color: #0085d8;
+    text-decoration: underline;
+  }
+</style>

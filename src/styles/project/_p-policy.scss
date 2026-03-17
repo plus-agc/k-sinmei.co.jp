@@ -1,0 +1,129 @@
+@use "../global" as g;
+
+.policy {
+  background-color: g.$palette-white;
+  color: g.$palette-black;
+
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: clamp(5rem, 4rem + 4vw, 8rem) 33px clamp(4rem, 3rem + 4vw, 7rem);
+  }
+
+  // ページヘッダー
+  &-header {
+    border-bottom: 2px solid g.$palette-blue;
+    padding-bottom: 24px;
+    margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+
+    &-en {
+      font-size: clamp(0.75rem, 0.6rem + 0.5vw, 0.875rem);
+      font-weight: 600;
+      color: g.$palette-blue;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    &-ja {
+      font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      font-weight: 800;
+      color: g.$palette-black;
+    }
+  }
+
+  // リード文
+  &-lead {
+    font-size: 15px;
+    line-height: 2;
+    color: #444;
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+    padding: 20px 24px;
+    background-color: #f5f7fc;
+    border-left: 4px solid g.$palette-blue;
+  }
+
+  // 本文エリア
+  &-body {
+    p {
+      font-size: 15px;
+      line-height: 2;
+      color: #333;
+    }
+  }
+
+  // 各セクション
+  &-section {
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+
+    h2 {
+      font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+      font-weight: 800;
+      color: g.$palette-blue;
+      padding: 10px 16px;
+      background-color: #f5f7fc;
+      border-left: 4px solid g.$palette-blue;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+
+      li {
+        font-size: 15px;
+        line-height: 2;
+        color: #333;
+        padding-left: 18px;
+        position: relative;
+        margin-bottom: 4px;
+
+        &::before {
+          content: "・";
+          position: absolute;
+          left: 0;
+          color: g.$palette-blue;
+          font-weight: 800;
+        }
+      }
+    }
+
+    a {
+      color: g.$palette-blue;
+      text-underline-offset: 3px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // お問い合わせ枠
+  &-contact {
+    margin-top: 16px;
+    padding: 20px 24px;
+    border: 1px solid #dde3f0;
+    background-color: #f9fafff0;
+
+    p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 4px;
+    }
+  }
+
+  // 制定日
+  &-date {
+    font-size: 13px;
+    color: #888;
+    text-align: right;
+    margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+    border-top: 1px solid #e0e0e0;
+    padding-top: 16px;
+  }
+}

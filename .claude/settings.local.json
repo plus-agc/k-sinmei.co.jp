@@ -1,6 +1,39 @@
 {
+  "permissions": {
+    "allow": [
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__emulate",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__click",
+      "mcp__chrome-devtools__hover",
+      "Bash(pdftotext:*)",
+      "Bash(brew install:*)",
+      "Bash(pdftoppm -r 150 -png \"/Users/admin/Desktop/原稿 3.pdf\" /tmp/genkou3_page)",
+      "Read(//private/tmp/**)",
+      "Bash(pdftoppm:*)",
+      "Bash(find:*)",
+      "Bash(npm run:*)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "Bash(python3:*)",
+      "Bash(npx astro:*)",
+      "Bash(ls -lh /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/*.jpg /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/*.png)",
+      "Bash(identify /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/recruit_top.jpg)",
+      "Bash(node --input-type=module -e \":*)",
+      "Bash(pip3 install:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/admin/Dev/k-sinmei.co.jp/**)",
+      "Bash(done)",
+      "Bash(pkill -f \"astro preview\")"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "serena"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

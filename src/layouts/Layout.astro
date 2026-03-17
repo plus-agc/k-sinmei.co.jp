@@ -54,18 +54,6 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
     <Pagetop />
     <Footer />
     <script>
-      // ハンバーガーメニューのトグル
-      // 機能: ハンバーガーメニューの表示・非表示を切り替える。
-      // 詳細: .gnav-hamburgerと.gnav-listのクラスにis-activeをトグルすることで、メニューの開閉を制御。
-      const toggleMenu = () => {
-        const gnavList = document.querySelector(".gnav-list");
-        const gnavHamburger = document.querySelector(".gnav-hamburger");
-        if (gnavList && gnavHamburger) {
-          gnavList.classList.toggle("is-active");
-          gnavHamburger.classList.toggle("is-active");
-        }
-      };
-
       // ナビゲーション背景色の変更
       // 機能: スクロール位置に応じてナビゲーションバーの背景色を変更。
       // 詳細: スクロールが60pxを超えると、背景色を半透明に変更。
@@ -100,65 +88,6 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
           }
         }
       };
-
-      // アコーディオンメニューの制御
-      // 機能: アコーディオンメニューの開閉と他の項目の自動閉鎖。
-      // 詳細: アコーディオンヘッダーをクリックすると、その内容がトグルされ、他のアクティブなアコーディオンが閉じる。
-      document.addEventListener("click", (event) => {
-        const aboutAccordion = document.getElementById("about");
-        const historyAccordion = document.getElementById("history");
-        const aboutContent = aboutAccordion.querySelector(".accordion-content");
-        const historyContent =
-          historyAccordion.querySelector(".accordion-content");
-        const companyElement = document.getElementById("company");
-
-        // アコーディオンのヘッダーをクリックした場合
-        if (event.target.closest(".accordion-header")) {
-          // クリックされたアコーディオンのコンテンツがすでに開いている場合は閉じる
-          if (
-            event.target.closest(".accordion-item") === aboutAccordion &&
-            aboutContent.classList.contains("is-active")
-          ) {
-            aboutContent.classList.remove("is-active");
-          } else if (
-            event.target.closest(".accordion-item") === historyAccordion &&
-            historyContent.classList.contains("is-active")
-          ) {
-            historyContent.classList.remove("is-active");
-          }
-          // クリックされたアコーディオンのコンテンツが閉じている場合は開く
-          else {
-            if (event.target.closest(".accordion-item") === aboutAccordion) {
-              aboutContent.classList.add("is-active");
-            } else if (
-              event.target.closest(".accordion-item") === historyAccordion
-            ) {
-              historyContent.classList.add("is-active");
-            }
-          }
-        }
-        // アコーディオンのコンテンツ以外をクリックした場合はそれぞれのアコーディオンを閉じる
-        else {
-          if (!aboutAccordion.contains(event.target)) {
-            aboutContent.classList.remove("is-active");
-          }
-          if (!historyAccordion.contains(event.target)) {
-            historyContent.classList.remove("is-active");
-          }
-          // アコーディオンのコンテンツ以外をクリックした場合はidが"company"の要素まで戻る
-          if (!event.target.closest(".accordion-item")) {
-            companyElement.scrollIntoView();
-          }
-        }
-      });
-
-      // ハンバーガーメニューのクリックイベント
-      // 機能: ハンバーガーメニュークリック時にメニューを開閉。
-      // 詳細: ハンバーガーアイコンにクリックイベントリスナーを追加。
-      const gnavHamburger = document.querySelector(".gnav-hamburger");
-      if (gnavHamburger) {
-        gnavHamburger.addEventListener("click", toggleMenu);
-      }
 
       // スクロールイベントの追加
       // 機能: スクロール時に背景色変更とパララックス効果を適用。

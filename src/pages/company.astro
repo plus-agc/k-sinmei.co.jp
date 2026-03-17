@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Cta from "../components/Cta.astro";
-import companytop from "../images/companytop.jpg";
 ---
 
-<Layout title="株式会社SINMEIについて | 株式会社SINMEIについて">
+<Layout title="SINMEIについて | 株式会社SINMEI">
   <main>
     <section class="company">
       <div class="company-inner">
@@ -16,100 +14,118 @@ import companytop from "../images/companytop.jpg";
         </div>
         <div class="company-main">
           <div class="company-tit">
-            <p lang="en" id="company">company</p>
-            <h1>株式会社SINMEIについて</h1>
+            <h1 lang="en" id="company"><p>SINMEIについて</p></h1>
+          </div>
+          <!-- キャッチコピー -->
+          <div class="company-catch">
+            <p class="company-catch-lead">
+              株式会社SINMEIは、<br />
+              国土交通大臣認定の最高位「Hグレード」を<br />
+              保有する鋼構造物のスペシャリスト集団です。
+            </p>
+            <p class="company-catch-body">
+              長年培った高度な技術力と厳格な品質管理体制により、東北エリアから首都圏の超高層ビル、大規模スタジアムに至るまで、都市の象徴となる数々のランドマークを支えてきました。
+            </p>
+            <p class="company-catch-body">
+              設計・作図から工場製作、そして現場施工までを一貫して担う独自の機能力で、安全で揺るぎない社会インフラの構築に貢献し続けます。
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <section class="overview">
-      <div class="overview-inner">
-        <div class="overview-main">
-          <div class="overview-accordion">
-            <div class="accordion-item" id="about">
-              <div class="accordion-header">
-                <h2>会社概要</h2>
-                <img
-                  src="/assets/images/arrow-down-blue.svg"
-                  alt="矢印アイコン下向き青"
-                />
+
+    <!-- 社長メッセージ -->
+    <section class="company-section" id="message">
+      <div class="company-section-inner">
+        <div class="company-section-tit">
+          <h2>社長メッセージ</h2>
+        </div>
+        <div class="company-section-content">
+          <div class="company-message">
+            <div class="company-message-text">
+              <blockquote class="company-message-quote">
+                「一人ひとりの力は<br />やがて大きな原動力になる」
+              </blockquote>
+              <div class="company-message-body">
+                <p>
+                  この信念のもと、当社は五所川原から全国へ、最高品質の鉄骨を送り出しています。Hグレード認定が証明する技術力はもとより、私たちが何より大切にしているのは、嘘のない誠実なモノづくりです。
+                </p>
+                <p>
+                  次世代を担う若き社員たちと共に、情熱を持って鉄と向き合い、安全で豊かな未来のランドマークを築き上げる。その誇りを胸に、皆様の期待を超える価値を提供し続けてまいります。
+                </p>
+                <p class="company-message-sign">代表取締役　佐藤 文宣</p>
               </div>
-              <div class="accordion-content is-active">
-                <article>
-                  <h3>商号</h3>
-                  <h4>株式会社SINMEI</h4>
-                </article>
-                <article>
-                  <h3>本社・第1〜第4工場所在地</h3>
-                  <h4>青森県五所川原市大字太刀打字常盤83-2</h4>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.9223085771746!2d140.45232007717246!3d40.82967013040195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9bbb2493e3b90b%3A0xa42fe42ae2e8066!2zKOagqinvvLPvvKnvvK7vvK3vvKXvvKk!5e0!3m2!1sja!2sjp!4v1708066277798!5m2!1sja!2sjp"
-                    width="100%"
-                    height="250"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </article>
-                <article>
-                  <h3>第5工場所在地</h3>
-                  <h4>青森県五所川原市大字太刀打字早蕨59-10</h4>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.2952775150097!2d140.45351917603114!3d40.82147747137719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9bbb298e326d07%3A0xf3f2f50b9e0b96e9!2z77yI5qCq77yJ77yz77yp77yu77yt77yl77ypIOaXqeiVqOW3peWgtA!5e0!3m2!1sja!2sjp!4v1708066905714!5m2!1sja!2sjp"
-                    width="100%"
-                    height="250"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </article>
-                <article>
-                  <h3>第6工場所在地</h3>
-                  <h4>青森県五所川原市大字金山字亀甲120番1</h4>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.638012774386!2d140.47272977717205!3d40.813947731366405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9ba575ebd0b657%3A0xde9e08dee20e651d!2z5qCq5byP5Lya56S-U0lOTUVJ56ys77yW5bel5aC0!5e0!3m2!1sja!2sjp!4v1708066947988!5m2!1sja!2sjp"
-                    width="100%"
-                    height="250"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </article>
-                <article>
-                  <h3>代表者</h3>
-                  <h4>佐藤 文宣</h4>
-                </article>
-                <article>
-                  <h3>TEL / FAX</h3>
-                  <h4>0173-34-4320 / 0173-33-4776</h4>
-                </article>
-                <article>
-                  <h3>設 立</h3>
-                  <h4>昭和61年（1986年）3月</h4>
-                </article>
-                <article>
-                  <h3>営業種目</h3>
-                  <ul>
-                    <li>金属製品製造業</li>
-                    <li>鋼構造物工事業</li>
-                    <li>管工事業</li>
-                  </ul>
-                </article>
-                <article>
-                  <h3>主な営業エリア</h3>
-                  <h4>青森県・東北各県・首都圏</h4>
-                </article>
-                <article>
-                  <h3>特定建設業許可</h3>
-                  <h4>
-                    <span>青森県知事許可（特-4）</span>
-                    <span>第０１１０８２号</span>
-                  </h4>
-                </article>
-                <article>
-                  <h3>国土交通大臣 Hグレード認定工場 認定番号 TFBH-235213</h3>
-                  <h4>認定番号 TFBH-235213</h4>
-                  <div>
+            </div>
+            <figure class="company-message-photo">
+              <img src="/assets/images/sato.jpg" alt="代表取締役 佐藤 文宣" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 会社概要・沿革 -->
+    <section class="company-section" id="overview">
+      <div class="company-section-inner">
+        <div class="company-section-tit">
+          <h2>会社概要・沿革</h2>
+        </div>
+        <div class="company-section-content">
+          <!-- 航空写真 -->
+          <figure class="company-aerial">
+            <img
+              src="/assets/images/company.jpg"
+              alt="株式会社SINMEI 本社・工場 航空写真"
+            />
+          </figure>
+
+          <!-- 会社概要 -->
+          <div class="company-overview">
+            <h3>会社概要</h3>
+            <dl class="company-overview-table">
+              <div class="company-overview-row">
+                <dt>社名</dt>
+                <dd>株式会社SINMEI</dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>本社</dt>
+                <dd>
+                  〒037-0091<br />
+                  青森県五所川原市大字太刀打字常盤83-2<br />
+                  TEL 0173-34-4320
+                </dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>創業</dt>
+                <dd>1968年（昭和43）5月</dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>設立</dt>
+                <dd>1986年（昭和61）3月</dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>資本金</dt>
+                <dd>3,000万円</dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>代表者</dt>
+                <dd>代表取締役　佐藤 文宣</dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>営業種目</dt>
+                <dd>
+                  金属製品製造業、鋼構造物工事業、管工事業、水道施設工事業、消防施設工事業、建築工事業
+                </dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>建設業許可</dt>
+                <dd>青森県知事許可（特-4）第011082号</dd>
+              </div>
+              <div class="company-overview-row">
+                <dt>国土交通大臣<br />Hグレード認定工場</dt>
+                <dd>
+                  認定番号 TFHB-235213
+                  <div class="company-cert">
                     <div>
                       <h5>認定書（Hグレード）</h5>
                       <img
@@ -125,64 +141,163 @@ import companytop from "../images/companytop.jpg";
                       />
                     </div>
                   </div>
-                </article>
+                </dd>
               </div>
-            </div>
-            <div class="accordion-item" id="history">
-              <div class="accordion-header">
-                <h2>沿 革</h2>
-                <img
-                  src="/assets/images/arrow-down-blue.svg"
-                  alt="矢印アイコン下向き青"
-                />
+            </dl>
+          </div>
+
+          <!-- 沿革 -->
+          <div class="company-history">
+            <h3>沿革</h3>
+            <dl class="company-history-list">
+              <div class="company-history-row">
+                <dt>1968年</dt>
+                <dd>五所川原市太刀打に株式会社伸明工業を創業</dd>
               </div>
-              <div class="accordion-content is-active">
-                <article>
-                  <h3>1968 年</h3>
-                  <h4>株式会社伸明工業 太刀打常盤で工場設立</h4>
-                </article>
-                <article>
-                  <h3>1986 年</h3>
-                  <p>株式会社伸明工業解散に伴い</p>
-                  <p>有限会社藤恭設立</p>
+              <div class="company-history-row">
+                <dt>1986年</dt>
+                <dd>
+                  <p>株式会社伸明工業解散に伴い有限会社藤恭設立</p>
                   <p>株式会社伸明工業より実績承継認可</p>
-                </article>
-                <article>
-                  <h3>1991 年</h3>
-                  <p>有限会社藤恭より</p>
-                  <p>株式会社藤恭へと組織変更</p>
-                  <p>グループ会社として</p>
-                  <p>株式会社シンメイ鐵工設立</p>
-                </article>
-                <article>
-                  <h3>1995 年</h3>
-                  <h4>全構連 Mグレード取得</h4>
-                </article>
-                <article>
-                  <h3>2008 年</h3>
-                  <p>株式会社藤恭と</p>
-                  <p>株式会社シンメイ鐵工が合併</p>
+                </dd>
+              </div>
+              <div class="company-history-row">
+                <dt>1991年</dt>
+                <dd>
+                  <p>有限会社藤恭より株式会社藤恭へと組織変更</p>
+                  <p>グループ会社として株式会社シンメイ鐵工設立</p>
+                </dd>
+              </div>
+              <div class="company-history-row">
+                <dt>1995年</dt>
+                <dd>全構連 Mグレード取得</dd>
+              </div>
+              <div class="company-history-row">
+                <dt>2008年</dt>
+                <dd>
+                  <p>株式会社藤恭と株式会社シンメイ鐵工が合併</p>
                   <p>株式会社SINMEIへと社名変更</p>
                   <p>代表取締役社長に佐藤文宣就任</p>
-                </article>
-                <article>
-                  <h3>2016 年</h3>
-                  <h4>第4工場増築</h4>
-                </article>
-                <article>
-                  <h3>2018 年</h3>
-                  <h4>第5工場電源増設プラズマ移設</h4>
-                </article>
-                <article>
-                  <h3>2022 年</h3>
-                  <h4>第6工場（金山）竣工</h4>
-                </article>
+                </dd>
+              </div>
+              <div class="company-history-row">
+                <dt>2016年</dt>
+                <dd>第4工場増築</dd>
+              </div>
+              <div class="company-history-row">
+                <dt>2018年</dt>
+                <dd>第5工場電源増設プラズマ移設</dd>
+              </div>
+              <div class="company-history-row">
+                <dt>2022年</dt>
+                <dd>第6工場（金山）竣工</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 地域貢献 -->
+    <section class="company-section" id="community">
+      <div class="company-section-inner">
+        <div class="company-section-tit">
+          <h2>地域貢献</h2>
+        </div>
+        <div class="company-section-content">
+          <div class="company-community-grid">
+            <div class="company-community-item">
+              <figure class="company-community-img">
+                <img
+                  src="/assets/images/social_contribution_1.jpg"
+                  alt="五所川原立佞武多への参画"
+                />
+              </figure>
+              <div class="company-community-body">
+                <h3>五所川原立佞武多への参画</h3>
+                <p>
+                  五所川原最大の祭りで運行される高さ23m、重量約19トンにもなる大型のねぷたを毎年多くの社員が参加し、地域の祭りを支えています。
+                </p>
+              </div>
+            </div>
+            <div class="company-community-item">
+              <figure class="company-community-img">
+                <img
+                  src="/assets/images/social_contribution_2.jpg"
+                  alt="献血活動"
+                />
+              </figure>
+              <div class="company-community-body">
+                <h3>献血活動</h3>
+                <p>
+                  2021年から工場に献血バスを呼び入れ、献血を通じて地域の方々の命と健康を支える活動にも力を入れています。
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <Cta />
+
+    <!-- アクセス -->
+    <section class="company-section" id="access">
+      <div class="company-section-inner">
+        <div class="company-section-tit">
+          <h2>アクセス</h2>
+        </div>
+        <div class="company-section-content">
+          <!-- 工場MAP見出し画像 -->
+          <figure class="company-access-hero">
+            <img
+              src="/assets/images/map_image_1.jpg"
+              alt="SINMEI 工場MAP・設備配置図"
+            />
+          </figure>
+
+          <!-- 所在地リスト -->
+          <dl class="company-access-list">
+            <div class="company-access-row">
+              <dt>本社 / 第１〜第４工場</dt>
+              <dd>青森県五所川原市大字太刀打字常盤 83-2</dd>
+            </div>
+            <div class="company-access-row">
+              <dt>第５工場</dt>
+              <dd>青森県五所川原市大字太刀打字早蕨 59-10</dd>
+            </div>
+            <div class="company-access-row">
+              <dt>第６工場</dt>
+              <dd>青森県五所川原市大字金山字亀甲 120-1</dd>
+            </div>
+          </dl>
+
+          <!-- Googleマップ -->
+          <div class="company-access-map">
+            <iframe
+              src="https://maps.google.com/maps?q=青森県五所川原市大字太刀打字常盤83-2&output=embed&hl=ja"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="株式会社SINMEI 本社・第1〜第4工場"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SDGs -->
+    <section class="company-section" id="sdgs">
+      <div class="company-section-inner">
+        <div class="company-section-tit">
+          <h2>SDGs</h2>
+        </div>
+        <div class="company-section-content">
+          <p class="company-section-placeholder">
+            コンテンツは後ほど追加予定です。
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

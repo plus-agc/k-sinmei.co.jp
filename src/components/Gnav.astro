@@ -13,61 +13,147 @@
       <figure>
         <img src="/assets/images/sinmei_name-logo.svg" alt="株式会社SINMEI" />
       </figure>
-      <button class="gnav-hamburger" aria-label="Menu">
-        <span class="gnav-hamburger-line"></span>
-        <span class="gnav-hamburger-line"></span>
-        <span class="gnav-hamburger-line"></span>
-      </button>
+      <div class="gnav-hamburger-wrap">
+        <button class="gnav-hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
     <ul class="gnav-list">
       <li class="gnav-dropdown">
-        <a href="#" class="gnav-dropbtn" lang="en"
-          >company<span class="hidden">株式会社SINMEIについて</span>
-        </a>
+        <a href="/company" class="gnav-dropbtn">SINMEIについて</a>
         <ul class="gnav-dropdown_content">
           <li>
-            <a href="/company#about" lang="en"
-              >company overview <span>会社概要</span></a
-            >
+            <a href="/company#message">社長メッセージ</a>
           </li>
           <li>
-            <a href="/company#history" lang="en">history<span>沿革</span></a>
+            <a href="/company#overview">会社概要・沿革</a>
+          </li>
+          <li>
+            <a href="/company#community">地域貢献</a>
+          </li>
+          <li>
+            <a href="/company#access">アクセス</a>
+          </li>
+          <li>
+            <a href="/company#sdgs">SDGs</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="/works" lang="en">works<span class="hidden">施工実績</span></a>
+        <a href="/news">お知らせ</a>
+      </li>
+      <li class="gnav-dropdown">
+        <a href="/works" class="gnav-dropbtn">事業内容</a>
+        <ul class="gnav-dropdown_content">
+          <li>
+            <a href="/works#hgrade">Hグレード</a>
+          </li>
+          <li>
+            <a href="/works#business">営業品目・受注実績</a>
+          </li>
+          <li>
+            <a href="/works#results">工事実績</a>
+          </li>
+          <li>
+            <a href="/works#qualified">有資格者数</a>
+          </li>
+        </ul>
+      </li>
+      <li class="gnav-dropdown">
+        <a href="/recruit" class="gnav-dropbtn">採用情報</a>
+        <ul class="gnav-dropdown_content">
+          <li>
+            <a href="/recruit#stats">数字で見るSINMEI</a>
+          </li>
+          <li>
+            <a href="/recruit#benefits">福利厚生</a>
+          </li>
+          <li>
+            <a href="/recruit#qualification">資格取得制度</a>
+          </li>
+          <li>
+            <a href="/recruit#voices">先輩社員の声</a>
+          </li>
+          <li>
+            <a href="/recruit#openings">募集職種</a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a href="/sdgs" lang="en"
-          >Our MISSION<span class="hidden">SINMEIの取組み</span></a
+        <a href="/contact" class="gnav-contact-btn"
+          >お問い合わせ</a
         >
-      </li>
-      <li>
-        <a href="/recruit" lang="en"
-          >recruit<span class="hidden">採用情報</span></a
-        >
-      </li>
-      <li>
-        <a href="/news" lang="en">news<span class="hidden">お知らせ</span></a>
-      </li>
-      <li>
-        <a href="/contact" lang="en"
-          >contact<span class="hidden">お問い合わせ</span></a
-        >
-        <a
-          href="https://www.instagram.com/sinmei4320/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <figure>
-            <img
-              src="/assets/images/instagram.svg"
-              alt="株式会社SINMEI Instagram"
-            />
-          </figure>
-        </a>
       </li>
     </ul>
   </div>
 </nav>
+
+<script>
+  // ハンバーガーメニューのトグル
+  const gnavHamburger = document.querySelector(".gnav-hamburger");
+  const gnavList = document.querySelector(".gnav-list");
+  if (gnavHamburger && gnavList) {
+    gnavHamburger.addEventListener("click", () => {
+      gnavList.classList.toggle("is-active");
+      gnavHamburger.classList.toggle("is-active");
+    });
+  }
+</script>
+
+<script>
+  import { gsap } from "gsap";
+
+  // ヒーロー画像：クリップパス・ワイプアニメーション（案A）
+  const heroImg = document.querySelector<HTMLElement>(
+    ".company-header img, .works-header img, .recruit-header img"
+  );
+
+  if (heroImg) {
+    // テキスト要素を取得（ページごとのパターンに対応）
+    const textSelectors = [
+      ".company-tit",
+      ".company-catch",
+      ".works-tit",
+      ".works-text",
+      ".recruit-tit",
+      ".recruit-text",
+    ];
+    const textEls = textSelectors
+      .map((s) => document.querySelector<HTMLElement>(s))
+      .filter((el): el is HTMLElement => el !== null);
+
+    // 画像・テキストをすぐ非表示にしてFOUCを防ぐ
+    gsap.set(heroImg, { clipPath: "inset(0 100% 0 0)" });
+    if (textEls.length > 0) {
+      gsap.set(textEls, { opacity: 0, y: 30 });
+    }
+
+    const tl = gsap.timeline();
+
+    // 画像：右端から左へワイプイン
+    tl.to(heroImg, {
+      clipPath: "inset(0 0% 0 0)",
+      duration: 1.2,
+      ease: "power3.inOut",
+    });
+
+    // テキスト：0.3秒ずつずらしてフェード＋上スライド
+    if (textEls.length > 0) {
+      tl.fromTo(
+        textEls,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.15,
+        },
+        "-=0.5"
+      );
+    }
+  }
+</script>

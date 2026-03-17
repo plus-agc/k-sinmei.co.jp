@@ -1,21 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { client } from "../../lib/microcms";
+import type { News } from "../../lib/microcms";
+
 export const postsPerPage = 10;
+
 export async function getStaticPaths({ paginate }) {
-  const postModules = import.meta.glob<{ frontmatter: { pubDate: string; title: string }; url: string }>("./*.{md,mdx}");
-  const allPosts = await Promise.all(Object.values(postModules).map((fn) => fn()));
-  const allPostsSorted = allPosts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf(),
-  );
-  return paginate(allPostsSorted, { pageSize: postsPerPage });
+  const { contents: allPosts } = await client.getList<News>({
+    endpoint: "news",
+    queries: { limit: 100, orders: "-publishedAt" },
+  });
+  return paginate(allPosts, { pageSize: postsPerPage });
 }
+
 const { page } = Astro.props;
-const { pageTitle } = Astro.props;
+
+// 日付フォーマット（YYYY-MM-DD）
+function formatDate(dateStr: string): string {
+  return dateStr.slice(0, 10);
+}
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle="お知らせ | 株式会社SINMEI">
   <main>
     <section class="news">
       <div class="news-inner">
@@ -26,20 +32,20 @@ const { pageTitle } = Astro.props;
           </div>
           <ul class="news-list">
             {
-              page.data.map((post) => (
+              page.data.map((post: News) => (
                 <li class="news-item">
-                  <a href={post.url}>
+                  <a href={`/news/${post.id}`}>
                     <div class="news-item-header" lang="ja">
-                      <time datetime={post.frontmatter.pubDate}>
-                        {post.frontmatter.pubDate}
+                      <time datetime={formatDate(post.publishedAt)}>
+                        {formatDate(post.publishedAt)}
                       </time>
-                      <p>お知らせ</p>
+                      <p>{post.category ?? "お知らせ"}</p>
                     </div>
                     <div class="news-item-main">
-                      <p>{post.frontmatter.title}</p>
+                      <p>{post.title}</p>
                       <img
                         src="/assets/images/arrow-blue.svg"
-                        alt="矢印アイコン下向き青"
+                        alt="矢印アイコン"
                       />
                     </div>
                   </a>

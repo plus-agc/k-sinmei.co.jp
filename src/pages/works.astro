@@ -1,11 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Cta from "../components/Cta.astro";
 import Carousel from "../components/Carousel.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="施工実績 | 株式会社SINMEI">
+<Layout title="事業内容 | 株式会社SINMEI">
   <main>
+    <!-- ヘッダー（変更なし） -->
     <section class="works">
       <div class="works-inner">
         <div class="works-header">
@@ -13,8 +13,8 @@ import Carousel from "../components/Carousel.astro";
         </div>
         <div class="works-main">
           <div class="works-tit">
-            <p lang="en">WORKS</p>
-            <h1>施工実績</h1>
+            <p lang="en">SINMEIの品質</p>
+            <h1>進化し続ける技術と揺るぎない品質</h1>
           </div>
           <div class="works-text">
             <p>
@@ -22,10 +22,179 @@ import Carousel from "../components/Carousel.astro";
               社員一人一人の技術向上に努め、より良い製品をお届けします。
             </p>
           </div>
-          <Carousel />
         </div>
       </div>
     </section>
-    <Cta />
+
+    <!-- Hグレード -->
+    <section id="hgrade" class="works-hgrade">
+      <div class="works-hgrade-inner">
+        <div class="works-section-label">
+          <p lang="en">H GRADE</p>
+          <h2>国土交通大臣認定工場「Hグレード」</h2>
+        </div>
+        <p class="works-hgrade-lead">
+          当社は、社会の基盤を支える鉄骨製作において「妥協のない品質」を追求しています。<br />
+          国土交通大臣認定「Hグレード」を基に、高度な技術力と最新の自動化設備を融合。<br />
+          複雑化する大規模建築のニーズに対し、確かな安心と精度でお応えします。
+        </p>
+        <ul class="works-hgrade-features">
+          <li class="works-hgrade-feature">
+            <span class="works-hgrade-feature-num" lang="en">01</span>
+            <h3>厳格な品質管理体制</h3>
+            <p>材料の受入検査から加工、溶接、最終製品検査に至るまで、Hグレードの基準に基づいた独自の品質管理マニュアルを運用。目に見えない溶接内部の欠陥も、超音波深傷検査等の非破壊検査によって厳格にチェックする体制を構築しています。</p>
+          </li>
+          <li class="works-hgrade-feature">
+            <span class="works-hgrade-feature-num" lang="en">02</span>
+            <h3>高度な溶接技術の継承</h3>
+            <p>AW検定資格を保有する溶接技術者が多数在籍。Hグレードに求められる板厚や材質に対する、高度な溶接品質を安定的に提供しています。</p>
+          </li>
+          <li class="works-hgrade-feature">
+            <span class="works-hgrade-feature-num" lang="en">03</span>
+            <h3>トレーサビリティの徹底</h3>
+            <p>使用する鋼材のミルシート（鋼材検査証明書）管理から、どの部分がどの工程を通ったのかの記録までを完全デジタル化。万全のバックアップ体制を整えています。</p>
+          </li>
+        </ul>
+
+      </div>
+      <div class="works-hgrade-photo">
+        <img src="/assets/images/hgrade.jpg" alt="工場内の自動化ライン" />
+        <p lang="en">Relentless Pursuit of Quality</p>
+      </div>
+    </section>
+
+    <!-- 営業品目・施工実績 -->
+    <section id="business" class="works-business">
+      <div class="works-business-inner">
+        <div class="works-section-label works-section-label--white">
+          <p lang="en">BUSINESS</p>
+          <h2>営業品目・受注実績</h2>
+        </div>
+
+        <!-- 金属製品製造業・鋼構造物工事業 -->
+        <div class="works-business-card">
+          <h3 class="works-business-card-name">
+            金属製品製造業・鋼構造物工事業
+          </h3>
+          <ul class="works-business-card-detail">
+            <li>成田南物流施設新築工事</li>
+            <li>株式会社ミラプロ(仮称)宮城工場新築工事</li>
+            <li>(仮称)Landport 横浜杉田新築工事</li>
+            <li>(仮称)九段南四丁目計画新築工事</li>
+            <li>仙台小林製薬株式会社医薬品新工場建設工事</li>
+            <li>(仮称)PMO 水道橋計画新築工事</li>
+            <li>(仮称)NRT12 新築工事</li>
+            <li>(株)トーモク青森工場移転増築及び改修工事</li>
+            <li>東和薬品株式会社山形工場第三期建設工事</li>
+            <li>青森県青森市新町一丁目地区優良建築物等整備工事</li>
+            <li>弘前大学(医病)病棟新営設計業務(建築)</li>
+            <li>盛岡南公園野球場(仮称)整備事業</li>
+            <li>(仮称)ハロウインターナショナルスクール安比新築工事</li>
+            <li>竹本油脂株式会社鹿島工場増築工事</li>
+            <li>つがる市一般廃棄物最終処分場建設工事</li>
+            <li>仙台病院建替整備工事</li>
+          </ul>
+        </div>
+
+        <!-- 管工事業 -->
+        <div class="works-business-card">
+          <h3 class="works-business-card-name">管工事業</h3>
+          <ul class="works-business-card-detail">
+            <li>タンク補修</li>
+            <li>ボイラー室蒸気バルブ等更新工事</li>
+            <li>プレハブ二重管更新工事</li>
+            <li>蒸気配管電動弁等更新工事</li>
+            <li>ユニットヒーター等更新工事</li>
+            <li>石橋地区蒸気配管補修工事</li>
+            <li>エアハンドリングユニット蒸気コイル交換</li>
+            <li>構内消化配管補修工事</li>
+          </ul>
+        </div>
+
+        <!-- その他営業品目 -->
+        <div class="works-business-row">
+          <div class="works-business-card works-business-card--simple">
+            <h3 class="works-business-card-name">消防施設工事業</h3>
+          </div>
+          <div class="works-business-card works-business-card--simple">
+            <h3 class="works-business-card-name">水道施設工事業</h3>
+          </div>
+          <div class="works-business-card works-business-card--simple">
+            <h3 class="works-business-card-name">建築工事業</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工事実績 -->
+    <section id="results" class="works-results">
+      <div class="works-results-inner">
+        <div class="works-section-label works-section-label--white">
+          <p lang="en">RESULTS</p>
+          <h2>工事実績</h2>
+        </div>
+        <Carousel />
+      </div>
+    </section>
+
+    <!-- 有資格者 -->
+    <section id="qualified" class="works-qualified">
+      <div class="works-qualified-inner">
+        <div class="works-section-label">
+          <p lang="en">QUALIFIED PERSONNEL</p>
+          <h2>有資格者数</h2>
+        </div>
+        <p class="works-qualified-note">※2026年3月31日現在</p>
+        <div class="works-qualified-table-wrap">
+          <table class="works-qualified-table">
+            <thead>
+              <tr>
+                <th>資格名</th>
+                <th>人数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>一級建築施工管理技士</td><td>1名</td></tr>
+              <tr><td>二級建築施工管理技士</td><td>1名</td></tr>
+              <tr><td>一級管工事施工管理技士</td><td>3名</td></tr>
+              <tr><td>二級管工事施工管理技士</td><td>2名</td></tr>
+              <tr><td>二級土木施工管理技士</td><td>2名</td></tr>
+              <tr><td>一級配管技能士</td><td>2名</td></tr>
+              <tr><td>一級建築士</td><td>2名</td></tr>
+              <tr><td>二級建築士</td><td>1名</td></tr>
+              <tr><td>WES 8103（2級）</td><td>7名</td></tr>
+              <tr><td>鉄骨製作管理技術者（1級）</td><td>11名</td></tr>
+              <tr><td>鉄骨製作管理技術者（2級）</td><td>1名</td></tr>
+              <tr><td>鉄骨製品検査技術者</td><td>14名</td></tr>
+              <tr><td>建築高力ボルト接合管理技術者</td><td>4名</td></tr>
+              <tr><td>溶融亜鉛めっき高力ボルト技術者</td><td>2名</td></tr>
+              <tr><td>溶融亜鉛めっき高力ボルト技能者</td><td>5名</td></tr>
+              <tr><td>非破壊試験技術者（レベル2）</td><td>2名</td></tr>
+              <tr><td>非破壊試験技術者（レベル1）</td><td>1名</td></tr>
+              <tr><td>建築鉄骨超音波検査技術者</td><td>3名</td></tr>
+              <tr><td>ガス溶接作業主任者</td><td>28名</td></tr>
+              <tr><td>JIS半自動溶接</td><td>26名</td></tr>
+              <tr><td>JISアーク溶接</td><td>9名</td></tr>
+              <tr><td>JISすみ肉溶接</td><td>6名</td></tr>
+              <tr><td>鉄骨組立作業主任者</td><td>2名</td></tr>
+              <tr><td>玉掛作業主任者</td><td>39名</td></tr>
+              <tr><td>危険物取扱者</td><td>2名</td></tr>
+              <tr><td>電気工事士</td><td>1名</td></tr>
+              <tr><td>消防設備士免状</td><td>1名</td></tr>
+              <tr><td>排水設備工事責任技術者</td><td>2名</td></tr>
+              <tr><td>液化石油ガス設備士</td><td>2名</td></tr>
+              <tr><td>浄化槽設備士</td><td>1名</td></tr>
+              <tr><td>給水装置工事主任技術者</td><td>2名</td></tr>
+              <tr><td>水管技能者登録証</td><td>2名</td></tr>
+              <tr><td>酸素欠乏・硫化水素危険作業主任者</td><td>1名</td></tr>
+              <tr><td>排水設備配管工</td><td>1名</td></tr>
+              <tr><td>特定化学物質等作業主任者</td><td>6名</td></tr>
+              <tr><td>AW検定工場溶接</td><td>5名</td></tr>
+              <tr><td>AW検定ロボットオペレーター溶接</td><td>3名</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

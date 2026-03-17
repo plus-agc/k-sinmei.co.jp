@@ -3,22 +3,21 @@
 .top {
   &-inner {
     position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: 100vh;
+    height: calc(100dvh - 60px);
     background-color: g.$palette-blue;
     overflow: hidden;
+
+    @include g.mq(sp) {
+      height: 50vh;
+      height: 50dvh;
+    }
   }
 
   &-header {
     position: absolute;
     z-index: 3;
-    // fixed ナビ高さ60pxの半分をオフセットして視覚的中央に合わせる
-    top: calc(50% + 30px);
-
-    @include g.mq(sp) {
-      top: 100%;
-    }
-
+    top: 50%;
     left: -1%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
@@ -46,9 +45,13 @@
 
   &-image {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 5%;
+    bottom: 5%;
+    left: 11%;
+    right: 11%;
+    width: auto;
+    height: auto;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -73,12 +76,10 @@
     font-size: clamp(2.063rem, 1.495rem + 2.42vw, 3.563rem);
     font-weight: 800;
     position: absolute;
-    top: 40%;
-
-    @include g.mq(sp) {
-      top: 125%;
-    }
-
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     right: 5%;
     display: flex;
     flex-direction: column;
@@ -125,6 +126,15 @@
         clip-path: polygon(0 0, 100% 0, 100% 30%, 35% 30%, 35% 35%, 0 35%);
       }
     }
+
+    // 背景画像を暗くして文字を読みやすくするオーバーレイ
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
   }
 
   &-main {
@@ -136,6 +146,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    position: relative;
+    z-index: 2;
+
+    @include g.mq(sp) {
+      padding: 80px 33px 100px;
+      align-items: stretch;
+    }
 
     &_half {
       width: 560px;
@@ -150,69 +167,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 
-    p:nth-of-type(1) {
-      margin-bottom: clamp(3.125rem, 2.084rem + 4.44vw, 5.875rem);
+    p {
       font-size: clamp(2.063rem, 1.495rem + 2.42vw, 3.563rem);
       line-height: 1.38;
       text-align: right;
       letter-spacing: 0.03em;
-      align-self: flex-end;
-    }
+      width: fit-content;
+      margin-bottom: 0.25rem;
 
-    p:nth-of-type(2) {
-      margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
-      font-size: clamp(1.375rem, 0.949rem + 1.82vw, 2.5rem);
-      display: inline-block;
-      padding-bottom: 0.938rem;
-      position: relative;
-      z-index: 3;
-      text-align: right;
-      letter-spacing: 0.06em;
-
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 8%;
-        width: 8%;
-        height: 3px;
-        background-color: g.$palette-blue;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 8%;
-        height: 3px;
-        background-color: g.$palette-lightblue;
-      }
-
-      @include g.mq(sp) {
-        text-align: justify;
-
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          right: 10%;
-          width: 10%;
-          height: 3px;
-          background-color: g.$palette-blue;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 10%;
-          height: 3px;
-          background-color: g.$palette-lightblue;
-        }
+      &:last-child {
+        margin-bottom: clamp(3.125rem, 2.084rem + 4.44vw, 5.875rem);
       }
     }
   }
@@ -221,6 +187,10 @@
     margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
 
     line-height: 2.2;
+
+    p {
+      width: fit-content;
+    }
 
     br {
       display: none;
@@ -332,6 +302,40 @@
     &_large {
       font-size: 1.5em;
       display: block;
+    }
+  }
+
+  &-link {
+    font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: g.$palette-white;
+      gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+
+      p {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        width: fit-content;
+      }
+
+      img {
+        width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+        transition: transform 0.5s ease;
+      }
+    }
+
+    a:hover {
+      img {
+        transform: translateX(10px);
+        transition: transform 0.5s ease;
+      }
     }
   }
 }
@@ -784,6 +788,13 @@
     flex-wrap: wrap;
     padding: clamp(0.313rem, 0.218rem + 0.4vw, 0.563rem);
 
+    // SPでは1枚表示のスライダーに切り替え
+    @include g.mq(sp) {
+      height: 75vw;
+      padding: 0;
+      overflow: hidden;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -794,6 +805,11 @@
       background: g.$palette-blue;
       clip-path: polygon(100% 0, 0% 100%, 100% 100%);
       z-index: 2;
+
+      // SPではスライダー上に重ねない
+      @include g.mq(sp) {
+        display: none;
+      }
     }
 
     img {
@@ -807,8 +823,21 @@
         flex: 0 0 calc(33.3333% - 10px);
       }
 
+      // SP時はスライダー表示（1枚ずつフェード切り替え）
       @include g.mq(sp) {
-        flex: 0 0 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        flex: unset;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+
+        &.is-active {
+          opacity: 1;
+        }
       }
     }
   }
@@ -819,62 +848,79 @@
   }
 
   &-main {
-    padding: 120px 33px 120px;
-
-    @include g.mq(sp) {
-      padding: 80px 33px 100px;
-    }
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 2rem + 4vw, 6rem);
+    align-items: center;
+    padding: clamp(5rem, 4rem + 4vw, 8rem) 33px;
     max-width: g.$layout-width-inner;
     margin: 0 auto;
     background-image: url("/assets/images/top009_recruit_back.jpg"),
-    url("/assets/images/top010_recruit_back.jpg");
-    background-position: top right,
-    left bottom;
-
-    @include g.mq(sp) {
-      background-position:
-        top right,
-        left bottom -150px;
-    }
-
-    background-size: 313px,
-    398px;
-
-    @include g.mq(sp) {
-      background-size: 188px, 261px;
-    }
-
-    background-repeat: no-repeat,
-    no-repeat;
+      url("/assets/images/top010_recruit_back.jpg");
+    background-position: top right, left bottom;
+    background-size: 313px, 398px;
+    background-repeat: no-repeat, no-repeat;
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: darken;
+
+    @include g.mq(sp) {
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 2rem + 2vw, 4rem);
+      padding: clamp(4rem, 3rem + 4vw, 6rem) 33px;
+      background-size: 188px, 261px;
+      background-position: top right, left bottom -150px;
+    }
+  }
+
+  // 左カラム：大見出しキャッチコピー
+  &-catch {
+    p {
+      font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.875rem);
+      font-weight: 800;
+      line-height: 1.5;
+      color: g.$palette-white;
+      position: relative;
+      padding-left: 1.25rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.15em;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: g.$palette-red;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  // 右カラム：タイトル・テキスト・リンク
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 1.5rem + 2vw, 3rem);
   }
 
   &-tit {
-    margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
-    text-align: center;
     position: relative;
     padding-bottom: 0.938rem;
 
-    // 2色下線（全体：赤）
     &::before {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
       width: 100px;
       height: 3px;
       background: g.$palette-red;
     }
 
-    // 2色下線（左半分：青）
     &::after {
       content: "";
       position: absolute;
       bottom: 0;
-      left: calc(50% - 50px);
+      left: 0;
       width: 50px;
       height: 3px;
       background: g.$palette-blue;
@@ -889,28 +935,23 @@
       display: block;
       position: relative;
       z-index: 3;
-      margin-top: 2rem;
+      margin-top: 1.25rem;
     }
   }
 
   &-text {
-    margin-bottom: clamp(3.125rem, 2.415rem + 3.03vw, 5rem);
-
-    p {
-      line-height: 2.2;
-    }
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    line-height: 2;
+    opacity: 0.85;
   }
 
   &-link {
-    font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
     a {
       display: flex;
       align-items: center;
-      justify-content: center;
       text-decoration: none;
       gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
 
@@ -925,11 +966,8 @@
       }
     }
 
-    a:hover {
-      img {
-        transform: translateX(10px);
-        transition: transform 0.5s ease;
-      }
+    a:hover img {
+      transform: translateX(10px);
     }
   }
 }

@@ -1,40 +1,25 @@
 ---
+import { client } from "../lib/microcms";
+import type { Work } from "../lib/microcms";
 
+const { contents: works } = await client.getList<Work>({
+  endpoint: "works",
+  queries: { limit: 100, orders: "-publishedAt" },
+});
 ---
 
 <div class="works-carousel">
-  <div class="carousel-item">
-    <img src="/assets/images/slide010.jpg" alt="スライド10" /><p>
-      新青森県総合運動公園マエダアリーナ50mプール
-    </p>
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide001.jpg" alt="スライド1" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide002.jpg" alt="スライド2" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide003.jpg" alt="スライド3" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide004.jpg" alt="スライド4" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide005.jpg" alt="スライド5" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide006.jpg" alt="スライド6" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide007.jpg" alt="スライド7" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide008.jpg" alt="スライド8" />
-  </div>
-  <div class="carousel-item">
-    <img src="/assets/images/slide009.jpg" alt="スライド9" />
-  </div>
+  {
+    works.map((work) => (
+      <div class="carousel-item">
+        {work.completionYear && (
+          <span class="carousel-item-year">{work.completionYear}年</span>
+        )}
+        <img src={work.image.url} alt={work.title} />
+        {work.title && <p class="carousel-item-title">{work.title}</p>}
+      </div>
+    ))
+  }
 </div>
 <div class="carousel-pagination">
   <button id="prevBtn">
@@ -164,15 +149,31 @@
 <style lang="scss">
   .carousel-item {
     position: relative;
-    p {
-      line-height: 100%;
+
+    // 竣工年ラベル（画像左上）
+    &-year {
       position: absolute;
-      bottom: 0;
-      padding: 12px 12px 8px 12px;
-      background-color: rgba(0, 0, 0, 0.3);
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      background-color: rgba(16, 45, 142, 0.85);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      line-height: 1;
+      padding: 4px 8px;
+      letter-spacing: 0.05em;
+    }
+
+    // タイトル（画像下）
+    &-title {
+      display: block;
+      padding: 8px 10px;
       font-size: clamp(0.625rem, 0.568rem + 0.29vw, 0.75rem);
-      width: 100%;
-      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+      background-color: transparent;
+      text-align: left;
     }
   }
 </style>

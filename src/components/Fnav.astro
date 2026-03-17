@@ -5,45 +5,87 @@
 <nav class="footer-nav">
   <div class="footer-inner">
     <ul class="footer-list">
-      <li>
-        COMPANY<span>株式会社SINMEIについて</span>
+      <li data-accordion>
+        <button class="footer-accordion-btn">SINMEIについて</button>
         <ul>
           <li>
-            <a href="/company" lang="en"
-              >company overview<span>会社概要</span></a
-            >
+            <a href="/company#message">社長メッセージ</a>
           </li>
           <li>
-            <a href="/company" lang="en">history<span>沿革</span></a>
+            <a href="/company#overview">会社概要・沿革</a>
+          </li>
+          <li>
+            <a href="/company#community">地域貢献</a>
+          </li>
+          <li>
+            <a href="/company#access">アクセス</a>
+          </li>
+          <li>
+            <a href="/company#sdgs">SDGs</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="/works" lang="en">works<span>施工実績</span></a>
+        <a href="/news">お知らせ</a>
       </li>
-      <li>
-        Our MISSION<span>SINMEIの取組み</span>
+      <li data-accordion>
+        <button class="footer-accordion-btn">事業内容</button>
         <ul>
           <li>
-            <a href="/sdgs">SDGs <span>持続可能な開発目標</span></a>
+            <a href="/works#hgrade">Hグレード</a>
+          </li>
+          <li>
+            <a href="/works#business">営業品目・受注実績</a>
+          </li>
+          <li>
+            <a href="/works#results">工事実績</a>
+          </li>
+          <li>
+            <a href="/works#qualified">有資格者数</a>
+          </li>
+        </ul>
+      </li>
+      <li data-accordion>
+        <button class="footer-accordion-btn">採用情報</button>
+        <ul>
+          <li>
+            <a href="/recruit#stats">数字で見るSINMEI</a>
+          </li>
+          <li>
+            <a href="/recruit#benefits">福利厚生</a>
+          </li>
+          <li>
+            <a href="/recruit#qualification">資格取得制度</a>
+          </li>
+          <li>
+            <a href="/recruit#voices">先輩社員の声</a>
+          </li>
+          <li>
+            <a href="/recruit#openings">募集職種</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="/recruit" lang="en">recruit<span>採用情報</span></a>
-      </li>
-      <li>
-        <a href="/news" lang="en">news<span>お知らせ</span></a>
-      </li>
-      <li>
-        <a href="/contact" lang="en">contact<span>お問い合わせ</span></a>
-      </li>
-      <li>
-        <a href="/special-thanks" lang="en">special thanks</a>
+        <a href="/contact" class="footer-contact-btn">お問い合わせ</a>
       </li>
     </ul>
-    <div class="footer-icon">
-      <figure>
+    <div class="footer-bottom" lang="ja">
+      <!-- ロゴ -->
+      <div class="footer-bottom-logo">
+        <img src="/assets/images/sinmei-logo.svg" alt="株式会社SINMEIロゴ" />
+      </div>
+      <!-- 住所・電話番号 -->
+      <div class="footer-bottom-info">
+        <p>本 社　青森県五所川原市大字太刀打字常盤83-2</p>
+        <p>TEL 0173-34-4320　FAX 0173-33-4776</p>
+      </div>
+      <!-- プライバシーポリシー・サイトポリシー -->
+      <div class="footer-bottom-policies">
+        <a href="/privacy-policy">プライバシーポリシー</a>
+        <a href="/site-policy">サイトポリシー</a>
+      </div>
+      <!-- Instagramアイコン -->
+      <div class="footer-bottom-instagram">
         <a
           href="https://www.instagram.com/sinmei4320/"
           target="_blank"
@@ -54,21 +96,19 @@
             alt="株式会社SINMEI Instagram"
           />
         </a>
-      </figure>
-    </div>
-    <div class="footer-text" lang="ja">
-      <figure>
-        <img src="/assets/images/sinmei-logo.svg" alt="株式会社SINMEIロゴ" />
-      </figure>
-      <p>
-        <span>本 社</span>
-        <span>青森県五所川原市大字太刀打字常盤83-2</span>
-        <span>TEL 0173-34-4320</span>
-        <span>FAX 0173-33-4776</span>
-      </p>
+      </div>
     </div>
     <div class="footer-copy" lang="ja">
       <p>Copyright &copy;株式会社SINMEI</p>
     </div>
   </div>
 </nav>
+
+<script>
+  // フッターアコーディオン（PC・SP共通）
+  document.querySelectorAll(".footer-accordion-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.closest("li[data-accordion]").classList.toggle("is-open");
+    });
+  });
+</script>
