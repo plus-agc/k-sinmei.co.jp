@@ -136,16 +136,18 @@ function convertImgToPicture(html) {
     return `__PICTURE_PLACEHOLDER_${idx}__`;
   });
 
-  // JPG/PNG の <img> を <picture> に変換
+  // JPG/PNG の <img> を <picture> に変換（ローカルパスのみ、外部URLは除外）
   const converted = withPlaceholders.replace(
-    /<img(\s[^>]*?)src=(["'])((?:[^"']*\/)?[^"']+\.(jpe?g|png))\2([^>]*?)(\s*\/?>)/gi,
+    /<img(\s[^>]*?)src=(["'])((?:\.{0,2}\/)[^"']*?[^"']+\.(jpe?g|png))\2([^>]*?)(\s*\/?>)/gi,
     (match, before, quote, src, ext, after, closing) => {
       // avif/webp のパスを src から生成
       const avifSrc = src.replace(/\.(jpe?g|png)$/i, '.avif');
       const webpSrc = src.replace(/\.(jpe?g|png)$/i, '.webp');
       // 元の <img> タグを再構成（属性はそのまま）
       const imgTag = `<img${before}src=${quote}${src}${quote}${after}${closing}`;
-      return `<picture><source srcset="${avifSrc}" type="image/avif"><source srcset="${webpSrc}" type="image/webp">${imgTag}</picture>`;
+      // display:contents で <picture> 自体をレイアウトから除外し、
+      // <img> が直接 flex/grid アイテムとして振る舞うようにする
+      return `<picture style="display:contents"><source srcset="${avifSrc}" type="image/avif"><source srcset="${webpSrc}" type="image/webp">${imgTag}</picture>`;
     }
   );
 

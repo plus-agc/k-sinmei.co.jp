@@ -24,7 +24,12 @@
       "Bash(ls -lh /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/*.jpg /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/*.png)",
       "Bash(identify /Users/admin/Dev/k-sinmei.co.jp/public/assets/images/recruit_top.jpg)",
       "Bash(node --input-type=module -e \":*)",
-      "Bash(pip3 install:*)"
+      "Bash(pip3 install:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/admin/Dev/k-sinmei.co.jp/**)",
+      "Bash(done)",
+      "Bash(pkill -f \"astro preview\")"
     ]
   },
   "enableAllProjectMcpServers": true,
