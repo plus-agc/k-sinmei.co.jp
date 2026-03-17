@@ -82,6 +82,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
+    @include g.mq(tab) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     @include g.mq(sp) {
       grid-template-columns: repeat(1, 1fr);
     }
@@ -93,15 +97,17 @@
     .carousel-item {
       width: 100%;
       height: auto;
-      overflow: hidden;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
+      display: flex;
+      flex-direction: column;
     }
 
     .carousel-item img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
+      display: block;
     }
 
     .carousel-item.is-active {
@@ -351,6 +357,177 @@
 }
 
 // ========================================
+// Hグレード
+// ========================================
+.works-hgrade {
+  background-color: #f5f7fc;
+
+  &-inner {
+    max-width: g.$layout-width-inner;
+    margin: 0 auto;
+    padding: clamp(3.5rem, 2.5rem + 3vw, 5.25rem) 33px clamp(3rem, 2rem + 2.5vw, 4.5rem);
+  }
+
+  // セクションラベルの下余白を上書き
+  .works-section-label {
+    margin-bottom: 1.5rem;
+
+    h2 {
+      color: g.$palette-blue;
+    }
+  }
+
+  &-lead {
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    line-height: 2.2;
+    color: #333;
+    margin-bottom: clamp(2.5rem, 2rem + 1.5vw, 3.5rem);
+    padding-left: 1.25rem;
+    border-left: 3px solid g.$palette-lightblue;
+  }
+
+  &-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 clamp(2.5rem, 1.8rem + 2vw, 4rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+
+    @include g.mq(tab) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &-feature {
+    background-color: #fff;
+    border-top: 4px solid g.$palette-blue;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  &-feature-num {
+    font-size: clamp(1.75rem, 1.447rem + 1.29vw, 2.5rem);
+    font-weight: 800;
+    color: g.$palette-lightblue;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  &-feature {
+    h3 {
+      font-size: clamp(0.938rem, 0.881rem + 0.24vw, 1.063rem);
+      font-weight: 800;
+      color: g.$palette-blue;
+      line-height: 1.5;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #dde3f0;
+    }
+
+    p {
+      font-size: clamp(0.813rem, 0.776rem + 0.16vw, 0.875rem);
+      line-height: 1.9;
+      color: #555;
+      font-weight: 400;
+      font-family: "Noto Sans JP", sans-serif;
+    }
+  }
+
+  &-equipment {
+    h3 {
+      font-size: clamp(1rem, 0.848rem + 0.65vw, 1.375rem);
+      font-weight: 800;
+      color: g.$palette-blue;
+      padding-left: 1rem;
+      border-left: 4px solid g.$palette-lightblue;
+      margin-bottom: 0.875rem;
+    }
+  }
+
+  &-equipment-lead {
+    font-size: clamp(0.813rem, 0.776rem + 0.16vw, 0.875rem);
+    line-height: 1.9;
+    color: #333;
+    font-family: "Noto Sans JP", sans-serif;
+    margin-bottom: 1.25rem;
+  }
+
+  &-photo {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: clamp(240px, 30vw, 480px);
+      object-fit: cover;
+      display: block;
+    }
+
+    p {
+      position: absolute;
+      bottom: clamp(1rem, 2vw, 2rem);
+      left: 50%;
+      transform: translateX(-50%);
+      color: g.$palette-white;
+      font-size: clamp(1rem, 0.697rem + 1.29vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.works-hgrade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: 800;
+  min-width: 500px;
+
+  thead tr {
+    background-color: g.$palette-blue;
+    color: g.$palette-white;
+  }
+
+  th {
+    padding: 0.875rem 1.25rem;
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    font-weight: 800;
+    text-align: left;
+    letter-spacing: 0.05em;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #dde3f0;
+    transition: background-color 0.2s;
+
+    &:nth-child(even) {
+      background-color: #eef1f9;
+    }
+
+    &:hover {
+      background-color: #dce3f5;
+    }
+  }
+
+  td {
+    padding: 0.875rem 1.25rem;
+    font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
+    color: #333;
+    line-height: 1.7;
+    vertical-align: top;
+
+    &:first-child {
+      font-weight: 800;
+      color: g.$palette-blue;
+      white-space: nowrap;
+    }
+  }
+}
+
+// ========================================
 // 営業品目・施工実績
 // ========================================
 .works-business {
@@ -456,7 +633,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 92px;
+      gap: clamp(2rem, 1.203rem + 3.4vw, 5.75rem);
     }
 
     #currentPage {
@@ -485,6 +662,12 @@
     margin: 0 auto;
     padding: 0 33px;
   }
+}
+
+.works-qualified-note {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.75rem;
 }
 
 .works-qualified-table-wrap {

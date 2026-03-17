@@ -54,18 +54,6 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
     <Pagetop />
     <Footer />
     <script>
-      // ハンバーガーメニューのトグル
-      // 機能: ハンバーガーメニューの表示・非表示を切り替える。
-      // 詳細: .gnav-hamburgerと.gnav-listのクラスにis-activeをトグルすることで、メニューの開閉を制御。
-      const toggleMenu = () => {
-        const gnavList = document.querySelector(".gnav-list");
-        const gnavHamburger = document.querySelector(".gnav-hamburger");
-        if (gnavList && gnavHamburger) {
-          gnavList.classList.toggle("is-active");
-          gnavHamburger.classList.toggle("is-active");
-        }
-      };
-
       // ナビゲーション背景色の変更
       // 機能: スクロール位置に応じてナビゲーションバーの背景色を変更。
       // 詳細: スクロールが60pxを超えると、背景色を半透明に変更。
@@ -100,14 +88,6 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
           }
         }
       };
-
-      // ハンバーガーメニューのクリックイベント
-      // 機能: ハンバーガーメニュークリック時にメニューを開閉。
-      // 詳細: ハンバーガーアイコンにクリックイベントリスナーを追加。
-      const gnavHamburger = document.querySelector(".gnav-hamburger");
-      if (gnavHamburger) {
-        gnavHamburger.addEventListener("click", toggleMenu);
-      }
 
       // スクロールイベントの追加
       // 機能: スクロール時に背景色変更とパララックス効果を適用。

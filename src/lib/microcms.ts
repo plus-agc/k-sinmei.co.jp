@@ -38,5 +38,6 @@ export type Work = {
     height: number;
     width: number;
   };
+  completionYear?: number;
   description?: string;
 };

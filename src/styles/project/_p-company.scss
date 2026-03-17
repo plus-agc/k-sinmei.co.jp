@@ -240,8 +240,7 @@
     font-size: clamp(0.75rem, 0.693rem + 0.24vw, 0.875rem);
     font-weight: 800;
     color: g.$palette-blue;
-    text-align: justify;
-    text-align-last: justify;
+    text-align: left;
     vertical-align: top;
     border-right: 1px solid #dde3f0;
 

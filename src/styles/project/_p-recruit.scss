@@ -144,6 +144,55 @@ body {
     }
   }
 
+  // 先輩社員の声：ウォーターマーク装飾
+  &--voice {
+    position: relative;
+    padding-top: 1rem;
+    margin-bottom: clamp(3rem, 2rem + 4vw, 5rem);
+
+    // 大きな背景装飾テキスト「VOICE」
+    p {
+      position: absolute;
+      top: -0.6em;
+      left: -0.1em;
+      font-size: clamp(4rem, 2rem + 8vw, 9rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(16, 45, 142, 0.12);
+      line-height: 1;
+      margin: 0;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    // 日本語タイトル
+    h2 {
+      position: relative;
+      font-size: clamp(1.75rem, 1.2rem + 2.3vw, 3rem);
+      color: g.$palette-blue;
+      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      // 英語サブテキスト
+      span {
+        display: block;
+        font-size: clamp(0.625rem, 0.507rem + 0.5vw, 0.875rem);
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        color: g.$palette-lightblue;
+      }
+
+      // 下線なし（ウォーターマーク版では不要）
+      &::after {
+        display: none;
+      }
+    }
+  }
+
   // 白（青背景）用
   &--white {
     p {
@@ -612,11 +661,6 @@ body {
     }
     .recruit-voice-visual {
       order: 1;
-      // キーワードを左側へ
-      flex-direction: row-reverse;
-      .recruit-voice-keyword {
-        text-align: right;
-      }
     }
   }
 
@@ -625,7 +669,7 @@ body {
 
     &--reverse {
       .recruit-voice-content { order: 1; }
-      .recruit-voice-visual { order: 2; flex-direction: row; }
+      .recruit-voice-visual { order: 2; }
     }
   }
 }
@@ -652,6 +696,14 @@ body {
   letter-spacing: 0.08em;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid g.$palette-lightblue;
+
+  &-sub {
+    display: block;
+    font-size: 0.6em;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+  }
 }
 
 .recruit-voice-text {
@@ -666,19 +718,16 @@ body {
 
 .recruit-voice-visual {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 0.75rem;
+  flex-direction: column;
 }
 
 .recruit-voice-photo {
-  flex: 1;
   margin: 0;
   overflow: hidden;
 
   img {
     width: 100%;
-    height: clamp(18rem, 28vw, 28rem);
+    height: clamp(16rem, 26vw, 26rem);
     object-fit: cover;
     object-position: top center;
     display: block;
@@ -686,16 +735,30 @@ body {
 }
 
 .recruit-voice-keyword {
-  writing-mode: vertical-rl;
-  font-size: clamp(1.75rem, 2.5vw, 3rem);
+  // 画像の上に横書きで配置
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to right, rgba(16, 45, 142, 0.95) 0%, rgba(16, 45, 142, 0.75) 100%);
+  color: g.$palette-white;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 800;
-  color: g.$palette-blue;
-  line-height: 1.15;
-  letter-spacing: 0.08em;
-  // 長いテキストが写真の高さを超えたら複数列に折り返す
-  white-space: normal;
-  max-height: clamp(18rem, 28vw, 28rem);
-  flex-shrink: 0;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
   margin: 0;
-  padding-top: 0.25rem;
+
+  &::before {
+    content: "「";
+    font-size: 1.5em;
+    margin-right: 0.1em;
+  }
+
+  &::after {
+    content: "」";
+    font-size: 1.5em;
+    margin-left: 0.1em;
+  }
+
+  // 初文字：大きく目立たせる
+  &-initial {
+    font-size: inherit;
+  }
 }

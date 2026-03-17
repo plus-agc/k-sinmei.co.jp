@@ -9,9 +9,6 @@ import Layout from "../layouts/Layout.astro";
         <!-- ヘッダー画像（変更なし） -->
         <div class="recruit-header">
           <img src="/assets/images/recruit_top.jpg" alt="採用情報 トップ画像" />
-          <div>
-            <img src="/assets/images/recruit-top.svg" alt="SING ME&I" />
-          </div>
         </div>
         <div class="recruit-main">
           <div class="recruit-tit">
@@ -216,9 +213,9 @@ import Layout from "../layouts/Layout.astro";
     <!-- 先輩社員の声 -->
     <section class="recruit-voices">
       <div class="recruit-voices-inner">
-        <div class="recruit-section-head">
-          <p lang="en">Voices of Senior Employees</p>
-          <h2>先輩社員の声</h2>
+        <div class="recruit-section-head recruit-section-head--voice">
+          <p lang="en" aria-hidden="true">VOICE</p>
+          <h2>先輩社員の声<span>Voices of Senior Employees</span></h2>
         </div>
 
         <!-- A: 白澤 由弥 -->
@@ -241,7 +238,8 @@ import Layout from "../layouts/Layout.astro";
               <img src="/assets/images/recruit-A.png" alt="白澤 由弥" />
             </figure>
             <p class="recruit-voice-keyword" aria-hidden="true">
-              活気溢れる<br />確かな成長を
+              <span class="recruit-voice-keyword-initial">活</span
+              >気溢れる環境で確かな成長を
             </p>
           </div>
         </div>
@@ -266,7 +264,8 @@ import Layout from "../layouts/Layout.astro";
               <img src="/assets/images/recruit-B.png" alt="佐々木 英貴" />
             </figure>
             <p class="recruit-voice-keyword" aria-hidden="true">
-              笑顔で働ける<br />環境づくり
+              <span class="recruit-voice-keyword-initial">笑</span
+              >顔で働ける環境づくり
             </p>
           </div>
         </div>
@@ -291,7 +290,8 @@ import Layout from "../layouts/Layout.astro";
               <img src="/assets/images/recruit-D.png" alt="三橋 丈二" />
             </figure>
             <p class="recruit-voice-keyword" aria-hidden="true">
-              魂を込めて<br />加工する
+              <span class="recruit-voice-keyword-initial">魂</span
+              >を込めて加工する
             </p>
           </div>
         </div>
@@ -316,7 +316,8 @@ import Layout from "../layouts/Layout.astro";
               <img src="/assets/images/recruit-E.png" alt="三橋 拓哉" />
             </figure>
             <p class="recruit-voice-keyword" aria-hidden="true">
-              技を磨き<br />現場を担う
+              <span class="recruit-voice-keyword-initial">技</span
+              >を磨き現場を担う
             </p>
           </div>
         </div>
@@ -345,7 +346,8 @@ import Layout from "../layouts/Layout.astro";
               <img src="/assets/images/recruit-C.png" alt="佐藤 文彰" />
             </figure>
             <p class="recruit-voice-keyword" aria-hidden="true">
-              プロフェッショナルとして最高品質を提供し続ける
+              <span class="recruit-voice-keyword-initial">プ</span
+              >ロフェッショナルとして最高品質を提供し続ける
             </p>
           </div>
         </div>

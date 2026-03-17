@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const postModules = import.meta.glob<{
-  frontmatter: { pubDate: string; title: string };
-  url: string;
-}>("../pages/news/*.md");
-const allPosts = await Promise.all(
-  Object.values(postModules).map((fn) => fn()),
-);
+import { client } from "../lib/microcms";
+import type { News } from "../lib/microcms";
+
+// トップページ用：最新3件取得
+const { contents: latestNews } = await client.getList<News>({
+  endpoint: "news",
+  queries: { limit: 3, orders: "-publishedAt" },
+});
 ---
 
 <Layout title="株式会社SINMEI">
@@ -80,31 +81,25 @@ const allPosts = await Promise.all(
           </div>
           <ul class="top-news-list">
             {
-              allPosts
-                .sort(
-                  (a, b) =>
-                    new Date(b.frontmatter.pubDate) -
-                    new Date(a.frontmatter.pubDate),
-                )
-                .map((post) => (
-                  <li class="news-item" key={post.url}>
-                    <a href={post.url}>
-                      <div class="news-item-header" lang="ja">
-                        <time datetime={post.frontmatter.pubDate}>
-                          {post.frontmatter.pubDate}
-                        </time>
-                        <p>お知らせ</p>
-                      </div>
-                      <div class="news-item-main">
-                        <p>{post.frontmatter.title}</p>
-                        <img
-                          src="/assets/images/arrow-blue.svg"
-                          alt="矢印アイコン下向き青"
-                        />
-                      </div>
-                    </a>
-                  </li>
-                ))
+              latestNews.map((post) => (
+                <li class="news-item">
+                  <a href={`/news/${post.id}`}>
+                    <div class="news-item-header" lang="ja">
+                      <time datetime={post.publishedAt.slice(0, 10)}>
+                        {post.publishedAt.slice(0, 10)}
+                      </time>
+                      <p>{post.category ?? "お知らせ"}</p>
+                    </div>
+                    <div class="news-item-main">
+                      <p>{post.title}</p>
+                      <img
+                        src="/assets/images/arrow-blue.svg"
+                        alt="矢印アイコン下向き青"
+                      />
+                    </div>
+                  </a>
+                </li>
+              ))
             }
           </ul>
           <div class="top-news-link">
@@ -130,7 +125,7 @@ const allPosts = await Promise.all(
             </div>
             <div class="top-company-link">
               <a href="/company">
-                <p lang="en">SINMEIとは</p>
+                <p lang="en">SINMEIについて</p>
                 <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
               </a>
             </div>
@@ -153,6 +148,12 @@ const allPosts = await Promise.all(
               長年培った高度な技術力と厳格な品質管理体制により、東北エリアから首都圏の超高層ビル、大規模スタジアムに至るまで、都市の象徴となる数々のランドマークを支えてきました。
               設計・作図から工場製作、そして現場施工までを一貫して担う独自の機動力で、安全で揺るぎない社会インフラの構築に貢献し続けます。
             </p>
+          </div>
+          <div class="top-services-link">
+            <a href="/company">
+              <p lang="en">事業内容</p>
+              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
+            </a>
           </div>
         </div>
       </div>
@@ -230,66 +231,36 @@ const allPosts = await Promise.all(
   (document.querySelector(".is-anim_two") as HTMLElement).textContent = "";
   (document.querySelector(".is-anim_three") as HTMLElement).textContent = "";
 
-  // SVGのパス要素を非表示にする
   const svgPaths = document.querySelectorAll("svg path");
+
+  // ヒーロー画像の初期状態を設定（拡大＋透明）
+  gsap.set(".top-image img", { opacity: 0, scale: 1.08 });
+
+  // ページ読み込み直後に画像・SVGを表示開始
+  fadeInImage();
+
   svgPaths.forEach((path) => {
-    (path as SVGPathElement).style.visibility = "hidden";
+    (path as SVGPathElement).style.visibility = "visible";
   });
+  gsap.fromTo(
+    "svg path",
+    { "stroke-dashoffset": "2800px" },
+    { "stroke-dashoffset": "0", duration: 5, stagger: 0.2 },
+  );
 
-  const animOne = new Promise((resolve) => {
-    gsap.to(".is-anim_one", {
-      duration: 1,
-      text: "もっとよいものを",
-      ease: "none",
-      delay: 0,
-      onComplete: resolve,
-    });
-  });
+  gsap.to(".is-anim_one", { duration: 1, text: "もっとよいものを", ease: "none", delay: 0 });
+  gsap.to(".is-anim_two", { duration: 1, text: "責任をもって", ease: "none", delay: 0.5 });
+  gsap.to(".is-anim_three", { duration: 1, text: "作れる会社へ", ease: "none", delay: 1.0 });
 
-  const animTwo = new Promise((resolve) => {
-    gsap.to(".is-anim_two", {
-      duration: 1,
-      text: "責任をもって",
-      ease: "none",
-      delay: 0.5,
-      onComplete: resolve,
-    });
-  });
-
-  const animThree = new Promise((resolve) => {
-    gsap.to(".is-anim_three", {
-      duration: 1,
-      text: "作れる会社へ",
-      ease: "none",
-      delay: 1.0,
-      onComplete: resolve,
-    });
-  });
-
-  Promise.all([animOne, animTwo, animThree]).then(() => {
-    // アニメーションが終了した後にSVGのパス要素を表示にする
-    svgPaths.forEach((path) => {
-      (path as SVGPathElement).style.visibility = "visible";
-    });
-
-    gsap.fromTo(
-      "svg path",
-      { "stroke-dashoffset": "2800px" },
-      {
-        "stroke-dashoffset": "0",
-        duration: 5,
-        stagger: 0.2,
-        onComplete: fadeInImage,
-      },
-    );
-  });
 
   function fadeInImage() {
     // ヒーロー画像のみ対象（リクルート画像はIntersection Observerで制御）
+    // フェードインしながら拡大状態から通常サイズへ縮小（Ken Burns逆効果）
     gsap.to(".top-image img", {
-      duration: 1,
+      duration: 1.8,
       opacity: 1,
-      ease: "power2.inOut",
+      scale: 1,
+      ease: "power2.out",
     });
   }
 

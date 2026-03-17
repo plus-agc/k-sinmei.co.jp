@@ -256,6 +256,12 @@
       align-items: center;
       gap: 20px;
 
+      @include g.mq("sp") {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
       // Instagramアイコンのサイズをテキストに合わせる
       a:last-child {
         display: flex;
@@ -297,6 +303,10 @@
       opacity: 1;
       pointer-events: auto;
       border-left: solid 1px g.$palette-white;
+
+      li a {
+        font-size: 14px;
+      }
     }
 
     li {
@@ -340,37 +350,63 @@
     align-items: flex-start;
   }
 
-  .gnav-hamburger {
+  &-hamburger-wrap {
     display: none;
 
     @include g.mq("sp") {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(15px);
+      width: 48px;
+      height: 48px;
       z-index: 1000;
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
     }
   }
 
-  &-hamburger-line {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: g.$palette-white;
-    margin: 4px auto;
-    transition: background-color 0.3s ease;
-  }
+  .gnav-hamburger {
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s;
+    background: none;
+    border: none;
+    cursor: pointer;
 
-  &-hamburger.is-active &-hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
+    span {
+      width: 100%;
+      height: 0.2rem;
+      border-radius: 0.125rem;
+      background-color: g.$palette-white;
+      box-shadow: 0 0.5px 2px 0 hsla(0, 0%, 0%, 0.2);
+      transition: width 0.4s, transform 0.4s, background-color 0.4s;
+    }
 
-  &-hamburger.is-active &-hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
+    // 1本目：75%幅
+    span:nth-child(1) {
+      width: 75%;
+    }
 
-  &-hamburger.is-active &-hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    // 2本目：50%幅
+    span:nth-child(2) {
+      width: 50%;
+    }
+
+    // is-active時：-90deg回転＋全スパン縦線に
+    &.is-active {
+      transform: rotate(-90deg);
+
+      span {
+        width: 0.2rem;
+        transform: translateX(8px);
+      }
+    }
   }
 }

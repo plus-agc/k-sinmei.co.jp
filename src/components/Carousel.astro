@@ -12,8 +12,11 @@ const { contents: works } = await client.getList<Work>({
   {
     works.map((work) => (
       <div class="carousel-item">
+        {work.completionYear && (
+          <span class="carousel-item-year">{work.completionYear}年</span>
+        )}
         <img src={work.image.url} alt={work.title} />
-        {work.title && <p>{work.title}</p>}
+        {work.title && <p class="carousel-item-title">{work.title}</p>}
       </div>
     ))
   }
@@ -146,15 +149,31 @@ const { contents: works } = await client.getList<Work>({
 <style lang="scss">
   .carousel-item {
     position: relative;
-    p {
-      line-height: 100%;
+
+    // 竣工年ラベル（画像左上）
+    &-year {
       position: absolute;
-      bottom: 0;
-      padding: 12px 12px 8px 12px;
-      background-color: rgba(0, 0, 0, 0.3);
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      background-color: rgba(16, 45, 142, 0.85);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      line-height: 1;
+      padding: 4px 8px;
+      letter-spacing: 0.05em;
+    }
+
+    // タイトル（画像下）
+    &-title {
+      display: block;
+      padding: 8px 10px;
       font-size: clamp(0.625rem, 0.568rem + 0.29vw, 0.75rem);
-      width: 100%;
-      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+      background-color: transparent;
+      text-align: left;
     }
   }
 </style>

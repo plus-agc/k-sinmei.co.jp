@@ -13,15 +13,17 @@
       <figure>
         <img src="/assets/images/sinmei_name-logo.svg" alt="株式会社SINMEI" />
       </figure>
-      <button class="gnav-hamburger" aria-label="Menu">
-        <span class="gnav-hamburger-line"></span>
-        <span class="gnav-hamburger-line"></span>
-        <span class="gnav-hamburger-line"></span>
-      </button>
+      <div class="gnav-hamburger-wrap">
+        <button class="gnav-hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
     <ul class="gnav-list">
       <li class="gnav-dropdown">
-        <a href="/company" class="gnav-dropbtn">SINMEIとは</a>
+        <a href="/company" class="gnav-dropbtn">SINMEIについて</a>
         <ul class="gnav-dropdown_content">
           <li>
             <a href="/company#message">社長メッセージ</a>
@@ -69,3 +71,70 @@
     </ul>
   </div>
 </nav>
+
+<script>
+  // ハンバーガーメニューのトグル
+  const gnavHamburger = document.querySelector(".gnav-hamburger");
+  const gnavList = document.querySelector(".gnav-list");
+  if (gnavHamburger && gnavList) {
+    gnavHamburger.addEventListener("click", () => {
+      gnavList.classList.toggle("is-active");
+      gnavHamburger.classList.toggle("is-active");
+    });
+  }
+</script>
+
+<script>
+  import { gsap } from "gsap";
+
+  // ヒーロー画像：クリップパス・ワイプアニメーション（案A）
+  const heroImg = document.querySelector<HTMLElement>(
+    ".company-header img, .works-header img, .recruit-header img"
+  );
+
+  if (heroImg) {
+    // テキスト要素を取得（ページごとのパターンに対応）
+    const textSelectors = [
+      ".company-tit",
+      ".company-catch",
+      ".works-tit",
+      ".works-text",
+      ".recruit-tit",
+      ".recruit-text",
+    ];
+    const textEls = textSelectors
+      .map((s) => document.querySelector<HTMLElement>(s))
+      .filter((el): el is HTMLElement => el !== null);
+
+    // 画像・テキストをすぐ非表示にしてFOUCを防ぐ
+    gsap.set(heroImg, { clipPath: "inset(0 100% 0 0)" });
+    if (textEls.length > 0) {
+      gsap.set(textEls, { opacity: 0, y: 30 });
+    }
+
+    const tl = gsap.timeline();
+
+    // 画像：右端から左へワイプイン
+    tl.to(heroImg, {
+      clipPath: "inset(0 0% 0 0)",
+      duration: 1.2,
+      ease: "power3.inOut",
+    });
+
+    // テキスト：0.3秒ずつずらしてフェード＋上スライド
+    if (textEls.length > 0) {
+      tl.fromTo(
+        textEls,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.15,
+        },
+        "-=0.5"
+      );
+    }
+  }
+</script>

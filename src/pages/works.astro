@@ -3,7 +3,7 @@ import Carousel from "../components/Carousel.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="施工実績 | 株式会社SINMEI">
+<Layout title="事業内容 | 株式会社SINMEI">
   <main>
     <!-- ヘッダー（変更なし） -->
     <section class="works">
@@ -26,12 +26,90 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </section>
 
+    <!-- Hグレード -->
+    <section class="works-hgrade">
+      <div class="works-hgrade-inner">
+        <div class="works-section-label">
+          <p lang="en">H GRADE</p>
+          <h2>国土交通大臣認定工場「Hグレード」</h2>
+        </div>
+        <p class="works-hgrade-lead">
+          当社は、社会の基盤を支える鉄骨製作において「妥協のない品質」を追求しています。<br />
+          国土交通大臣認定「Hグレード」を基に、高度な技術力と最新の自動化設備を融合。<br />
+          複雑化する大規模建築のニーズに対し、確かな安心と精度でお応えします。
+        </p>
+        <ul class="works-hgrade-features">
+          <li class="works-hgrade-feature">
+            <span class="works-hgrade-feature-num" lang="en">01</span>
+            <h3>厳格な品質管理体制</h3>
+            <p>材料の受入検査から加工、溶接、最終製品検査に至るまで、Hグレードの基準に基づいた独自の品質管理マニュアルを運用。目に見えない溶接内部の欠陥も、超音波深傷検査等の非破壊検査によって厳格にチェックする体制を構築しています。</p>
+          </li>
+          <li class="works-hgrade-feature">
+            <span class="works-hgrade-feature-num" lang="en">02</span>
+            <h3>高度な溶接技術の継承</h3>
+            <p>AW検定資格を保有する溶接技術者が多数在籍。Hグレードに求められる板厚や材質に対する、高度な溶接品質を安定的に提供しています。</p>
+          </li>
+          <li class="works-hgrade-feature">
+            <span class="works-hgrade-feature-num" lang="en">03</span>
+            <h3>トレーサビリティの徹底</h3>
+            <p>使用する鋼材のミルシート（鋼材検査証明書）管理から、どの部分がどの工程を通ったのかの記録までを完全デジタル化。万全のバックアップ体制を整えています。</p>
+          </li>
+        </ul>
+        <div class="works-hgrade-equipment">
+          <h3>主要設備</h3>
+          <p class="works-hgrade-equipment-lead">全6カ所の工場敷地内には、最新鋭の自動化加工ラインを配備。ヒューマンエラーを排除し、ミリ単位の精度を追求しています。</p>
+          <div class="works-qualified-table-wrap">
+            <table class="works-hgrade-table">
+              <thead>
+                <tr>
+                  <th>カテゴリ</th>
+                  <th>主要設備</th>
+                  <th>特徴・メリット</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>作図</td>
+                  <td>S/F REAL4、KAPシステム<br />S/F Arris4、実寸法師</td>
+                  <td>専用CAD、汎用CADを駆使し高い柔軟性と作図速度を両立しています。</td>
+                </tr>
+                <tr>
+                  <td>加工・切断</td>
+                  <td>プラズマ切断機、高速バンドソー</td>
+                  <td>複雑な形状の先行加工も、デジタルデータとの連携により極めて高い精度で実行。</td>
+                </tr>
+                <tr>
+                  <td>穴あけ・加工</td>
+                  <td>CNC3軸ドリルマシン</td>
+                  <td>複数の工程を自動化し、孔位置の誤差を最小限に抑制。建方現場での作業効率向上を促進しています。</td>
+                </tr>
+                <tr>
+                  <td>溶接</td>
+                  <td>自動溶接ロボット</td>
+                  <td>長大・重量部材に対しても、均一で高品質な溶接ビードを実現。</td>
+                </tr>
+                <tr>
+                  <td>搬送・塗装</td>
+                  <td>天井クレーン（最大15トン）、塗装ブース</td>
+                  <td>大規模な部材のハンドリングから最終仕上げまで、一貫した内製化を実現。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="works-hgrade-photo">
+        <img src="/assets/images/hgrade.jpg" alt="工場内の自動化ライン" />
+        <p lang="en">Relentless Pursuit of Quality</p>
+      </div>
+    </section>
+
     <!-- 営業品目・施工実績 -->
     <section class="works-business">
       <div class="works-business-inner">
         <div class="works-section-label works-section-label--white">
           <p lang="en">BUSINESS</p>
-          <h2>営業品目・施工実績</h2>
+          <h2>営業品目・受注実績</h2>
         </div>
 
         <!-- 金属製品製造業・鋼構造物工事業 -->
@@ -107,6 +185,7 @@ import Layout from "../layouts/Layout.astro";
           <p lang="en">QUALIFIED PERSONNEL</p>
           <h2>有資格者数</h2>
         </div>
+        <p class="works-qualified-note">※2026年3月31日現在</p>
         <div class="works-qualified-table-wrap">
           <table class="works-qualified-table">
             <thead>

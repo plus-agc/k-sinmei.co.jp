@@ -17,7 +17,8 @@
       "Bash(find:*)",
       "Bash(npm run:*)",
       "Bash(curl:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "mcp__claude_ai_Notion__notion-create-pages"
     ]
   },
   "enableAllProjectMcpServers": true,

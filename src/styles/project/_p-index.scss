@@ -51,6 +51,7 @@
     right: 11%;
     width: auto;
     height: auto;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -125,6 +126,15 @@
         clip-path: polygon(0 0, 100% 0, 100% 30%, 35% 30%, 35% 35%, 0 35%);
       }
     }
+
+    // 背景画像を暗くして文字を読みやすくするオーバーレイ
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
   }
 
   &-main {
@@ -136,6 +146,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    position: relative;
+    z-index: 2;
 
     @include g.mq(sp) {
       padding: 80px 33px 100px;
@@ -162,7 +174,6 @@
       line-height: 1.38;
       text-align: right;
       letter-spacing: 0.03em;
-      background-color: g.$palette-black;
       width: fit-content;
       margin-bottom: 0.25rem;
 
@@ -178,7 +189,6 @@
     line-height: 2.2;
 
     p {
-      background-color: g.$palette-black;
       width: fit-content;
     }
 
@@ -292,6 +302,40 @@
     &_large {
       font-size: 1.5em;
       display: block;
+    }
+  }
+
+  &-link {
+    font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: g.$palette-white;
+      gap: clamp(0.875rem, 0.828rem + 0.2vw, 1rem);
+
+      p {
+        font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
+        width: fit-content;
+      }
+
+      img {
+        width: clamp(2.5rem, 2.074rem + 1.82vw, 3.625rem);
+        transition: transform 0.5s ease;
+      }
+    }
+
+    a:hover {
+      img {
+        transform: translateX(10px);
+        transition: transform 0.5s ease;
+      }
     }
   }
 }
