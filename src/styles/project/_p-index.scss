@@ -105,7 +105,7 @@
 
   &-inner {
     position: relative;
-    background: url("/assets/images/top-bg.jpg") no-repeat center center / cover;
+    background: url("/assets/images/top-bg.jpg") no-repeat center 20% / cover;
 
     @include g.mq(sp) {
       background: url("/assets/images/top-bg.jpg") no-repeat center center / cover;
@@ -140,8 +140,8 @@
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    min-height: 80vh;
-    min-height: 80dvh;
+    min-height: 60vh;
+    min-height: 60dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,7 +150,7 @@
     z-index: 2;
 
     @include g.mq(sp) {
-      padding: 80px 33px 100px;
+      padding: 64px 33px 80px;
       align-items: stretch;
     }
 
@@ -178,15 +178,15 @@
       margin-bottom: 0.25rem;
 
       &:last-child {
-        margin-bottom: clamp(3.125rem, 2.084rem + 4.44vw, 5.875rem);
+        margin-bottom: clamp(1.125rem, 2.084rem + 4.44vw, 1.875rem);
       }
     }
   }
 
   &-text {
-    margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 3.125rem);
-
+    margin-bottom: clamp(2.5rem, 2.263rem + 1.01vw, 1.125rem);
     line-height: 2.2;
+    font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
 
     p {
       width: fit-content;
@@ -239,14 +239,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    min-height: 80dvh;
+    min-height: 60vh;
+    min-height: 60dvh;
   }
 
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: 120px 33px 120px;
+    padding: 96px 33px 96px;
   }
 
   &-tit {
@@ -358,11 +358,11 @@
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: 150px 33px 160px;
+    padding: 120px 33px 128px;
   }
 
   &-tit {
-    margin-bottom: clamp(15.313rem, 13.539rem + 7.57vw, 20rem);
+    margin-bottom: clamp(10.313rem, 13.539rem + 7.57vw, 10rem);
 
     h3 {
       font-size: clamp(1.5rem, 1.24rem + 1.11vw, 2.188rem);
@@ -558,10 +558,10 @@
     max-width: g.$layout-width-inner;
     margin: 0 auto;
     position: relative;
-    padding: 120px 33px 120px;
+    padding: 96px 33px 96px;
 
     @include g.mq(sp) {
-      padding: 90px 33px 50px;
+      padding: 72px 33px 40px;
     }
   }
 
@@ -654,12 +654,12 @@
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    padding: 182px 33px 200px;
+    padding: 146px 33px 160px;
     position: relative;
     font-weight: 800;
 
     @include g.mq(sp) {
-      padding: 90px 33px 100px;
+      padding: 72px 33px 80px;
     }
   }
 
@@ -852,7 +852,7 @@
     grid-template-columns: 1fr 1fr;
     gap: clamp(3rem, 2rem + 4vw, 6rem);
     align-items: center;
-    padding: clamp(5rem, 4rem + 4vw, 8rem) 33px;
+    padding: clamp(4rem, 3.2rem + 3.2vw, 6.4rem) 33px;
     max-width: g.$layout-width-inner;
     margin: 0 auto;
     background-image: url("/assets/images/top009_recruit_back.jpg"),
@@ -866,7 +866,7 @@
     @include g.mq(sp) {
       grid-template-columns: 1fr;
       gap: clamp(2.5rem, 2rem + 2vw, 4rem);
-      padding: clamp(4rem, 3rem + 4vw, 6rem) 33px;
+      padding: clamp(3.2rem, 2.4rem + 3.2vw, 4.8rem) 33px;
       background-size: 188px, 261px;
       background-position: top right, left bottom -150px;
     }
@@ -940,7 +940,7 @@
   }
 
   &-text {
-    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
+    font-size: clamp(1.25rem, 1.061rem + 0.81vw, 1.75rem);
     line-height: 2;
     opacity: 0.85;
   }
@@ -975,11 +975,11 @@
 .top-news {
   max-width: g.$layout-width-inner;
   margin: 0 auto;
-  padding: 120px 33px 200px;
+  padding: 48px 33px 48px;
   font-weight: 800;
 
   @include g.mq(sp) {
-    padding: 90px 33px 100px;
+    padding: 72px 33px 80px;
   }
 
   &-tit {

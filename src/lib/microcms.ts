@@ -50,12 +50,26 @@ export type JobPosting = {
   publishedAt: string;
   /** 職種名 */
   title: string;
+  /** 職種カテゴリ */
+  category?: "technical" | "sales" | "manufacturing";
   /** 雇用形態（例: 正社員、パートタイム） */
   employmentType?: string;
-  /** 勤務地 */
-  workLocation?: string;
+  /** 募集人数（例: 3〜5名） */
+  headcount?: string;
   /** 仕事内容 */
   description?: string;
   /** 応募資格・条件 */
   requirements?: string;
+  /** 給与・初任給 */
+  salary?: string;
+  /** 勤務時間 */
+  workHours?: string;
+  /** 休日 */
+  holiday?: string;
+  /** 休暇制度 */
+  vacation?: string;
+  /** 福利厚生 */
+  benefits?: string;
+  /** 採用実績 */
+  recruitmentRecord?: string;
 };

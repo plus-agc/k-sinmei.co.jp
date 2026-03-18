@@ -158,32 +158,6 @@ const { contents: latestNews } = await client.getList<News>({
         </div>
       </div>
     </section>
-    <section class="top-sdgs">
-      <div class="top-sdgs-inner">
-        <div class="top-sdgs-main">
-          <div class="top-sdgs-tit">
-            <h2>SDGs</h2>
-          </div>
-          <div class="top-sdgs-images">
-            <div><img src="/assets/images/sdgs-tit.svg" alt="SDGs ロゴ" /></div>
-            <div>
-              <img src="/assets/images/sdgs-group.svg" alt="SDGs 17の目標" />
-            </div>
-          </div>
-          <div class="top-sdgs-text">
-            <h3>
-              株式会社SINMEIは、SDGsを国際社会の重要な目標と捉え、企業の経済、社会及び環境の三側面を調和させ、人類および地球に対し行動を促進させていきます。
-            </h3>
-          </div>
-          <div class="top-sdgs-link">
-            <a href="/company#sdgs">
-              <p lang="en">read more</p>
-              <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="top-recruit">
       <div class="top-recruit-inner">
@@ -248,10 +222,24 @@ const { contents: latestNews } = await client.getList<News>({
     { "stroke-dashoffset": "0", duration: 5, stagger: 0.2 },
   );
 
-  gsap.to(".is-anim_one", { duration: 1, text: "もっとよいものを", ease: "none", delay: 0 });
-  gsap.to(".is-anim_two", { duration: 1, text: "責任をもって", ease: "none", delay: 0.5 });
-  gsap.to(".is-anim_three", { duration: 1, text: "作れる会社へ", ease: "none", delay: 1.0 });
-
+  gsap.to(".is-anim_one", {
+    duration: 1,
+    text: "もっとよいものを",
+    ease: "none",
+    delay: 0,
+  });
+  gsap.to(".is-anim_two", {
+    duration: 1,
+    text: "責任をもって",
+    ease: "none",
+    delay: 0.5,
+  });
+  gsap.to(".is-anim_three", {
+    duration: 1,
+    text: "作れる会社へ",
+    ease: "none",
+    delay: 1.0,
+  });
 
   function fadeInImage() {
     // ヒーロー画像のみ対象（リクルート画像はIntersection Observerで制御）

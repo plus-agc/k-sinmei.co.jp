@@ -152,54 +152,71 @@ import Layout from "../layouts/Layout.astro";
           <h2>有資格者数</h2>
         </div>
         <p class="works-qualified-note">※2026年3月31日現在</p>
-        <div class="works-qualified-table-wrap">
-          <table class="works-qualified-table">
-            <thead>
-              <tr>
-                <th>資格名</th>
-                <th>人数</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>一級建築施工管理技士</td><td>1名</td></tr>
-              <tr><td>二級建築施工管理技士</td><td>1名</td></tr>
-              <tr><td>一級管工事施工管理技士</td><td>3名</td></tr>
-              <tr><td>二級管工事施工管理技士</td><td>2名</td></tr>
-              <tr><td>二級土木施工管理技士</td><td>2名</td></tr>
-              <tr><td>一級配管技能士</td><td>2名</td></tr>
-              <tr><td>一級建築士</td><td>2名</td></tr>
-              <tr><td>二級建築士</td><td>1名</td></tr>
-              <tr><td>WES 8103（2級）</td><td>7名</td></tr>
-              <tr><td>鉄骨製作管理技術者（1級）</td><td>11名</td></tr>
-              <tr><td>鉄骨製作管理技術者（2級）</td><td>1名</td></tr>
-              <tr><td>鉄骨製品検査技術者</td><td>14名</td></tr>
-              <tr><td>建築高力ボルト接合管理技術者</td><td>4名</td></tr>
-              <tr><td>溶融亜鉛めっき高力ボルト技術者</td><td>2名</td></tr>
-              <tr><td>溶融亜鉛めっき高力ボルト技能者</td><td>5名</td></tr>
-              <tr><td>非破壊試験技術者（レベル2）</td><td>2名</td></tr>
-              <tr><td>非破壊試験技術者（レベル1）</td><td>1名</td></tr>
-              <tr><td>建築鉄骨超音波検査技術者</td><td>3名</td></tr>
-              <tr><td>ガス溶接作業主任者</td><td>28名</td></tr>
-              <tr><td>JIS半自動溶接</td><td>26名</td></tr>
-              <tr><td>JISアーク溶接</td><td>9名</td></tr>
-              <tr><td>JISすみ肉溶接</td><td>6名</td></tr>
-              <tr><td>鉄骨組立作業主任者</td><td>2名</td></tr>
-              <tr><td>玉掛作業主任者</td><td>39名</td></tr>
-              <tr><td>危険物取扱者</td><td>2名</td></tr>
-              <tr><td>電気工事士</td><td>1名</td></tr>
-              <tr><td>消防設備士免状</td><td>1名</td></tr>
-              <tr><td>排水設備工事責任技術者</td><td>2名</td></tr>
-              <tr><td>液化石油ガス設備士</td><td>2名</td></tr>
-              <tr><td>浄化槽設備士</td><td>1名</td></tr>
-              <tr><td>給水装置工事主任技術者</td><td>2名</td></tr>
-              <tr><td>水管技能者登録証</td><td>2名</td></tr>
-              <tr><td>酸素欠乏・硫化水素危険作業主任者</td><td>1名</td></tr>
-              <tr><td>排水設備配管工</td><td>1名</td></tr>
-              <tr><td>特定化学物質等作業主任者</td><td>6名</td></tr>
-              <tr><td>AW検定工場溶接</td><td>5名</td></tr>
-              <tr><td>AW検定ロボットオペレーター溶接</td><td>3名</td></tr>
-            </tbody>
-          </table>
+        <!-- 2列グリッドで表示 -->
+        <div class="works-qualified-grid">
+          <!-- 左列（1〜19番目） -->
+          <div class="works-qualified-table-wrap">
+            <table class="works-qualified-table">
+              <thead>
+                <tr>
+                  <th>資格名</th>
+                  <th>人数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>一級建築施工管理技士</td><td>1名</td></tr>
+                <tr><td>二級建築施工管理技士</td><td>1名</td></tr>
+                <tr><td>一級管工事施工管理技士</td><td>3名</td></tr>
+                <tr><td>二級管工事施工管理技士</td><td>2名</td></tr>
+                <tr><td>二級土木施工管理技士</td><td>2名</td></tr>
+                <tr><td>一級配管技能士</td><td>2名</td></tr>
+                <tr><td>一級建築士</td><td>2名</td></tr>
+                <tr><td>二級建築士</td><td>1名</td></tr>
+                <tr><td>WES 8103（2級）</td><td>7名</td></tr>
+                <tr><td>鉄骨製作管理技術者（1級）</td><td>11名</td></tr>
+                <tr><td>鉄骨製作管理技術者（2級）</td><td>1名</td></tr>
+                <tr><td>鉄骨製品検査技術者</td><td>14名</td></tr>
+                <tr><td>建築高力ボルト接合管理技術者</td><td>4名</td></tr>
+                <tr><td>溶融亜鉛めっき高力ボルト技術者</td><td>2名</td></tr>
+                <tr><td>溶融亜鉛めっき高力ボルト技能者</td><td>5名</td></tr>
+                <tr><td>非破壊試験技術者（レベル2）</td><td>2名</td></tr>
+                <tr><td>非破壊試験技術者（レベル1）</td><td>1名</td></tr>
+                <tr><td>建築鉄骨超音波検査技術者</td><td>3名</td></tr>
+                <tr><td>ガス溶接作業主任者</td><td>28名</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- 右列（20〜37番目） -->
+          <div class="works-qualified-table-wrap">
+            <table class="works-qualified-table">
+              <thead>
+                <tr>
+                  <th>資格名</th>
+                  <th>人数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>JIS半自動溶接</td><td>26名</td></tr>
+                <tr><td>JISアーク溶接</td><td>9名</td></tr>
+                <tr><td>JISすみ肉溶接</td><td>6名</td></tr>
+                <tr><td>鉄骨組立作業主任者</td><td>2名</td></tr>
+                <tr><td>玉掛作業主任者</td><td>39名</td></tr>
+                <tr><td>危険物取扱者</td><td>2名</td></tr>
+                <tr><td>電気工事士</td><td>1名</td></tr>
+                <tr><td>消防設備士免状</td><td>1名</td></tr>
+                <tr><td>排水設備工事責任技術者</td><td>2名</td></tr>
+                <tr><td>液化石油ガス設備士</td><td>2名</td></tr>
+                <tr><td>浄化槽設備士</td><td>1名</td></tr>
+                <tr><td>給水装置工事主任技術者</td><td>2名</td></tr>
+                <tr><td>水管技能者登録証</td><td>2名</td></tr>
+                <tr><td>酸素欠乏・硫化水素危険作業主任者</td><td>1名</td></tr>
+                <tr><td>排水設備配管工</td><td>1名</td></tr>
+                <tr><td>特定化学物質等作業主任者</td><td>6名</td></tr>
+                <tr><td>AW検定工場溶接</td><td>5名</td></tr>
+                <tr><td>AW検定ロボットオペレーター溶接</td><td>3名</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
