@@ -103,6 +103,11 @@
       border-left: solid 1px g.$palette-white;
       padding-left: 13px;
       margin-left: 4px;
+
+      a {
+        // 展開時のサブメニューは親項目より少し小さくする
+        font-size: 16px;
+      }
     }
   }
 
