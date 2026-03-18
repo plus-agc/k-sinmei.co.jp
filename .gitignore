@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# 画像最適化キャッシュ
+.image-cache/

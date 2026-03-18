@@ -91,47 +91,15 @@
       width: 100%;
     }
 
-    figure {
-      width: 106px;
-      height: auto;
-    }
-
-    figure:is(figure:not(:last-child)) {
-      display: none;
-
-      @include g.mq("sp") {
-        display: block;
-      }
+    .gnav-logo {
+      display: block;
+      width: 130px;
+      flex-shrink: 0;
 
       img {
+        display: block;
         width: 100%;
         height: auto;
-      }
-    }
-
-    a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      figure {
-        width: 25px;
-      }
-
-      &::after {
-        content: "";
-        width: 106px;
-        height: 21px;
-        margin-left: 10px;
-        background-image: url("/assets/images/sinmei_name-logo.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-
-        @include g.mq("sp") {
-          display: none;
-        }
       }
     }
   }
