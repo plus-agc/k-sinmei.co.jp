@@ -111,9 +111,17 @@
   gap: clamp(1.5rem, 1.197rem + 1.29vw, 2.25rem);
 }
 
+.company-message-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 0.697rem + 1.29vw, 1.5rem);
+}
+
 .company-message-photo {
   margin: 0;
   overflow: hidden;
+  width: 100%;
 
   img {
     width: 100%;
@@ -171,8 +179,15 @@
   font-weight: 800 !important;
   color: g.$palette-blue !important;
   font-family: inherit !important;
-  margin-top: 0.5rem !important;
+  margin: 0 !important;
   font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem) !important;
+  text-align: center;
+  width: 100%;
+  max-width: clamp(14rem, 20vw, 22rem);
+
+  @include g.mq(sp) {
+    max-width: 240px;
+  }
 }
 
 .company-section {

@@ -32,9 +32,6 @@
           <li>
             <a href="/company#access">アクセス</a>
           </li>
-          <li>
-            <a href="/company#sdgs">SDGs</a>
-          </li>
         </ul>
       </li>
       <li>
@@ -78,9 +75,7 @@
         </ul>
       </li>
       <li>
-        <a href="/contact" class="gnav-contact-btn"
-          >お問い合わせ</a
-        >
+        <a href="/contact" class="gnav-contact-btn">お問い合わせ</a>
       </li>
     </ul>
   </div>
@@ -103,7 +98,7 @@
 
   // ヒーロー画像：クリップパス・ワイプアニメーション（案A）
   const heroImg = document.querySelector<HTMLElement>(
-    ".company-header img, .works-header img, .recruit-header img"
+    ".company-header img, .works-header img, .recruit-header img",
   );
 
   if (heroImg) {
@@ -147,7 +142,7 @@
           ease: "power2.out",
           stagger: 0.15,
         },
-        "-=0.5"
+        "-=0.5",
       );
     }
   }

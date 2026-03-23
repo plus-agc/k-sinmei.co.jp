@@ -1,0 +1,106 @@
+---
+import type { JobPosting } from "../lib/microcms";
+import { recruitConfig, type RecruitOpeningsMode } from "../config/recruit";
+
+interface Props {
+  jobs?: JobPosting[];
+  /** 指定時は recruitConfig.openingsMode より優先（ページ単位の上書き用） */
+  mode?: RecruitOpeningsMode;
+}
+
+const { jobs = [], mode: modeProp } = Astro.props;
+const mode = modeProp ?? recruitConfig.openingsMode;
+
+const showSection = mode !== "hidden";
+const showJobList = mode === "list" && jobs.length > 0;
+---
+
+{
+  showSection && (
+    <section id="openings" class="recruit-openings">
+      <div class="recruit-openings-inner">
+        <div class="recruit-section-head">
+          <p lang="en">OPEN POSITIONS</p>
+          <h2>募集職種</h2>
+        </div>
+
+        {showJobList ? (
+          <ul class="recruit-openings-list">
+            {jobs.map((job) => (
+              <li
+                class={`recruit-openings-item${job.category ? ` recruit-openings-item--${job.category}` : ""}`}
+              >
+                <div class="recruit-openings-item-header">
+                  <h3 class="recruit-openings-item-title">{job.title}</h3>
+                  {job.employmentType && (
+                    <span class="recruit-openings-item-type">
+                      {job.employmentType}
+                    </span>
+                  )}
+                </div>
+                <dl class="recruit-openings-item-dl">
+                  {job.headcount && (
+                    <div class="recruit-openings-item-row">
+                      <dt>募集人数</dt>
+                      <dd>{job.headcount}</dd>
+                    </div>
+                  )}
+                  {job.description && (
+                    <div class="recruit-openings-item-row">
+                      <dt>仕事内容</dt>
+                      <dd>{job.description}</dd>
+                    </div>
+                  )}
+                  {job.requirements && (
+                    <div class="recruit-openings-item-row">
+                      <dt>応募資格</dt>
+                      <dd>{job.requirements}</dd>
+                    </div>
+                  )}
+                  {job.salary && (
+                    <div class="recruit-openings-item-row">
+                      <dt>給与・初任給</dt>
+                      <dd>{job.salary}</dd>
+                    </div>
+                  )}
+                  {job.workHours && (
+                    <div class="recruit-openings-item-row">
+                      <dt>勤務時間</dt>
+                      <dd>{job.workHours}</dd>
+                    </div>
+                  )}
+                  {job.holiday && (
+                    <div class="recruit-openings-item-row">
+                      <dt>休日</dt>
+                      <dd>{job.holiday}</dd>
+                    </div>
+                  )}
+                  {job.vacation && (
+                    <div class="recruit-openings-item-row">
+                      <dt>休暇</dt>
+                      <dd>{job.vacation}</dd>
+                    </div>
+                  )}
+                  {job.benefits && (
+                    <div class="recruit-openings-item-row">
+                      <dt>福利厚生</dt>
+                      <dd>{job.benefits}</dd>
+                    </div>
+                  )}
+                  {job.recruitmentRecord && (
+                    <div class="recruit-openings-item-row">
+                      <dt>採用実績</dt>
+                      <dd>{job.recruitmentRecord}</dd>
+                    </div>
+                  )}
+                </dl>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="recruit-openings-empty">現在募集中の職種はありません。</p>
+        )}
+      </div>
+    </section>
+  )
+}

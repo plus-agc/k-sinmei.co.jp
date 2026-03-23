@@ -1,0 +1,121 @@
+---
+import { recruitConfig, type RecruitApplyMode } from "../config/recruit";
+
+interface Props {
+  /** 指定時は recruitConfig.applyMode より優先 */
+  mode?: RecruitApplyMode;
+}
+
+const mode = Astro.props.mode ?? recruitConfig.applyMode;
+const showSection = mode !== "hidden";
+const showForm = mode === "form";
+---
+
+{
+  showSection && (
+    <section id="apply" class="recruit-apply">
+      <div class="recruit-apply-inner">
+        <div class="recruit-section-head">
+          <p lang="en">APPLY</p>
+          <h2>応募フォーム</h2>
+        </div>
+
+        {showForm ? (
+          <>
+            <div class="recruit-apply-text">
+              <p>
+                採用に関するお問い合わせ・ご応募は下記フォームよりお気軽にご連絡ください。
+                <br />
+                担当者より折り返しご連絡いたします。
+              </p>
+              <p>
+                <span>＊</span>は必須項目です。
+              </p>
+            </div>
+            <div class="recruit-apply-form">
+              <form method="post" action="../mail.php">
+                <input type="hidden" name="formType" value="recruit" />
+                <div class="form-inner">
+                  <div class="form-item">
+                    <p>
+                      お名前<span>&#042;</span>
+                    </p>
+                    <p>
+                      <input type="text" name="お名前" required />
+                    </p>
+                  </div>
+                  <div class="form-item">
+                    <p>
+                      メールアドレス<span>&#042;</span>
+                    </p>
+                    <p>
+                      <input type="email" name="Email" required />
+                    </p>
+                  </div>
+                  <div class="form-item">
+                    <p>お電話番号</p>
+                    <p>
+                      <input type="tel" name="電話番号" />
+                    </p>
+                  </div>
+                  <div class="form-item">
+                    <p>
+                      応募希望職種<span>&#042;</span>
+                    </p>
+                    <p>
+                      <select name="応募希望職種" required>
+                        <option value="">選択してください</option>
+                        <optgroup label="技術職種">
+                          <option value="設計">設計</option>
+                          <option value="品質管理">品質管理</option>
+                          <option value="工事（現場代理人）">
+                            工事（現場代理人）
+                          </option>
+                        </optgroup>
+                        <optgroup label="営業職・営業系事務">
+                          <option value="営業">営業</option>
+                          <option value="営業事務">営業事務</option>
+                        </optgroup>
+                        <optgroup label="製造">
+                          <option value="ロボットオペレータ">
+                            ロボットオペレータ
+                          </option>
+                          <option value="部品加工">部品加工</option>
+                          <option value="組立">組立</option>
+                          <option value="溶接">溶接</option>
+                        </optgroup>
+                        <option value="その他">その他</option>
+                      </select>
+                    </p>
+                  </div>
+                  <div class="form-item">
+                    <p>
+                      志望動機・自己PR<span>&#042;</span>
+                    </p>
+                    <p>
+                      <textarea name="志望動機・自己PR" rows="6" required />
+                    </p>
+                  </div>
+                </div>
+                <div class="form-submit">
+                  <p>
+                    <input type="submit" value="　 送信 　" />
+                  </p>
+                  <p>
+                    <input type="reset" value="リセット" />
+                  </p>
+                </div>
+              </form>
+            </div>
+          </>
+        ) : (
+          <p class="recruit-apply-closed">
+            現在、採用エントリーの受付を行っておりません。
+            <br />
+            募集を再開しましたら、本ページにてお知らせいたします。
+          </p>
+        )}
+      </div>
+    </section>
+  )
+}
