@@ -140,8 +140,7 @@
   &-main {
     max-width: g.$layout-width-inner;
     margin: 0 auto;
-    min-height: 60vh;
-    min-height: 60dvh;
+    padding: 6rem 33px 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
