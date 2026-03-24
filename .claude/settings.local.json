@@ -34,7 +34,9 @@
       "mcp__serena__list_dir",
       "WebFetch(domain:www.k-sinmei.co.jp)",
       "WebSearch",
-      "WebFetch(domain:www.geocoding.jp)"
+      "WebFetch(domain:www.geocoding.jp)",
+      "Bash(npx --yes @astrojs/check)",
+      "Bash(git stash:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -10,11 +10,13 @@ import Layout from "../layouts/Layout.astro";
           <img
             src="/assets/images/companytop.jpg"
             alt="株式会社SINMEIについて トップ画像"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
         <div class="company-main">
           <div class="company-tit">
-            <h1 lang="en" id="company"><p>SINMEIについて</p></h1>
+            <h1 lang="en" id="company">SINMEIについて</h1>
           </div>
           <!-- キャッチコピー -->
           <div class="company-catch">
@@ -57,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
             <div class="company-message-aside">
               <figure class="company-message-photo">
-                <img src="/assets/images/sato.jpg" alt="代表取締役 佐藤 文宣" />
+                <img src="/assets/images/sato.jpg" alt="代表取締役 佐藤 文宣" loading="lazy" decoding="async" />
               </figure>
               <p class="company-message-sign">代表取締役　佐藤 文宣</p>
             </div>
@@ -78,6 +80,8 @@ import Layout from "../layouts/Layout.astro";
             <img
               src="/assets/images/company.jpg"
               alt="株式会社SINMEI 本社・工場 航空写真"
+              loading="lazy"
+              decoding="async"
             />
           </figure>
 
@@ -133,6 +137,8 @@ import Layout from "../layouts/Layout.astro";
                       <img
                         src="/assets/images/company_ninteisyo.jpg"
                         alt="Hグレード認定書"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div>
@@ -140,6 +146,8 @@ import Layout from "../layouts/Layout.astro";
                       <img
                         src="/assets/images/company_shiteisyo.jpg"
                         alt="Hグレード指定書"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   </div>
@@ -213,6 +221,8 @@ import Layout from "../layouts/Layout.astro";
                 <img
                   src="/assets/images/social_contribution_1.jpg"
                   alt="五所川原立佞武多への参画"
+                  loading="lazy"
+                  decoding="async"
                 />
               </figure>
               <div class="company-community-body">
@@ -227,6 +237,8 @@ import Layout from "../layouts/Layout.astro";
                 <img
                   src="/assets/images/social_contribution_2.jpg"
                   alt="献血活動"
+                  loading="lazy"
+                  decoding="async"
                 />
               </figure>
               <div class="company-community-body">
@@ -253,6 +265,8 @@ import Layout from "../layouts/Layout.astro";
             <img
               src="/assets/images/map_image_1.jpg"
               alt="SINMEI 工場MAP・設備配置図"
+              loading="lazy"
+              decoding="async"
             />
           </figure>
 

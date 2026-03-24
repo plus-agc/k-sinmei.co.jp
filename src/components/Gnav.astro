@@ -9,14 +9,14 @@
         <img src="/assets/images/sinmei-logo.svg" alt="株式会社SINMEI" />
       </a>
       <div class="gnav-hamburger-wrap">
-        <button class="gnav-hamburger" aria-label="Menu">
+        <button class="gnav-hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav-list">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
     </div>
-    <ul class="gnav-list">
+    <ul class="gnav-list" id="gnav-list">
       <li class="gnav-dropdown">
         <a href="/company" class="gnav-dropbtn">SINMEIについて</a>
         <ul class="gnav-dropdown_content">
@@ -83,10 +83,16 @@
 
 <script>
   // ハンバーガーメニューのトグル
-  const gnavHamburger = document.querySelector(".gnav-hamburger");
+  const gnavHamburger = document.querySelector<HTMLButtonElement>(".gnav-hamburger");
   const gnavList = document.querySelector(".gnav-list");
   if (gnavHamburger && gnavList) {
     gnavHamburger.addEventListener("click", () => {
+      const isExpanded = gnavHamburger.getAttribute("aria-expanded") === "true";
+      gnavHamburger.setAttribute("aria-expanded", String(!isExpanded));
+      gnavHamburger.setAttribute(
+        "aria-label",
+        isExpanded ? "メニューを開く" : "メニューを閉じる",
+      );
       gnavList.classList.toggle("is-active");
       gnavHamburger.classList.toggle("is-active");
     });

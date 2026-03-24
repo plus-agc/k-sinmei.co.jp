@@ -17,7 +17,6 @@ const { contents: latestNews } = await client.getList<News>({
         <div class="top-header">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="394.20001220703125"
             width="100%"
             viewBox="0 0 394.2 2000"
           >
@@ -62,7 +61,12 @@ const { contents: latestNews } = await client.getList<News>({
         </div>
         <div class="top-main">
           <div class="top-image">
-            <img src="/assets/images/top-hero.jpg" alt="工場・製造現場の様子" />
+            <img
+              src="/assets/images/top-hero.jpg"
+              alt="工場・製造現場の様子"
+              fetchpriority="high"
+              decoding="async"
+            />
           </div>
         </div>
         <div class="top-tit">
@@ -150,7 +154,7 @@ const { contents: latestNews } = await client.getList<News>({
             </p>
           </div>
           <div class="top-services-link">
-            <a href="/company">
+            <a href="/works">
               <p lang="en">事業内容</p>
               <img src="/assets/images/arrow.svg" alt="矢印アイコン" />
             </a>
@@ -162,11 +166,11 @@ const { contents: latestNews } = await client.getList<News>({
     <section class="top-recruit">
       <div class="top-recruit-inner">
         <div class="top-recruit-header">
-          <img src="/assets/images/recruit-A.png" alt="社員画像01" />
-          <img src="/assets/images/recruit-B.png" alt="社員画像02" />
-          <img src="/assets/images/recruit-C.png" alt="社員画像03" />
-          <img src="/assets/images/recruit-D.png" alt="社員画像04" />
-          <img src="/assets/images/recruit-E.png" alt="社員画像05" />
+          <img src="/assets/images/recruit-A.png" alt="社員画像01" loading="lazy" decoding="async" />
+          <img src="/assets/images/recruit-B.png" alt="社員画像02" loading="lazy" decoding="async" />
+          <img src="/assets/images/recruit-C.png" alt="社員画像03" loading="lazy" decoding="async" />
+          <img src="/assets/images/recruit-D.png" alt="社員画像04" loading="lazy" decoding="async" />
+          <img src="/assets/images/recruit-E.png" alt="社員画像05" loading="lazy" decoding="async" />
         </div>
         <div class="top-recruit-main">
           <div class="top-recruit-catch">

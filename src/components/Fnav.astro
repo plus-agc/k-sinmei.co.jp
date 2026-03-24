@@ -6,7 +6,7 @@
   <div class="footer-inner">
     <ul class="footer-list">
       <li data-accordion>
-        <button class="footer-accordion-btn">SINMEIについて</button>
+        <button class="footer-accordion-btn" type="button" aria-expanded="false">SINMEIについて</button>
         <ul>
           <li>
             <a href="/company#message">社長メッセージ</a>
@@ -26,7 +26,7 @@
         <a href="/news">お知らせ</a>
       </li>
       <li data-accordion>
-        <button class="footer-accordion-btn">事業内容</button>
+        <button class="footer-accordion-btn" type="button" aria-expanded="false">事業内容</button>
         <ul>
           <li>
             <a href="/works#hgrade">Hグレード</a>
@@ -43,7 +43,7 @@
         </ul>
       </li>
       <li data-accordion>
-        <button class="footer-accordion-btn">採用情報</button>
+        <button class="footer-accordion-btn" type="button" aria-expanded="false">採用情報</button>
         <ul>
           <li>
             <a href="/recruit#stats">数字で見るSINMEI</a>
@@ -103,9 +103,11 @@
 
 <script>
   // フッターアコーディオン（PC・SP共通）
-  document.querySelectorAll(".footer-accordion-btn").forEach((btn) => {
+  document.querySelectorAll<HTMLButtonElement>(".footer-accordion-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      btn.closest("li[data-accordion]").classList.toggle("is-open");
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      btn.closest("li[data-accordion]")?.classList.toggle("is-open");
     });
   });
 </script>

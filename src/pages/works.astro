@@ -9,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
     <section class="works">
       <div class="works-inner">
         <div class="works-header">
-          <img src="/assets/images/workstop.jpg" alt="施工実績 トップ画像" />
+          <img src="/assets/images/workstop.jpg" alt="施工実績 トップ画像" fetchpriority="high" decoding="async" />
         </div>
         <div class="works-main">
           <div class="works-tit">
@@ -65,7 +65,7 @@ import Layout from "../layouts/Layout.astro";
         </ul>
       </div>
       <div class="works-hgrade-photo">
-        <img src="/assets/images/hgrade.jpg" alt="工場内の自動化ライン" />
+        <img src="/assets/images/hgrade.jpg" alt="工場内の自動化ライン" loading="lazy" decoding="async" />
         <p lang="en">Relentless Pursuit of Quality</p>
       </div>
     </section>

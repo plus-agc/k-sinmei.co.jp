@@ -15,7 +15,7 @@ const { contents: works } = await client.getList<Work>({
         {work.completionYear && (
           <span class="carousel-item-year">{work.completionYear}年</span>
         )}
-        <img src={work.image.url} alt={work.title} />
+        <img src={work.image.url} alt={work.title} loading="lazy" decoding="async" />
         {work.title && <p class="carousel-item-title">{work.title}</p>}
       </div>
     ))

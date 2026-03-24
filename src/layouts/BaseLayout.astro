@@ -3,7 +3,21 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Pagetop from "../components/Pagetop.astro";
 import "../styles/style.scss";
-const pageTitle = "お知らせ | 株式会社SINMEI";
+
+interface Props {
+  /** ページタイトル（省略時は「お知らせ | 株式会社SINMEI」） */
+  title?: string;
+  /** ページ固有のdescription（省略時はデフォルト説明文を使用） */
+  description?: string;
+  /** OGP画像URL（省略時はデフォルト画像を使用） */
+  ogImage?: string;
+}
+
+const {
+  title = "お知らせ | 株式会社SINMEI",
+  description = "株式会社SINMEIは、設立以来培ってきた技術力により、お客様の幅広いニーズにお応えして鉄骨工事業を展開しております。 技術力、品質向上に努めて、お客様の満足度を高めるべく、邁進いたします。",
+  ogImage = "https://www.k-sinmei.co.jp/assets/images/ogp.jpg",
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
 ---
 
@@ -11,19 +25,24 @@ const canonicalURL = new URL(Astro.url.pathname, "https://www.k-sinmei.co.jp/");
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="株式会社SINMEIは、設立以来培ってきた技術力により、お客様の幅広いニーズにお応えして鉄骨工事業を展開しております。 技術力、品質向上に努めて、お客様の満足度を高めるべく、邁進いたします。"
-    />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="https://www.k-sinmei.co.jp/favicon.svg"
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>{title}</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="株式会社SINMEI" />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
