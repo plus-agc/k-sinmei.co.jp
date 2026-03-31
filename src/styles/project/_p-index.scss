@@ -301,6 +301,13 @@
     &_large {
       font-size: 1.5em;
       display: block;
+      margin-bottom: .875em;
+      /* 30px相当（親のfont-size基準） */
+    }
+
+    p:not([class]) {
+      font-size: 0.875em;
+      /* クラスなしのp（通常テキスト）を1回り縮小 */
     }
   }
 

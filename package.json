@@ -12,8 +12,8 @@
     "upscale-hero": "node scripts/upscale-hero.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.1",
-    "astro": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.2",
     "astro-relative-links": "^0.4.2",
     "autoprefixer": "^10.4.17",
     "microcms-js-sdk": "^3.3.0",
