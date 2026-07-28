@@ -29,12 +29,13 @@
     "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "sharp": "^0.33.5",
+    "sharp": "^0.35.3",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-scss": "^6.2.1"
   },
   "overrides": {
-    "esbuild": "0.28.1"
+    "esbuild": "0.28.1",
+    "sharp": "^0.35.3"
   }
 }
