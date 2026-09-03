@@ -24,7 +24,22 @@ import Layout from "../layouts/Layout.astro";
             <p><span>＊</span>は必須項目です。</p>
           </div>
           <div class="contact-form">
-            <form method="post" action="../mail.php">
+            <form method="post" action="../mail.php" data-secure-contact-form>
+              <div
+                aria-hidden="true"
+                style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"
+              >
+                <label for="company-website">ウェブサイト</label>
+                <input
+                  id="company-website"
+                  type="text"
+                  name="_company_website"
+                  value=""
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+              <input type="hidden" name="_form_started_at" value="" />
               <div class="form-inner">
                 <div class="form-item">
                   <p>お名前<span>&#042;</span></p>
@@ -55,6 +70,15 @@ import Layout from "../layouts/Layout.astro";
                 <p><input type="reset" value="リセット" /></p>
               </div>
             </form>
+            <script is:inline>
+              (() => {
+                const form = document.querySelector("[data-secure-contact-form]");
+                const startedAt = form?.querySelector('[name="_form_started_at"]');
+                if (startedAt instanceof HTMLInputElement) {
+                  startedAt.value = String(Date.now());
+                }
+              })();
+            </script>
           </div>
         </div>
       </div>

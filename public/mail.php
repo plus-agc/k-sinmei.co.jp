@@ -4,6 +4,9 @@ if (version_compare(PHP_VERSION, '5.1.0', '>=')) {
 	date_default_timezone_set('Asia/Tokyo');
 }
 
+require_once __DIR__ . '/form-security.php';
+sinmei_enforce_contact_form_security();
+
 // ============================================================
 // 基本設定
 // ============================================================
