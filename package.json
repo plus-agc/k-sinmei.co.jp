@@ -29,15 +29,15 @@
     "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.4",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-scss": "^6.2.1"
   },
   "overrides": {
     "esbuild": "0.28.1",
-    "sharp": "^0.35.3",
-    "js-yaml": "^4.3.0",
+    "sharp": "^0.35.4",
+    "js-yaml": "^4.3.2",
     "postcss": "^8.5.18",
     "nanoid": "^3.3.18",
     "fast-uri": "^3.1.6",
